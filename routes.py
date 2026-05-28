@@ -22,6 +22,18 @@ def parent_required(f):
 def init_routes(app):
     app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024  # 32MB limit
 
+    @app.context_processor
+    def inject_user_avatar():
+        avatar = None
+        if 'uid' in session:
+            try:
+                user_data = db.reference(f"users/{session['uid']}").get() or {}
+                avatar = user_data.get('avatar')
+                session['avatar'] = avatar
+            except Exception:
+                pass
+        return {'user_avatar': avatar}
+
     # ── Публичные страницы ─────────────────────────────────────────────────
 
     @app.route('/')
@@ -635,14 +647,21 @@ def init_routes(app):
     @app.route('/api/get_chat', methods=['GET'])
     @login_required
     def get_chat():
-        room_id = request.args.get('room') # 'group' or 'sid'
+        room_id = request.args.get('room') # 'group', 'private', or a student's UID
         uid = session.get('uid')
         role = session.get('role')
         
         if role == 'student':
             s_data = db.reference(f'students/{uid}').get() or {}
             cid = s_data.get('curator_id', 'no_curator')
-            room_path = f'chats/{cid}/group' if room_id == 'group' else f'chats/private/{uid}'
+            if room_id == 'group':
+                room_path = f'chats/{cid}/group'
+            elif room_id == 'private':
+                room_path = f'chats/private/{uid}'
+            else:
+                # Student to student direct chat!
+                sorted_uids = sorted([uid, room_id])
+                room_path = f'chats/direct/{sorted_uids[0]}_{sorted_uids[1]}'
         else:
             # Curator viewing
             if room_id == 'group':
@@ -657,7 +676,7 @@ def init_routes(app):
     @login_required
     def send_message():
         data = request.json
-        room_id = data.get('room') # 'group' or 'sid'
+        room_id = data.get('room') # 'group', 'private', or student's UID
         text = data.get('text', '').strip()
         if not text: return jsonify({'success': False})
         
@@ -677,8 +696,12 @@ def init_routes(app):
             if room_id == 'group':
                 if not cid: return jsonify({'success': False, 'error': 'No curator'})
                 room_path = f'chats/{cid}/group'
-            else:
+            elif room_id == 'private':
                 room_path = f'chats/private/{uid}'
+            else:
+                # Student to student direct chat!
+                sorted_uids = sorted([uid, room_id])
+                room_path = f'chats/direct/{sorted_uids[0]}_{sorted_uids[1]}'
         else:
             # Curator sending
             if room_id == 'group':
@@ -809,3 +832,87 @@ def init_routes(app):
         schedule = db.reference(f'specialty_schedules/{profession}').get() or {}
         
         return render_template('parent_dashboard.html', sdata=sdata, schedule=schedule)
+
+    # ── Дополнительные API функции (Аватар, Пароль, Друзья) ──────────────────────────
+
+    @app.route('/api/update_avatar', methods=['POST'])
+    @login_required
+    def update_avatar():
+        data = request.json
+        avatar_base64 = data.get('avatar')
+        uid = session.get('uid')
+        if not avatar_base64:
+            return jsonify({'success': False, 'error': 'Изображение не получено'})
+        try:
+            db.reference(f'users/{uid}').update({'avatar': avatar_base64})
+            role = session.get('role')
+            if role == 'student':
+                db.reference(f'students/{uid}').update({'avatar': avatar_base64})
+            elif role == 'curator':
+                db.reference(f'curators/{uid}').update({'avatar': avatar_base64})
+            session['avatar'] = avatar_base64
+            return jsonify({'success': True})
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)})
+
+    @app.route('/api/change_password', methods=['POST'])
+    @login_required
+    def change_password():
+        data = request.json
+        old_password = data.get('oldPassword')
+        new_password = data.get('newPassword')
+        uid = session.get('uid')
+        
+        if not old_password or not new_password:
+            return jsonify({'success': False, 'error': 'Заполните все поля'})
+            
+        try:
+            user_ref = db.reference(f'users/{uid}')
+            user_data = user_ref.get()
+            if not user_data:
+                return jsonify({'success': False, 'error': 'Пользователь не найден'})
+            stored_pwd = user_data.get('password', 'Kuraton2026!')
+            if stored_pwd != old_password:
+                return jsonify({'success': False, 'error': 'Неверный старый пароль'})
+            user_ref.update({'password': new_password})
+            return jsonify({'success': True})
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)})
+
+    @app.route('/api/add_friend', methods=['POST'])
+    @login_required
+    def add_friend():
+        data = request.json
+        friend_uid = data.get('friendUid')
+        my_uid = session.get('uid')
+        
+        if not friend_uid or friend_uid == my_uid:
+            return jsonify({'success': False, 'error': 'Некорректный ID пользователя'})
+            
+        try:
+            db.reference(f'friends/{my_uid}/{friend_uid}').set(True)
+            db.reference(f'friends/{friend_uid}/{my_uid}').set(True)
+            return jsonify({'success': True})
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)})
+
+    @app.route('/api/get_friends', methods=['GET'])
+    @login_required
+    def get_friends():
+        my_uid = session.get('uid')
+        try:
+            friends_ref = db.reference(f'friends/{my_uid}').get() or {}
+            result = []
+            for friend_uid in friends_ref.keys():
+                u_data = db.reference(f'users/{friend_uid}').get()
+                if u_data:
+                    result.append({
+                        'uid': friend_uid,
+                        'name': u_data.get('name', 'User'),
+                        'avatar': u_data.get('avatar', ''),
+                        'role': u_data.get('role', 'student'),
+                        'profession': u_data.get('profession', '')
+                    })
+            return jsonify({'success': True, 'friends': result})
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)})

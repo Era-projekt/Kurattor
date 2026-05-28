@@ -186,6 +186,11 @@
                     <div onclick="switchChat('private')" id="chat-private" class="p-4 border-b cursor-pointer hover:bg-slate-50">
                         <p class="font-bold text-sm">Чат с куратором</p>
                     </div>
+                    
+                    <div class="p-4 border-b font-bold text-xs text-gray-400 uppercase">Личные чаты</div>
+                    <div id="friends-chat-list" class="flex flex-col">
+                        <!-- Dynamic friends will be loaded here -->
+                    </div>
                 </div>
                 <div class="chat-main">
                     <div class="p-4 border-b bg-white flex justify-between items-center">
@@ -301,6 +306,7 @@ function switchTab(tabId) {
     if (tabId === 'tab-schedule') loadSchedule();
     if (tabId === 'tab-library') loadLibrary();
     if (tabId === 'tab-chat') {
+        loadFriendsList();
         loadChat();
         chatInterval = setInterval(loadChat, 3000);
     }
@@ -419,19 +425,28 @@ function openPrivateChat() {
     switchChat('private'); 
 }
 
-function switchChat(room) {
+function switchChat(room, name = null) {
     currentRoom = room;
     const lang = localStorage.getItem('kuraton_lang') || 'ru';
     const tr = translations[lang] || translations['ru'];
     
     if (room === 'group') {
         document.getElementById('chat-title').innerText = tr.chat_title_group;
+    } else if (room === 'private') {
+        document.getElementById('chat-title').innerText = tr.std_curator || 'Чат с куратором';
     } else {
-        document.getElementById('chat-title').innerText = tr.std_curator || 'Curator';
+        document.getElementById('chat-title').innerText = name || 'Чат';
     }
     
-    document.querySelectorAll('.chat-sidebar > div').forEach(el => el.classList.remove('bg-indigo-50', 'border-l-4', 'border-primary'));
-    document.getElementById(`chat-${room}`).classList.add('bg-indigo-50', 'border-l-4', 'border-primary');
+    // Remove active styles from ALL room elements (both group, curator and dynamic friends)
+    document.querySelectorAll('.chat-sidebar div, .chat-sidebar button').forEach(el => {
+        el.classList.remove('bg-indigo-50', 'border-l-4', 'border-primary');
+    });
+    
+    const activeEl = document.getElementById(`chat-${room}`);
+    if (activeEl) {
+        activeEl.classList.add('bg-indigo-50', 'border-l-4', 'border-primary');
+    }
     loadChat();
 }
 
@@ -462,6 +477,41 @@ async function sendMessage() {
     input.value = ''; loadChat();
 }
 
+async function loadFriendsList() {
+    try {
+        const res = await fetch('/api/get_friends');
+        const data = await res.json();
+        const list = document.getElementById('friends-chat-list');
+        if (!list) return;
+        
+        if (data.success && data.friends && data.friends.length > 0) {
+            list.innerHTML = data.friends.map(f => {
+                const avatarImg = f.avatar 
+                    ? `<img src="${f.avatar}" class="w-8 h-8 rounded-xl object-cover">` 
+                    : `<div class="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-[10px]">${f.name[0].toUpperCase()}</div>`;
+                
+                return `
+                    <div onclick="switchChat('${f.uid}', '${f.name.replace(/'/g, "\\'")}')" id="chat-${f.uid}" class="p-3 border-b cursor-pointer hover:bg-slate-50 flex items-center gap-2.5 transition-all">
+                        ${avatarImg}
+                        <div class="overflow-hidden min-w-0 flex-1">
+                            <p class="font-bold text-xs text-slate-800 truncate">${f.name}</p>
+                            <p class="text-[8px] text-gray-400 truncate">Студент · ${f.profession}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        } else {
+            list.innerHTML = `
+                <div class="p-4 text-center text-[10px] text-gray-400 font-bold leading-tight">
+                    Личных чатов нет.<br>Найдите студентов в Поиске!
+                </div>
+            `;
+        }
+    } catch (err) {
+        console.error("Failed to load friends list:", err);
+    }
+}
+
 // ── Notifications ──────────────────────────────────────────────────────────
 async function loadNotifications() {
     const res = await fetch('/api/get_notifications');
@@ -489,6 +539,26 @@ document.addEventListener('DOMContentLoaded', () => {
     switchTab('tab-schedule');
     initStats();
     loadNotifications();
+    
+    // Check if redirecting from search for a private friend chat
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatWith = urlParams.get('chat_with');
+    if (chatWith) {
+        switchTab('tab-chat');
+        loadFriendsList().then(() => {
+            const friendEl = document.getElementById(`chat-${chatWith}`);
+            if (friendEl) {
+                const name = friendEl.querySelector('.font-bold').innerText;
+                switchChat(chatWith, name);
+            } else {
+                switchChat(chatWith, 'Чат');
+            }
+        });
+        
+        // Clean URL query parameters
+        const newUrl = window.location.pathname;
+        window.history.replaceState({}, document.title, newUrl);
+    }
 });
 </script>
 {% endblock %}

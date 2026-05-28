@@ -51,6 +51,8 @@
 
 {% block scripts %}
 <script>
+const myUid = "{{ session.get('uid', '') }}";
+const myRole = "{{ session.get('role', '') }}";
 let currentFilter = 'all';
 let allResults = [];
 
@@ -127,15 +129,46 @@ function renderResults(users) {
             const badgeText = isCurator ? tr.role_curator : tr.role_student;
             const icon = profIcons[u.profession] || '🎓';
 
+            let actionBtn = '';
+            if (myRole === 'student' && u.role === 'student' && u.uid !== myUid) {
+                const addText = lang === 'kk' ? '💬 Чатқа қосу' : '💬 Добавить в чат';
+                actionBtn = `
+                    <button onclick="addFriendAndChat('${u.uid}')" class="px-3.5 py-1.5 bg-indigo-50 hover:bg-primary text-primary hover:text-white text-[11px] font-black rounded-xl transition-all border border-indigo-100 flex items-center gap-1 hover:scale-105 active:scale-95 shadow-sm">
+                        ${addText}
+                    </button>
+                `;
+            }
+
             return `<div class="card p-5 flex items-center gap-4 hover:-translate-y-0.5 transition-all duration-200 hover:shadow-lg">
                 <div class="avatar avatar-md ${avatarClass}">${(u.name || '?')[0]}</div>
                 <div class="flex-1 min-w-0">
                     <p class="font-bold text-gray-900 truncate">${u.name || '—'}</p>
                     <p class="text-sm text-gray-400">${icon} ${u.profession || '—'}</p>
                 </div>
-                <span class="badge ${badgeClass} flex-shrink-0">${badgeText}</span>
+                <div class="flex items-center gap-2.5">
+                    ${actionBtn}
+                    <span class="badge ${badgeClass} flex-shrink-0">${badgeText}</span>
+                </div>
             </div>`;
         }).join('') + `</div>`;
+}
+
+async function addFriendAndChat(friendUid) {
+    try {
+        const res = await fetch('/api/add_friend', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ friendUid })
+        });
+        const data = await res.json();
+        if (data.success) {
+            window.location.href = `/student?chat_with=${friendUid}`;
+        } else {
+            alert("Ошибка при добавлении в чат: " + data.error);
+        }
+    } catch (e) {
+        alert("Ошибка соединения: " + e.message);
+    }
 }
 </script>
 {% endblock %}

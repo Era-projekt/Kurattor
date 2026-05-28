@@ -86,12 +86,34 @@
             </div>
 
             {% if session.get('user_token') %}
-            <!-- User pill -->
-            <div class="flex items-center gap-3 bg-slate-50 rounded-2xl pl-1.5 pr-4 py-1.5 border border-slate-100">
-                <div class="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">{{ session.get('role', 'U')[0].upper() }}</div>
-                <span class="text-xs font-bold text-slate-700">{{ session.get('user_name', 'User') }}</span>
-                <a href="/logout" class="text-xs font-black text-slate-400 hover:text-red-500 transition-colors" data-i18n="nav_logout">Logout</a>
+            <!-- User pill with dropdown -->
+            <div class="relative">
+                <button onclick="toggleUserDropdown(event)" class="flex items-center gap-2.5 bg-slate-50 hover:bg-slate-100 rounded-2xl pl-1.5 pr-3 py-1.5 border border-slate-100 transition-all outline-none">
+                    <img id="nav-avatar" src="{{ user_avatar or '' }}" class="w-8 h-8 rounded-xl object-cover {% if not user_avatar %}hidden{% endif %}">
+                    <div id="nav-avatar-placeholder" class="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xs {% if user_avatar %}hidden{% endif %}">
+                        {{ session.get('role', 'U')[0].upper() }}
+                    </div>
+                    <span class="text-xs font-bold text-slate-700 max-w-[100px] truncate">{{ session.get('user_name', 'User') }}</span>
+                    <svg class="w-2.5 h-2.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                
+                <!-- Dropdown menu -->
+                <div id="user-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 py-1.5 hidden z-50 animate-fade-in">
+                    <button onclick="triggerAvatarUpload()" class="w-full text-left px-4 py-2 text-[11px] font-bold text-slate-600 hover:bg-slate-50 flex items-center gap-2">
+                        <span>📷</span> Сменить аватар
+                    </button>
+                    <button onclick="openPasswordModal()" class="w-full text-left px-4 py-2 text-[11px] font-bold text-slate-600 hover:bg-slate-50 flex items-center gap-2">
+                        <span>🔑</span> Сменить пароль
+                    </button>
+                    <div class="border-t border-slate-100 my-1"></div>
+                    <a href="/logout" class="w-full text-left px-4 py-2 text-[11px] font-bold text-red-500 hover:bg-red-50 flex items-center gap-2 no-underline">
+                        <span>🚪</span> Выйти
+                    </a>
+                </div>
             </div>
+            
+            <!-- Hidden avatar file input -->
+            <input type="file" id="avatar-file-input" class="hidden" accept="image/*" onchange="handleAvatarSelect(event)">
             {% else %}
             <a href="/auth" class="px-6 py-2.5 bg-primary text-white text-sm font-black rounded-xl shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all" data-i18n="nav_login">Sign In</a>
             {% endif %}
@@ -105,7 +127,167 @@
     {% block content %}{% endblock %}
 </main>
 
-<!-- ══════════ SCRIPTS ══════════ -->
+<!-- Password Change Modal -->
+<div id="password-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-300">
+        <div class="flex justify-between items-start mb-6">
+            <h3 class="text-sm font-black text-slate-800 leading-tight">Сменить пароль</h3>
+            <button onclick="closePasswordModal()" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-600 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Старый пароль</label>
+                <input type="password" id="modal-old-pwd" class="form-input py-3 px-4 rounded-xl text-xs bg-slate-50 border border-slate-100" placeholder="Введите старый пароль">
+            </div>
+            <div>
+                <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Новый пароль</label>
+                <input type="password" id="modal-new-pwd" class="form-input py-3 px-4 rounded-xl text-xs bg-slate-50 border border-slate-100" placeholder="Введите новый пароль">
+            </div>
+            <div>
+                <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Подтвердите новый пароль</label>
+                <input type="password" id="modal-new-pwd-confirm" class="form-input py-3 px-4 rounded-xl text-xs bg-slate-50 border border-slate-100" placeholder="Повторите новый пароль">
+            </div>
+            <div id="modal-pwd-error" class="text-xs text-red-500 font-bold hidden"></div>
+            <div class="flex gap-3 pt-4">
+                <button onclick="closePasswordModal()" class="flex-1 py-3 text-xs font-bold text-slate-400 hover:bg-slate-50 rounded-xl transition-all">Отмена</button>
+                <button onclick="submitPasswordChange()" class="flex-1 py-3 bg-primary text-white text-xs font-bold rounded-xl shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleUserDropdown(event) {
+    event.stopPropagation();
+    const dropdown = document.getElementById('user-dropdown');
+    dropdown.classList.toggle('hidden');
+}
+
+document.addEventListener('click', () => {
+    const dropdown = document.getElementById('user-dropdown');
+    if (dropdown) dropdown.classList.add('hidden');
+});
+
+function triggerAvatarUpload() {
+    document.getElementById('avatar-file-input').click();
+}
+
+function handleAvatarSelect(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    
+    if (file.size > 2 * 1024 * 1024) {
+        return alert("Файл слишком большой. Максимальный размер - 2MB.");
+    }
+    
+    const reader = new FileReader();
+    reader.onload = async function(e) {
+        const base64 = e.target.result;
+        
+        try {
+            const res = await fetch('/api/update_avatar', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ avatar: base64 })
+            });
+            const data = await res.json();
+            if (data.success) {
+                // Update nav avatar
+                const navImg = document.getElementById('nav-avatar');
+                const navPlaceholder = document.getElementById('nav-avatar-placeholder');
+                
+                if (navImg) {
+                    navImg.src = base64;
+                    navImg.classList.remove('hidden');
+                }
+                if (navPlaceholder) navPlaceholder.classList.add('hidden');
+                
+                // Update dashboard avatar if exists
+                const dashAvatar = document.querySelector('.avatar-primary, .avatar-success');
+                if (dashAvatar) {
+                    dashAvatar.style.backgroundImage = `url(${base64})`;
+                    dashAvatar.style.backgroundSize = 'cover';
+                    dashAvatar.innerText = '';
+                }
+                
+                alert("Аватар успешно обновлен!");
+            } else {
+                alert("Ошибка при сохранении аватара: " + data.error);
+            }
+        } catch (err) {
+            alert("Не удалось загрузить аватар: " + err.message);
+        }
+    };
+    reader.readAsDataURL(file);
+}
+
+function openPasswordModal() {
+    const modal = document.getElementById('password-modal');
+    const content = modal.querySelector('div');
+    
+    document.getElementById('modal-old-pwd').value = '';
+    document.getElementById('modal-new-pwd').value = '';
+    document.getElementById('modal-new-pwd-confirm').value = '';
+    document.getElementById('modal-pwd-error').classList.add('hidden');
+    
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        content.classList.remove('scale-95');
+    }, 10);
+}
+
+function closePasswordModal() {
+    const modal = document.getElementById('password-modal');
+    const content = modal.querySelector('div');
+    modal.classList.add('opacity-0');
+    content.classList.add('scale-95');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+}
+
+async function submitPasswordChange() {
+    const oldPassword = document.getElementById('modal-old-pwd').value;
+    const newPassword = document.getElementById('modal-new-pwd').value;
+    const confirmPassword = document.getElementById('modal-new-pwd-confirm').value;
+    const errorEl = document.getElementById('modal-pwd-error');
+    
+    if (!oldPassword || !newPassword || !confirmPassword) {
+        errorEl.innerText = "Пожалуйста, заполните все поля";
+        errorEl.classList.remove('hidden');
+        return;
+    }
+    
+    if (newPassword !== confirmPassword) {
+        errorEl.innerText = "Новые пароли не совпадают";
+        errorEl.classList.remove('hidden');
+        return;
+    }
+    
+    try {
+        const res = await fetch('/api/change_password', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ oldPassword, newPassword })
+        });
+        const data = await res.json();
+        if (data.success) {
+            closePasswordModal();
+            alert("Пароль успешно изменен!");
+        } else {
+            errorEl.innerText = data.error;
+            errorEl.classList.remove('hidden');
+        }
+    } catch (err) {
+        errorEl.innerText = "Ошибка соединения";
+        errorEl.classList.remove('hidden');
+    }
+}
+</script>
+
 <!-- ══════════ SCRIPTS ══════════ -->
 <script src="{{ url_for('static', filename='js/lang.js') }}"></script>
 {% block scripts %}{% endblock %}
