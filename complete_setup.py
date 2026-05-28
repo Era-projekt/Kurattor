@@ -39,7 +39,7 @@ def setup_all():
     print("\n[2/3] Создание кураторов и студентов...")
     for prof in PROFESSIONS:
         c_name = generate_name()
-        c_email = f"curator.{prof.lower()}@kuraton.kz"
+        c_email = f"curator.{prof.lower()}@gmail.com"
         password = "Kuraton2026!"
         
         try:
@@ -54,14 +54,14 @@ def setup_all():
                 print(f" Создан куратор: {c_name} ({prof})")
 
             # Данные куратора
-            db.reference(f"users/{c_uid}").set({"name": c_name, "email": c_email, "role": "curator", "profession": prof})
+            db.reference(f"users/{c_uid}").set({"name": c_name, "email": c_email, "role": "curator", "profession": prof, "password": password})
             db.reference(f"curators/{c_uid}").set({"name": c_name, "email": c_email, "profession": prof, "student_count": 0})
 
             # Регистрируем 15 студентов для этого куратора
             num_students = 15
             for i in range(num_students):
                 s_name = generate_name()
-                s_email = f"student.{prof.lower()}.{i}@kuraton.kz"
+                s_email = f"student.{prof.lower()}.{i}@gmail.com"
                 
                 try:
                     try:
@@ -72,7 +72,7 @@ def setup_all():
                         s_uid = s_user.uid
                     
                     # Данные студента
-                    db.reference(f"users/{s_uid}").set({"name": s_name, "email": s_email, "role": "student", "profession": prof})
+                    db.reference(f"users/{s_uid}").set({"name": s_name, "email": s_email, "role": "student", "profession": prof, "password": password})
                     
                     pct = random.randint(70, 98)
                     letter = "A" if pct >= 90 else "B" if pct >= 75 else "C"

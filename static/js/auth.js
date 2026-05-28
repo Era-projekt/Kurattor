@@ -25,23 +25,44 @@ document.addEventListener("DOMContentLoaded", () => {
             const password = document.getElementById("password").value;
 
             try {
-                const cred = await firebase.auth().signInWithEmailAndPassword(email, password);
-                const idToken = await cred.user.getIdToken();
-
-                const res = await fetch("/api/login", {
+                // 1. Попытка локального входа (подходит для офлайн/mock режима)
+                const localRes = await fetch("/api/login", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ idToken })
+                    body: JSON.stringify({ email, password })
                 });
-                const data = await res.json();
-                if (data.success) {
-                    location.href = data.redirect || '/';
+                const localData = await localRes.json();
+                if (localData.success) {
+                    location.href = localData.redirect || '/';
+                    return;
+                }
+                
+                // 2. Если локальный вход не удался с ошибкой, отличной от "Не найден", пробуем Firebase (для онлайн режима)
+                if (localData.error && localData.error.includes("Пользователь с таким email не найден")) {
+                    try {
+                        const cred = await firebase.auth().signInWithEmailAndPassword(email, password);
+                        const idToken = await cred.user.getIdToken();
+
+                        const res = await fetch("/api/login", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ idToken })
+                        });
+                        const data = await res.json();
+                        if (data.success) {
+                            location.href = data.redirect || '/';
+                        } else {
+                            showError(data.error);
+                            firebase.auth().signOut();
+                        }
+                    } catch (fbErr) {
+                        showError("Неверный логин или пароль");
+                    }
                 } else {
-                    showError(data.error);
-                    firebase.auth().signOut();
+                    showError(localData.error || "Неверный логин или пароль");
                 }
             } catch (err) {
-                showError("Неверный логин или пароль");
+                showError("Ошибка сети при входе");
             }
         });
     }

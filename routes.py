@@ -65,9 +65,47 @@ def init_routes(app):
 
     @app.route('/api/login', methods=['POST'])
     def api_login():
-        """Проверяет Firebase JWT токен и сохраняет сессию."""
+        """Проверяет Firebase JWT токен или локальный пароль и сохраняет сессию."""
         data = request.json
         id_token = data.get('idToken')
+        email = data.get('email')
+        password = data.get('password')
+
+        # Локальный вход по email и паролю
+        if email and password:
+            try:
+                all_users = db.reference('users').get() or {}
+                found_uid = None
+                found_user_data = None
+                for uid, udata in all_users.items():
+                    if udata.get('email', '').strip().lower() == email.strip().lower():
+                        found_uid = uid
+                        found_user_data = udata
+                        break
+                
+                if found_uid and found_user_data:
+                    stored_pwd = found_user_data.get('password', 'Kuraton2026!')
+                    if stored_pwd == password:
+                        session['user_token'] = 'mock_token_' + found_uid
+                        session['uid'] = found_uid
+                        session['role'] = found_user_data.get('role')
+                        session['user_name'] = found_user_data.get('name', 'User')
+                        
+                        if session['role'] == 'parent':
+                            session['child_id'] = found_user_data.get('child_id')
+                            return jsonify({'success': True, 'redirect': url_for('parent_dashboard')})
+                        elif session['role'] == 'student':
+                            return jsonify({'success': True, 'redirect': url_for('student_dashboard')})
+                        elif session['role'] == 'curator':
+                            return jsonify({'success': True, 'redirect': url_for('curator_dashboard')})
+                    else:
+                        return jsonify({'success': False, 'error': 'Неверный пароль'})
+                
+                return jsonify({'success': False, 'error': 'Пользователь с таким email не найден'})
+            except Exception as e:
+                return jsonify({'success': False, 'error': str(e)})
+
+        # Исходный вход по Firebase JWT токену
         try:
             decoded = auth.verify_id_token(id_token)
             uid = decoded['uid']
