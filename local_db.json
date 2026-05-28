@@ -1472,6 +1472,508 @@
       "password": "Kuraton2026!",
       "profession": "Medicine",
       "child_id": "mock_uid_aliya_saparova_gmail_com"
+    },
+    "mock_uid_alihan_ahmetov_gmail_com": {
+      "name": "Алихан Ахметов",
+      "email": "alihan.ahmetov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_serik_ahmetov_gmail_com": {
+      "name": "Серик Ахметов",
+      "email": "serik.ahmetov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_alihan_ahmetov_gmail_com"
+    },
+    "mock_uid_dias_ibragimov_gmail_com": {
+      "name": "Диас Ибрагимов",
+      "email": "dias.ibragimov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_kanat_ibragimov_gmail_com": {
+      "name": "Канат Ибрагимов",
+      "email": "kanat.ibragimov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_dias_ibragimov_gmail_com"
+    },
+    "mock_uid_sanzhar_ospanov_gmail_com": {
+      "name": "Санжар Оспанов",
+      "email": "sanzhar.ospanov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_erbol_ospanov_gmail_com": {
+      "name": "Ербол Оспанов",
+      "email": "erbol.ospanov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_sanzhar_ospanov_gmail_com"
+    },
+    "mock_uid_arsen_sultanov_gmail_com": {
+      "name": "Арсен Султанов",
+      "email": "arsen.sultanov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_murat_sultanov_gmail_com": {
+      "name": "Мурат Султанов",
+      "email": "murat.sultanov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_arsen_sultanov_gmail_com"
+    },
+    "mock_uid_miras_saparov_gmail_com": {
+      "name": "Мирас Сапаров",
+      "email": "miras.saparov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_askar_saparov_gmail_com": {
+      "name": "Аскар Сапаров",
+      "email": "askar.saparov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_daniyar_saparov_gmail_com"
+    },
+    "mock_uid_beksultan_isaev_gmail_com": {
+      "name": "Бексултан Исаев",
+      "email": "beksultan.isaev@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_talgat_isaev_gmail_com": {
+      "name": "Талгат Исаев",
+      "email": "talgat.isaev@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_beksultan_isaev_gmail_com"
+    },
+    "mock_uid_erasyl_kaliev_gmail_com": {
+      "name": "Ерасыл Калиев",
+      "email": "erasyl.kaliev@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_nurlan_kaliev_gmail_com": {
+      "name": "Нурлан Калиев",
+      "email": "nurlan.kaliev@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_erasyl_kaliev_gmail_com"
+    },
+    "mock_uid_nurdaulet_amanzholov_gmail_com": {
+      "name": "Нурдаулет Аманжолов",
+      "email": "nurdaulet.amanzholov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_marat_amanzholov_gmail_com": {
+      "name": "Марат Аманжолов",
+      "email": "marat.amanzholov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_nurdaulet_amanzholov_gmail_com"
+    },
+    "mock_uid_daniyar_bolatov_gmail_com": {
+      "name": "Данияр Болатов",
+      "email": "daniyar.bolatov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_bolat_bolatov_gmail_com": {
+      "name": "Болат Болатов",
+      "email": "bolat.bolatov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_daniyar_bolatov_gmail_com"
+    },
+    "mock_uid_aybar_serikov_gmail_com": {
+      "name": "Айбар Сериков",
+      "email": "aybar.serikov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_kayrat_serikov_gmail_com": {
+      "name": "Кайрат Сериков",
+      "email": "kayrat.serikov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_aybar_serikov_gmail_com"
+    },
+    "mock_uid_aydos_nurlanov_gmail_com": {
+      "name": "Айдос Нурланов",
+      "email": "aydos.nurlanov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_daulet_nurlanov_gmail_com": {
+      "name": "Даулет Нурланов",
+      "email": "daulet.nurlanov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_aydos_nurlanov_gmail_com"
+    },
+    "mock_uid_aruzhan_smailov_gmail_com": {
+      "name": "Аружан Смаилов",
+      "email": "aruzhan.smailov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_zhandos_smailov_gmail_com": {
+      "name": "Жандос Смаилов",
+      "email": "zhandos.smailov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_aruzhan_smailov_gmail_com"
+    },
+    "mock_uid_madina_aliev_gmail_com": {
+      "name": "Мадина Алиев",
+      "email": "madina.aliev@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_azamat_aliev_gmail_com": {
+      "name": "Азамат Алиев",
+      "email": "azamat.aliev@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_madina_aliev_gmail_com"
+    },
+    "mock_uid_aysha_omarov_gmail_com": {
+      "name": "Айша Омаров",
+      "email": "aysha.omarov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_ruslan_omarov_gmail_com": {
+      "name": "Руслан Омаров",
+      "email": "ruslan.omarov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_aysha_omarov_gmail_com"
+    },
+    "mock_uid_tomiris_karimov_gmail_com": {
+      "name": "Томирис Каримов",
+      "email": "tomiris.karimov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_arman_karimov_gmail_com": {
+      "name": "Арман Каримов",
+      "email": "arman.karimov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_tomiris_karimov_gmail_com"
+    },
+    "mock_uid_amina_ahmetov_gmail_com": {
+      "name": "Амина Ахметов",
+      "email": "amina.ahmetov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_bolat_ahmetov_gmail_com": {
+      "name": "Болат Ахметов",
+      "email": "bolat.ahmetov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_amina_ahmetov_gmail_com"
+    },
+    "mock_uid_amir_ibragimov_gmail_com": {
+      "name": "Амир Ибрагимов",
+      "email": "amir.ibragimov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_murat_ibragimov_gmail_com": {
+      "name": "Мурат Ибрагимов",
+      "email": "murat.ibragimov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_amir_ibragimov_gmail_com"
+    },
+    "mock_uid_damir_saparova_gmail_com": {
+      "name": "Дамир Сапарова",
+      "email": "damir.saparova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_aliya_saparova_gmail_com"
+    },
+    "mock_uid_gauhar_kasymova_gmail_com": {
+      "name": "Гаухар Касымова",
+      "email": "gauhar.kasymova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_askar_kasymova_gmail_com": {
+      "name": "Аскар Касымова",
+      "email": "askar.kasymova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_gauhar_kasymova_gmail_com"
+    },
+    "mock_uid_madina_ahmetova_gmail_com": {
+      "name": "Мадина Ахметова",
+      "email": "madina.ahmetova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_serik_ahmetova_gmail_com": {
+      "name": "Серик Ахметова",
+      "email": "serik.ahmetova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_madina_ahmetova_gmail_com"
+    },
+    "mock_uid_aruzhan_isaeva_gmail_com": {
+      "name": "Аружан Исаева",
+      "email": "aruzhan.isaeva@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_talgat_isaeva_gmail_com": {
+      "name": "Талгат Исаева",
+      "email": "talgat.isaeva@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_aruzhan_isaeva_gmail_com"
+    },
+    "mock_uid_zhasmin_sultanova_gmail_com": {
+      "name": "Жасмин Султанова",
+      "email": "zhasmin.sultanova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_murat_sultanova_gmail_com": {
+      "name": "Мурат Султанова",
+      "email": "murat.sultanova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_zhansaya_sultanova_gmail_com"
+    },
+    "mock_uid_kamila_ospanova_gmail_com": {
+      "name": "Камила Оспанова",
+      "email": "kamila.ospanova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_erbol_ospanova_gmail_com": {
+      "name": "Ербол Оспанова",
+      "email": "erbol.ospanova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_kamila_ospanova_gmail_com"
+    },
+    "mock_uid_aysha_kalieva_gmail_com": {
+      "name": "Айша Калиева",
+      "email": "aysha.kalieva@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_nurlan_kalieva_gmail_com": {
+      "name": "Нурлан Калиева",
+      "email": "nurlan.kalieva@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_aysha_kalieva_gmail_com"
+    },
+    "mock_uid_aygerim_bolatova_gmail_com": {
+      "name": "Айгерим Болатова",
+      "email": "aygerim.bolatova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_bolat_bolatova_gmail_com": {
+      "name": "Болат Болатова",
+      "email": "bolat.bolatova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_aygerim_bolatova_gmail_com"
+    },
+    "mock_uid_dana_serikova_gmail_com": {
+      "name": "Дана Серикова",
+      "email": "dana.serikova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_kayrat_serikova_gmail_com": {
+      "name": "Кайрат Серикова",
+      "email": "kayrat.serikova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_dana_serikova_gmail_com"
+    },
+    "mock_uid_anelь_alieva_gmail_com": {
+      "name": "Анель Алиева",
+      "email": "anelь.alieva@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_azamat_alieva_gmail_com": {
+      "name": "Азамат Алиева",
+      "email": "azamat.alieva@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_anelь_alieva_gmail_com"
+    },
+    "mock_uid_sabina_omarova_gmail_com": {
+      "name": "Сабина Омарова",
+      "email": "sabina.omarova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_ruslan_omarova_gmail_com": {
+      "name": "Руслан Омарова",
+      "email": "ruslan.omarova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_sabina_omarova_gmail_com"
+    },
+    "mock_uid_zere_karimova_gmail_com": {
+      "name": "Зере Каримова",
+      "email": "zere.karimova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_arman_karimova_gmail_com": {
+      "name": "Арман Каримова",
+      "email": "arman.karimova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_zere_karimova_gmail_com"
+    },
+    "mock_uid_rayhan_ahmetova_gmail_com": {
+      "name": "Райхан Ахметова",
+      "email": "rayhan.ahmetova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_bauyrzhan_ahmetova_gmail_com": {
+      "name": "Бауыржан Ахметова",
+      "email": "bauyrzhan.ahmetova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_rayhan_ahmetova_gmail_com"
+    },
+    "mock_uid_nazerke_ibragimova_gmail_com": {
+      "name": "Назерке Ибрагимова",
+      "email": "nazerke.ibragimova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_serik_ibragimova_gmail_com": {
+      "name": "Серик Ибрагимова",
+      "email": "serik.ibragimova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_nazerke_ibragimova_gmail_com"
+    },
+    "mock_uid_diana_ospanova_gmail_com": {
+      "name": "Диана Оспанова",
+      "email": "diana.ospanova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_kanat_ospanova_gmail_com": {
+      "name": "Канат Оспанова",
+      "email": "kanat.ospanova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_diana_ospanova_gmail_com"
+    },
+    "mock_uid_ayazhan_kasymova_gmail_com": {
+      "name": "Аяжан Касымова",
+      "email": "ayazhan.kasymova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_erbol_kasymova_gmail_com": {
+      "name": "Ербол Касымова",
+      "email": "erbol.kasymova@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_ayazhan_kasymova_gmail_com"
+    },
+    "mock_uid_zhansaya_sultanova_gmail_com": {
+      "name": "Жансая Султанова",
+      "email": "zhansaya.sultanova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_daniyar_saparov_gmail_com": {
+      "name": "Данияр Сапаров",
+      "email": "daniyar.saparov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
     }
   },
   "curators": {
@@ -1709,19 +2211,53 @@
       "name": "Нурлан Оспанов",
       "email": "nurlan.ospanov@gmail.com",
       "profession": "IT",
+      "student_count": 18,
       "students": {
-        "mock_uid_alibek_kasymov_gmail_com": true
-      },
-      "student_count": 1
+        "mock_uid_alibek_kasymov_gmail_com": true,
+        "mock_uid_alihan_ahmetov_gmail_com": true,
+        "mock_uid_dias_ibragimov_gmail_com": true,
+        "mock_uid_sanzhar_ospanov_gmail_com": true,
+        "mock_uid_arsen_sultanov_gmail_com": true,
+        "mock_uid_miras_saparov_gmail_com": true,
+        "mock_uid_beksultan_isaev_gmail_com": true,
+        "mock_uid_erasyl_kaliev_gmail_com": true,
+        "mock_uid_nurdaulet_amanzholov_gmail_com": true,
+        "mock_uid_daniyar_bolatov_gmail_com": true,
+        "mock_uid_aybar_serikov_gmail_com": true,
+        "mock_uid_aydos_nurlanov_gmail_com": true,
+        "mock_uid_aruzhan_smailov_gmail_com": true,
+        "mock_uid_madina_aliev_gmail_com": true,
+        "mock_uid_aysha_omarov_gmail_com": true,
+        "mock_uid_tomiris_karimov_gmail_com": true,
+        "mock_uid_amina_ahmetov_gmail_com": true,
+        "mock_uid_amir_ibragimov_gmail_com": true
+      }
     },
     "mock_uid_madina_ibrahimova_gmail_com": {
       "name": "Мадина Ибрагимова",
       "email": "madina.ibrahimova@gmail.com",
       "profession": "Medicine",
+      "student_count": 18,
       "students": {
-        "mock_uid_aliya_saparova_gmail_com": true
-      },
-      "student_count": 1
+        "mock_uid_aliya_saparova_gmail_com": true,
+        "mock_uid_gauhar_kasymova_gmail_com": true,
+        "mock_uid_madina_ahmetova_gmail_com": true,
+        "mock_uid_aruzhan_isaeva_gmail_com": true,
+        "mock_uid_zhasmin_sultanova_gmail_com": true,
+        "mock_uid_kamila_ospanova_gmail_com": true,
+        "mock_uid_aysha_kalieva_gmail_com": true,
+        "mock_uid_aygerim_bolatova_gmail_com": true,
+        "mock_uid_dana_serikova_gmail_com": true,
+        "mock_uid_anelь_alieva_gmail_com": true,
+        "mock_uid_sabina_omarova_gmail_com": true,
+        "mock_uid_zere_karimova_gmail_com": true,
+        "mock_uid_rayhan_ahmetova_gmail_com": true,
+        "mock_uid_nazerke_ibragimova_gmail_com": true,
+        "mock_uid_diana_ospanova_gmail_com": true,
+        "mock_uid_ayazhan_kasymova_gmail_com": true,
+        "mock_uid_zhansaya_sultanova_gmail_com": true,
+        "mock_uid_daniyar_saparov_gmail_com": true
+      }
     }
   },
   "students": {
@@ -3387,7 +3923,7 @@
         "2026-05-28": true
       },
       "grade": {
-        "pct": 94,
+        "pct": 92,
         "letter": "A"
       }
     },
@@ -3396,7 +3932,215 @@
       "email": "aliya.saparova@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
-      "parent_id": "mock_uid_damir_saparov_gmail_com",
+      "parent_id": "mock_uid_damir_saparova_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 73,
+        "letter": "C"
+      }
+    },
+    "mock_uid_alihan_ahmetov_gmail_com": {
+      "name": "Алихан Ахметов",
+      "email": "alihan.ahmetov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_serik_ahmetov_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": true,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 86,
+        "letter": "B"
+      }
+    },
+    "mock_uid_dias_ibragimov_gmail_com": {
+      "name": "Диас Ибрагимов",
+      "email": "dias.ibragimov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_kanat_ibragimov_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 85,
+        "letter": "B"
+      }
+    },
+    "mock_uid_sanzhar_ospanov_gmail_com": {
+      "name": "Санжар Оспанов",
+      "email": "sanzhar.ospanov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_erbol_ospanov_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 79,
+        "letter": "C"
+      }
+    },
+    "mock_uid_arsen_sultanov_gmail_com": {
+      "name": "Арсен Султанов",
+      "email": "arsen.sultanov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_murat_sultanov_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 77,
+        "letter": "C"
+      }
+    },
+    "mock_uid_miras_saparov_gmail_com": {
+      "name": "Мирас Сапаров",
+      "email": "miras.saparov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_askar_saparov_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 80,
+        "letter": "B"
+      }
+    },
+    "mock_uid_beksultan_isaev_gmail_com": {
+      "name": "Бексултан Исаев",
+      "email": "beksultan.isaev@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_talgat_isaev_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 76,
+        "letter": "C"
+      }
+    },
+    "mock_uid_erasyl_kaliev_gmail_com": {
+      "name": "Ерасыл Калиев",
+      "email": "erasyl.kaliev@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_nurlan_kaliev_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": true,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 94,
+        "letter": "A"
+      }
+    },
+    "mock_uid_nurdaulet_amanzholov_gmail_com": {
+      "name": "Нурдаулет Аманжолов",
+      "email": "nurdaulet.amanzholov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_marat_amanzholov_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 89,
+        "letter": "B"
+      }
+    },
+    "mock_uid_daniyar_bolatov_gmail_com": {
+      "name": "Данияр Болатов",
+      "email": "daniyar.bolatov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_bolat_bolatov_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 89,
+        "letter": "B"
+      }
+    },
+    "mock_uid_aybar_serikov_gmail_com": {
+      "name": "Айбар Сериков",
+      "email": "aybar.serikov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_kayrat_serikov_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 76,
+        "letter": "C"
+      }
+    },
+    "mock_uid_aydos_nurlanov_gmail_com": {
+      "name": "Айдос Нурланов",
+      "email": "aydos.nurlanov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_daulet_nurlanov_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 75,
+        "letter": "C"
+      }
+    },
+    "mock_uid_aruzhan_smailov_gmail_com": {
+      "name": "Аружан Смаилов",
+      "email": "aruzhan.smailov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_zhandos_smailov_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 75,
+        "letter": "C"
+      }
+    },
+    "mock_uid_madina_aliev_gmail_com": {
+      "name": "Мадина Алиев",
+      "email": "madina.aliev@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_azamat_aliev_gmail_com",
       "attendance": {
         "2026-05-26": true,
         "2026-05-27": true,
@@ -3404,6 +4148,342 @@
       },
       "grade": {
         "pct": 98,
+        "letter": "A"
+      }
+    },
+    "mock_uid_aysha_omarov_gmail_com": {
+      "name": "Айша Омаров",
+      "email": "aysha.omarov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_ruslan_omarov_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 79,
+        "letter": "C"
+      }
+    },
+    "mock_uid_tomiris_karimov_gmail_com": {
+      "name": "Томирис Каримов",
+      "email": "tomiris.karimov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_arman_karimov_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": true,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 76,
+        "letter": "C"
+      }
+    },
+    "mock_uid_amina_ahmetov_gmail_com": {
+      "name": "Амина Ахметов",
+      "email": "amina.ahmetov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_bolat_ahmetov_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 81,
+        "letter": "B"
+      }
+    },
+    "mock_uid_amir_ibragimov_gmail_com": {
+      "name": "Амир Ибрагимов",
+      "email": "amir.ibragimov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_murat_ibragimov_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 85,
+        "letter": "B"
+      }
+    },
+    "mock_uid_gauhar_kasymova_gmail_com": {
+      "name": "Гаухар Касымова",
+      "email": "gauhar.kasymova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_askar_kasymova_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 93,
+        "letter": "A"
+      }
+    },
+    "mock_uid_madina_ahmetova_gmail_com": {
+      "name": "Мадина Ахметова",
+      "email": "madina.ahmetova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_serik_ahmetova_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 76,
+        "letter": "C"
+      }
+    },
+    "mock_uid_aruzhan_isaeva_gmail_com": {
+      "name": "Аружан Исаева",
+      "email": "aruzhan.isaeva@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_talgat_isaeva_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": true,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 96,
+        "letter": "A"
+      }
+    },
+    "mock_uid_zhasmin_sultanova_gmail_com": {
+      "name": "Жасмин Султанова",
+      "email": "zhasmin.sultanova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_murat_sultanova_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 89,
+        "letter": "B"
+      }
+    },
+    "mock_uid_kamila_ospanova_gmail_com": {
+      "name": "Камила Оспанова",
+      "email": "kamila.ospanova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_erbol_ospanova_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": true,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 91,
+        "letter": "A"
+      }
+    },
+    "mock_uid_aysha_kalieva_gmail_com": {
+      "name": "Айша Калиева",
+      "email": "aysha.kalieva@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_nurlan_kalieva_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": true,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 96,
+        "letter": "A"
+      }
+    },
+    "mock_uid_aygerim_bolatova_gmail_com": {
+      "name": "Айгерим Болатова",
+      "email": "aygerim.bolatova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_bolat_bolatova_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 87,
+        "letter": "B"
+      }
+    },
+    "mock_uid_dana_serikova_gmail_com": {
+      "name": "Дана Серикова",
+      "email": "dana.serikova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_kayrat_serikova_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": true,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 97,
+        "letter": "A"
+      }
+    },
+    "mock_uid_anelь_alieva_gmail_com": {
+      "name": "Анель Алиева",
+      "email": "anelь.alieva@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_azamat_alieva_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 88,
+        "letter": "B"
+      }
+    },
+    "mock_uid_sabina_omarova_gmail_com": {
+      "name": "Сабина Омарова",
+      "email": "sabina.omarova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_ruslan_omarova_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": true,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 74,
+        "letter": "C"
+      }
+    },
+    "mock_uid_zere_karimova_gmail_com": {
+      "name": "Зере Каримова",
+      "email": "zere.karimova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_arman_karimova_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 97,
+        "letter": "A"
+      }
+    },
+    "mock_uid_rayhan_ahmetova_gmail_com": {
+      "name": "Райхан Ахметова",
+      "email": "rayhan.ahmetova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_bauyrzhan_ahmetova_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 96,
+        "letter": "A"
+      }
+    },
+    "mock_uid_nazerke_ibragimova_gmail_com": {
+      "name": "Назерке Ибрагимова",
+      "email": "nazerke.ibragimova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_serik_ibragimova_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 73,
+        "letter": "C"
+      }
+    },
+    "mock_uid_diana_ospanova_gmail_com": {
+      "name": "Диана Оспанова",
+      "email": "diana.ospanova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_kanat_ospanova_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 83,
+        "letter": "B"
+      }
+    },
+    "mock_uid_ayazhan_kasymova_gmail_com": {
+      "name": "Аяжан Касымова",
+      "email": "ayazhan.kasymova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_erbol_kasymova_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": true,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 92,
+        "letter": "A"
+      }
+    },
+    "mock_uid_zhansaya_sultanova_gmail_com": {
+      "name": "Жансая Султанова",
+      "email": "zhansaya.sultanova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_murat_sultanova_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": true,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 92,
+        "letter": "A"
+      }
+    },
+    "mock_uid_daniyar_saparov_gmail_com": {
+      "name": "Данияр Сапаров",
+      "email": "daniyar.saparov@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_askar_saparov_gmail_com",
+      "attendance": {
+        "2026-05-26": false,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 93,
         "letter": "A"
       }
     }
@@ -3468,6 +4548,171 @@
       "name": "Дамир Сапаров",
       "email": "damir.saparov@gmail.com",
       "child_id": "mock_uid_aliya_saparova_gmail_com"
+    },
+    "mock_uid_serik_ahmetov_gmail_com": {
+      "name": "Серик Ахметов",
+      "email": "serik.ahmetov@gmail.com",
+      "child_id": "mock_uid_alihan_ahmetov_gmail_com"
+    },
+    "mock_uid_kanat_ibragimov_gmail_com": {
+      "name": "Канат Ибрагимов",
+      "email": "kanat.ibragimov@gmail.com",
+      "child_id": "mock_uid_dias_ibragimov_gmail_com"
+    },
+    "mock_uid_erbol_ospanov_gmail_com": {
+      "name": "Ербол Оспанов",
+      "email": "erbol.ospanov@gmail.com",
+      "child_id": "mock_uid_sanzhar_ospanov_gmail_com"
+    },
+    "mock_uid_murat_sultanov_gmail_com": {
+      "name": "Мурат Султанов",
+      "email": "murat.sultanov@gmail.com",
+      "child_id": "mock_uid_arsen_sultanov_gmail_com"
+    },
+    "mock_uid_askar_saparov_gmail_com": {
+      "name": "Аскар Сапаров",
+      "email": "askar.saparov@gmail.com",
+      "child_id": "mock_uid_daniyar_saparov_gmail_com"
+    },
+    "mock_uid_talgat_isaev_gmail_com": {
+      "name": "Талгат Исаев",
+      "email": "talgat.isaev@gmail.com",
+      "child_id": "mock_uid_beksultan_isaev_gmail_com"
+    },
+    "mock_uid_nurlan_kaliev_gmail_com": {
+      "name": "Нурлан Калиев",
+      "email": "nurlan.kaliev@gmail.com",
+      "child_id": "mock_uid_erasyl_kaliev_gmail_com"
+    },
+    "mock_uid_marat_amanzholov_gmail_com": {
+      "name": "Марат Аманжолов",
+      "email": "marat.amanzholov@gmail.com",
+      "child_id": "mock_uid_nurdaulet_amanzholov_gmail_com"
+    },
+    "mock_uid_bolat_bolatov_gmail_com": {
+      "name": "Болат Болатов",
+      "email": "bolat.bolatov@gmail.com",
+      "child_id": "mock_uid_daniyar_bolatov_gmail_com"
+    },
+    "mock_uid_kayrat_serikov_gmail_com": {
+      "name": "Кайрат Сериков",
+      "email": "kayrat.serikov@gmail.com",
+      "child_id": "mock_uid_aybar_serikov_gmail_com"
+    },
+    "mock_uid_daulet_nurlanov_gmail_com": {
+      "name": "Даулет Нурланов",
+      "email": "daulet.nurlanov@gmail.com",
+      "child_id": "mock_uid_aydos_nurlanov_gmail_com"
+    },
+    "mock_uid_zhandos_smailov_gmail_com": {
+      "name": "Жандос Смаилов",
+      "email": "zhandos.smailov@gmail.com",
+      "child_id": "mock_uid_aruzhan_smailov_gmail_com"
+    },
+    "mock_uid_azamat_aliev_gmail_com": {
+      "name": "Азамат Алиев",
+      "email": "azamat.aliev@gmail.com",
+      "child_id": "mock_uid_madina_aliev_gmail_com"
+    },
+    "mock_uid_ruslan_omarov_gmail_com": {
+      "name": "Руслан Омаров",
+      "email": "ruslan.omarov@gmail.com",
+      "child_id": "mock_uid_aysha_omarov_gmail_com"
+    },
+    "mock_uid_arman_karimov_gmail_com": {
+      "name": "Арман Каримов",
+      "email": "arman.karimov@gmail.com",
+      "child_id": "mock_uid_tomiris_karimov_gmail_com"
+    },
+    "mock_uid_bolat_ahmetov_gmail_com": {
+      "name": "Болат Ахметов",
+      "email": "bolat.ahmetov@gmail.com",
+      "child_id": "mock_uid_amina_ahmetov_gmail_com"
+    },
+    "mock_uid_murat_ibragimov_gmail_com": {
+      "name": "Мурат Ибрагимов",
+      "email": "murat.ibragimov@gmail.com",
+      "child_id": "mock_uid_amir_ibragimov_gmail_com"
+    },
+    "mock_uid_damir_saparova_gmail_com": {
+      "name": "Дамир Сапарова",
+      "email": "damir.saparova@gmail.com",
+      "child_id": "mock_uid_aliya_saparova_gmail_com"
+    },
+    "mock_uid_askar_kasymova_gmail_com": {
+      "name": "Аскар Касымова",
+      "email": "askar.kasymova@gmail.com",
+      "child_id": "mock_uid_gauhar_kasymova_gmail_com"
+    },
+    "mock_uid_serik_ahmetova_gmail_com": {
+      "name": "Серик Ахметова",
+      "email": "serik.ahmetova@gmail.com",
+      "child_id": "mock_uid_madina_ahmetova_gmail_com"
+    },
+    "mock_uid_talgat_isaeva_gmail_com": {
+      "name": "Талгат Исаева",
+      "email": "talgat.isaeva@gmail.com",
+      "child_id": "mock_uid_aruzhan_isaeva_gmail_com"
+    },
+    "mock_uid_murat_sultanova_gmail_com": {
+      "name": "Мурат Султанова",
+      "email": "murat.sultanova@gmail.com",
+      "child_id": "mock_uid_zhansaya_sultanova_gmail_com"
+    },
+    "mock_uid_erbol_ospanova_gmail_com": {
+      "name": "Ербол Оспанова",
+      "email": "erbol.ospanova@gmail.com",
+      "child_id": "mock_uid_kamila_ospanova_gmail_com"
+    },
+    "mock_uid_nurlan_kalieva_gmail_com": {
+      "name": "Нурлан Калиева",
+      "email": "nurlan.kalieva@gmail.com",
+      "child_id": "mock_uid_aysha_kalieva_gmail_com"
+    },
+    "mock_uid_bolat_bolatova_gmail_com": {
+      "name": "Болат Болатова",
+      "email": "bolat.bolatova@gmail.com",
+      "child_id": "mock_uid_aygerim_bolatova_gmail_com"
+    },
+    "mock_uid_kayrat_serikova_gmail_com": {
+      "name": "Кайрат Серикова",
+      "email": "kayrat.serikova@gmail.com",
+      "child_id": "mock_uid_dana_serikova_gmail_com"
+    },
+    "mock_uid_azamat_alieva_gmail_com": {
+      "name": "Азамат Алиева",
+      "email": "azamat.alieva@gmail.com",
+      "child_id": "mock_uid_anelь_alieva_gmail_com"
+    },
+    "mock_uid_ruslan_omarova_gmail_com": {
+      "name": "Руслан Омарова",
+      "email": "ruslan.omarova@gmail.com",
+      "child_id": "mock_uid_sabina_omarova_gmail_com"
+    },
+    "mock_uid_arman_karimova_gmail_com": {
+      "name": "Арман Каримова",
+      "email": "arman.karimova@gmail.com",
+      "child_id": "mock_uid_zere_karimova_gmail_com"
+    },
+    "mock_uid_bauyrzhan_ahmetova_gmail_com": {
+      "name": "Бауыржан Ахметова",
+      "email": "bauyrzhan.ahmetova@gmail.com",
+      "child_id": "mock_uid_rayhan_ahmetova_gmail_com"
+    },
+    "mock_uid_serik_ibragimova_gmail_com": {
+      "name": "Серик Ибрагимова",
+      "email": "serik.ibragimova@gmail.com",
+      "child_id": "mock_uid_nazerke_ibragimova_gmail_com"
+    },
+    "mock_uid_kanat_ospanova_gmail_com": {
+      "name": "Канат Оспанова",
+      "email": "kanat.ospanova@gmail.com",
+      "child_id": "mock_uid_diana_ospanova_gmail_com"
+    },
+    "mock_uid_erbol_kasymova_gmail_com": {
+      "name": "Ербол Касымова",
+      "email": "erbol.kasymova@gmail.com",
+      "child_id": "mock_uid_ayazhan_kasymova_gmail_com"
     }
   }
 }
