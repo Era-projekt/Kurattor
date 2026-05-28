@@ -88,33 +88,28 @@
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
                 <!-- Circular Stat -->
                 <div class="card p-6 lg:col-span-2 flex flex-col md:flex-row items-center gap-8">
-                    <!-- ... stats same ... -->
-                    <div class="relative w-48 h-48">
-                        <canvas id="attChart"></canvas>
-                        <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                            <p class="text-4xl font-black text-gray-900" id="att-pct">0%</p>
-                            <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Явка</p>
-                        </div>
+                    <div class="w-40 h-40 rounded-full border-[10px] border-red-100 flex flex-col items-center justify-center shadow-lg shadow-red-100/30">
+                        <p class="text-5xl font-black text-red-500 leading-none">{{ absences_count }}</p>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold mt-1">Пропусков</p>
                     </div>
                     <div class="flex-1 space-y-4 w-full">
                         <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                            <div class="flex justify-between items-center mb-3">
+                            <div class="flex justify-between items-center mb-1">
                                 <span class="text-xs font-bold text-gray-400 uppercase">Посещено занятий</span>
-                                <span class="text-sm font-black text-primary" id="att-count">0 / 0</span>
+                                <span class="text-sm font-black text-primary">{{ attended_count }}</span>
                             </div>
-                            <div class="progress"><div id="att-bar" class="progress-bar success" style="width: 0%"></div></div>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
-                            <div class="bg-indigo-50/50 p-4 rounded-2xl border border-indigo-100/50">
+                            <div class="bg-red-50/50 p-4 rounded-2xl border border-red-100/50">
                                 <div>
-                                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide" data-i18n="stat_grade">Успеваемость</p>
-                                    <p class="text-2xl font-extrabold text-gray-900" id="grade-letter">—</p>
+                                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide">Пропущено</p>
+                                    <p class="text-2xl font-extrabold text-red-500">{{ absences_count }}</p>
                                 </div>
                             </div>
-                            <div class="bg-emerald-50/50 p-4 rounded-2xl border border-emerald-100/50">
+                            <div class="bg-indigo-50/50 p-4 rounded-2xl border border-indigo-100/50">
                                 <div>
-                                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide" data-i18n="std_visits">Визиты</p>
-                                    <p class="text-2xl font-extrabold text-gray-900" id="visit-count">0</p>
+                                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide">Всего занятий</p>
+                                    <p class="text-2xl font-extrabold text-indigo-600">{{ attended_count + absences_count }}</p>
                                 </div>
                             </div>
                         </div>
@@ -254,35 +249,7 @@
 <script>
 // ── Stats Logic ────────────────────────────────────────────────────────────
 function initStats() {
-    const payload = document.getElementById('student-payload');
-    const rawAtt = JSON.parse(payload.getAttribute('data-attendance') || '{}');
-    const keys = Object.keys(rawAtt);
-    const attended = keys.filter(k => rawAtt[k]).length;
-    const total = keys.length || 1;
-    const pct = Math.round((attended / total) * 100);
-    
-    document.getElementById('att-pct').innerText = pct + '%';
-    document.getElementById('att-count').innerText = `${attended} / ${total}`;
-    document.getElementById('att-bar').style.width = pct + '%';
-    
-    const grade = JSON.parse(payload.getAttribute('data-grade') || '{}');
-    if (grade.letter) {
-        document.getElementById('grade-letter').innerText = grade.letter;
-    }
-    
-    // Doughnut
-    const ctx = document.getElementById('attChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                data: [attended, Math.max(0, total-attended)],
-                backgroundColor: ['#4f46e5', '#e2e8f0'],
-                borderWidth: 0, cutout: '85%'
-            }]
-        },
-        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-    });
+    // Stats are statically rendered in Jinja2 templates
 }
 
 // ── Tab System ──────────────────────────────────────────────────────────────

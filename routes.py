@@ -216,6 +216,28 @@ def init_routes(app):
         session.clear()
         return redirect(url_for('index'))
 
+    @app.route('/api/new_semester', methods=['POST'])
+    @login_required
+    def new_semester():
+        if session.get('role') != 'curator':
+            return jsonify({'success': False, 'error': 'Доступ запрещен'})
+        
+        cid = session.get('uid')
+        try:
+            curator_data = db.reference(f'curators/{cid}').get() or {}
+            student_ids = curator_data.get('students', {})
+            for sid in student_ids.keys():
+                # Wipe attendance
+                db.reference(f'students/{sid}/attendance').delete()
+                # Wipe daily marks
+                db.reference(f'students/{sid}/daily_marks').delete()
+                # Reset grade
+                db.reference(f'students/{sid}/grade').set({'pct': 0, 'letter': '—'})
+            
+            return jsonify({'success': True})
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)})
+
     # ── Кабинет студента ───────────────────────────────────────────────────
 
     @app.route('/student')
@@ -227,6 +249,10 @@ def init_routes(app):
         uid          = session['uid']
         student_data = db.reference(f'students/{uid}').get() or {}
         user_data    = db.reference(f'users/{uid}').get() or {}
+        
+        att = student_data.get('attendance', {})
+        attended_count = sum(1 for v in att.values() if v)
+        absences_count = sum(1 for v in att.values() if not v)
 
         curator = None
         if student_data.get('curator_id'):
@@ -254,7 +280,9 @@ def init_routes(app):
         return render_template('student_dashboard.html',
                                student=student_data, user=user_data, curator=curator, 
                                parent=parent,
-                               pending_request=pending_request)
+                               pending_request=pending_request,
+                               attended_count=attended_count,
+                               absences_count=absences_count)
 
     # ── Кабинет куратора ───────────────────────────────────────────────────
 
@@ -279,15 +307,13 @@ def init_routes(app):
             sdata = db.reference(f'students/{sid}').get() or {}
             if sdata:
                 att = sdata.get('attendance', {})
-                for d, present in att.items():
-                    unique_dates.add(d)
-                    if not present: total_misses += 1
-                
-                # ... existing student list logic ...
+                absences = sum(1 for v in att.values() if not v)
                 present_cnt = sum(1 for v in att.values() if v)
                 total_cnt   = len(att)
-                pct         = round((present_cnt / total_cnt) * 100) if total_cnt else 0
-                grade_data  = sdata.get('grade', {})
+                total_misses += absences
+                
+                for d in att.keys():
+                    unique_dates.add(d)
                 
                 # Find student parent (Optimized)
                 s_parent = None
@@ -298,18 +324,14 @@ def init_routes(app):
                 students_list.append({
                     'uid': sid, 'name': sdata.get('name', '—'),
                     'email': sdata.get('email', '—'),
-                    'pct': pct, 'attended': present_cnt, 'total_att': total_cnt,
-                    'letter': grade_data.get('letter', '—'),
-                    'gpa': grade_data.get('gpa', 0.0),
+                    'absences': absences, 'attended': present_cnt, 'total_att': total_cnt,
                     'parent': s_parent
                 })
                 all_student_data.append(sdata)
 
-        # Average students per lesson
-        avg_present = 0
-        if unique_dates:
-            total_present_all_time = sum(sum(1 for v in s.get('attendance', {}).values() if v) for s in all_student_data)
-            avg_present = round(total_present_all_time / len(unique_dates), 1)
+        # Average absences per student
+        total_students = len(students_list)
+        avg_absences = round(total_misses / total_students, 1) if total_students else 0
 
         # Get incoming requests
         incoming_requests = []
@@ -323,10 +345,10 @@ def init_routes(app):
                 'profession': details.get('profession', '—')
             })
 
-        # Risk group (attendance < 70)
+        # Risk group (absences > 2)
         low_attendance_list = []
         for s in students_list:
-            if s['pct'] < 70 and s['total_att'] > 0:
+            if s['absences'] > 2:
                 low_attendance_list.append(s)
 
         today = datetime.date.today().strftime("%Y-%m-%d")

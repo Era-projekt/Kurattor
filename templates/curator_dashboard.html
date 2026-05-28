@@ -84,12 +84,12 @@
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon" style="background:#ecfdf5;">
-                    <svg class="w-5 h-5" style="color:#10b981" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div class="stat-icon" style="background:#fff1f2;">
+                    <svg class="w-5 h-5" style="color:#f43f5e" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                 </div>
                 <div>
-                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide" data-i18n="cur_avg_attendance">Средняя явка</p>
-                    <p class="text-2xl font-extrabold text-gray-900">{{ avg_pct or '0' }}%</p>
+                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide" data-i18n="cur_avg_attendance">Средние пропуски</p>
+                    <p class="text-2xl font-extrabold text-gray-900">{{ avg_absences or '0' }}<span class="text-sm font-normal text-gray-400"> проп.</span></p>
                 </div>
             </div>
             <div class="stat-card">
@@ -167,9 +167,9 @@
                     <thead>
                         <tr class="text-xs text-gray-400 uppercase tracking-wider">
                             <th data-i18n="th_student">Студент</th>
-                            <th class="hidden md:table-cell" data-i18n="th_attendance">Статистика</th>
-                            <th data-i18n="table_letter">Оценка</th>
-                            <th class="text-center" data-i18n="th_today">Явка</th>
+                            <th class="text-center">Посещено</th>
+                            <th class="text-center">Пропущено</th>
+                            <th class="text-center" data-i18n="th_today">Явка за сегодня</th>
                             <th class="text-left font-bold" style="font-size: 8px;">Родитель</th>
                             <th class="text-right" data-i18n="th_actions">Действие</th>
                         </tr>
@@ -183,13 +183,8 @@
                                     <div><p class="font-bold text-gray-900">{{ s.name }}</p><p class="text-[10px] text-gray-400">{{ s.email }}</p></div>
                                 </div>
                             </td>
-                            <td class="hidden md:table-cell">
-                                <div class="flex items-center gap-4">
-                                    <div class="flex-1 max-w-[100px]"><div class="progress"><div class="progress-bar {% if s.pct < 70 %}danger{% elif s.pct < 85 %}warning{% else %}success{% endif %}" data-progress="{{ s.pct }}"></div></div></div>
-                                    <span class="text-xs font-bold text-gray-500">{{ s.pct }}%</span>
-                                </div>
-                            </td>
-                            <td><span class="badge {% if s.letter <= 'B' %}badge-success{% else %}badge-warning{% endif %}">{{ s.letter }}</span></td>
+                            <td class="text-center font-bold text-slate-700">{{ s.attended }}</td>
+                            <td class="text-center font-bold text-red-500 bg-red-50/50 rounded-xl py-1">{{ s.absences }}</td>
                             <td class="text-center">
                                 <label class="custom-checkbox inline-block"><input type="checkbox" name="att_{{ s.uid }}"><span class="checkmark"></span></label>
                             </td>
@@ -543,16 +538,45 @@ async function respondRequest(sid, action) {
     window.location.reload();
 }
 
-// ── Export ──────────────────────────────────────────────────────────────────
+// ── Export & New Semester ──────────────────────────────────────────────────
 document.getElementById('export-btn').addEventListener('click', () => {
-    const rows = [['Имя', 'GPA', 'Оценка']];
+    const rows = [['Студент', 'Email', 'Посещено', 'Пропущено', 'Родитель', 'Email Родителя']];
     document.querySelectorAll('#student-tbody tr').forEach(r => {
-        rows.push([r.querySelector('.font-bold').innerText, r.querySelector('[id^="gpa-"]').innerText, r.querySelector('[id^="letter-"]').innerText]);
+        const name = r.querySelector('td:nth-child(1) .font-bold').innerText;
+        const email = r.querySelector('td:nth-child(1) .text-\\[10px\\]').innerText;
+        const attended = r.querySelector('td:nth-child(2)').innerText;
+        const absences = r.querySelector('td:nth-child(3)').innerText;
+        
+        let pName = '—';
+        let pEmail = '—';
+        const parentEl = r.querySelector('td:nth-child(5) div');
+        if (parentEl) {
+            pName = parentEl.querySelector('.text-\\[10px\\]').innerText;
+            pEmail = parentEl.querySelector('.text-\\[8px\\]').innerText;
+        }
+        rows.push([name, email, attended, absences, pName, pEmail]);
     });
     const csv = rows.map(r => r.join(',')).join('\n');
     const a = document.createElement('a');
-    a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-    a.download = 'report.csv'; a.click();
+    a.href = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURIComponent(csv);
+    a.download = 'attendance_report.csv'; a.click();
+});
+
+document.getElementById('add-semester-btn').addEventListener('click', async () => {
+    if (!confirm("Вы уверены, что хотите начать новый семестр? Это обнулит посещаемость студентов, но сохранит их аккаунты в группе.")) return;
+    
+    try {
+        const res = await fetch('/api/new_semester', { method: 'POST' });
+        const data = await res.json();
+        if (data.success) {
+            alert("Новый семестр успешно начат!");
+            window.location.reload();
+        } else {
+            alert("Ошибка при начале семестра: " + data.error);
+        }
+    } catch (e) {
+        alert("Ошибка сети: " + e.message);
+    }
 });
 
 // ── Progress Bars Initialization ──
