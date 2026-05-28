@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Kuraton{% endblock %} — Платформа для студентов и кураторов</title>
+    <meta name="description" content="Kuraton — современная платформа для взаимодействия студентов и кураторов университета">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#10b981',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script>
+        firebase.initializeApp({
+            apiKey: "AIzaSyD7Aq_Gh_O3Y20Ug-qh06zXvE9-ri8v2iU",
+            authDomain: "kuraton.firebaseapp.com",
+            databaseURL: "https://kuraton-default-rtdb.firebaseio.com",
+            projectId: "kuraton",
+            storageBucket: "kuraton.firebasestorage.app",
+            messagingSenderId: "45119704228",
+            appId: "1:45119704228:web:6442c32ce1e1e8711baa31"
+        });
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<header class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between bg-white/90 backdrop-blur-2xl border border-white/60 rounded-3xl px-6 py-3 shadow-2xl shadow-indigo-200/40">
+        <div class="flex items-center gap-8">
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-3 no-underline group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center font-black text-white text-lg shadow-lg group-hover:rotate-6 transition-transform">K</div>
+                <span class="font-black text-slate-800 text-xl tracking-tight">Kuraton</span>
+            </a>
+
+            <!-- Nav links -->
+            <nav class="hidden md:flex items-center gap-2">
+                <a href="/" class="px-4 py-2 rounded-xl text-sm font-bold transition-all {% if request.path == '/' %}bg-primary/10 text-primary{% else %}text-slate-500 hover:text-slate-800 hover:bg-slate-50{% endif %}" data-i18n="nav_home">Home</a>
+                <a href="/search" class="px-4 py-2 rounded-xl text-sm font-bold transition-all {% if request.path == '/search' %}bg-primary/10 text-primary{% else %}text-slate-500 hover:text-slate-800 hover:bg-slate-50{% endif %}" data-i18n="nav_search">Search</a>
+                {% if session.get('role') == 'student' %}
+                <a href="/student" class="px-4 py-2 rounded-xl text-sm font-bold transition-all {% if request.path == '/student' %}bg-primary/10 text-primary{% else %}text-slate-500 hover:text-slate-800 hover:bg-slate-50{% endif %}" data-i18n="nav_dashboard">My Dashboard</a>
+                {% elif session.get('role') == 'curator' %}
+                <a href="/curator" class="px-4 py-2 rounded-xl text-sm font-bold transition-all {% if request.path == '/curator' %}bg-primary/10 text-primary{% else %}text-slate-500 hover:text-slate-800 hover:bg-slate-50{% endif %}" data-i18n="nav_dashboard">Curator Hub</a>
+                {% endif %}
+            </nav>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <!-- Language switcher -->
+            <div class="relative">
+                <select id="lang-switcher" class="appearance-none bg-slate-50 border-0 text-xs font-black text-slate-600 pl-4 pr-10 py-2.5 rounded-xl cursor-pointer focus:ring-2 focus:ring-primary/20 transition-all">
+                    <option value="ru">🇷🇺 RU</option>
+                    <option value="kk">🇰🇿 KK</option>
+                </select>
+                <div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+            </div>
+
+            {% if session.get('user_token') %}
+            <!-- User pill -->
+            <div class="flex items-center gap-3 bg-slate-50 rounded-2xl pl-1.5 pr-4 py-1.5 border border-slate-100">
+                <div class="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">{{ session.get('role', 'U')[0].upper() }}</div>
+                <a href="/logout" class="text-xs font-black text-slate-400 hover:text-red-500 transition-colors" data-i18n="nav_logout">Logout</a>
+            </div>
+            {% else %}
+            <a href="/auth" class="px-6 py-2.5 bg-primary text-white text-sm font-black rounded-xl shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all" data-i18n="nav_login">Sign In</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+
+<!-- ══════════ PAGE CONTENT ══════════ -->
+<main class="pt-28 min-h-screen">
+    {% block content %}{% endblock %}
+</main>
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<!-- ══════════ SCRIPTS ══════════ -->
+<script src="{{ url_for('static', filename='js/lang.js') }}"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

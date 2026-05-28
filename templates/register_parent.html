@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Регистрация родителя{% endblock %}
+
+{% block content %}
+<div class="min-h-[calc(100vh-64px)] flex bg-gray-50">
+    <div class="flex-1 flex items-center justify-center p-8">
+        <div class="w-full max-w-md">
+            <div class="mb-8">
+                <h1 class="text-3xl font-extrabold text-gray-900 mb-1">Регистрация родителя</h1>
+                <p class="text-gray-500 text-sm">Уже есть аккаунт? <a href="/auth" class="font-semibold text-primary hover:underline ml-1">Войти</a></p>
+            </div>
+
+            <div id="error-box" class="hidden mb-5 flex items-start gap-3 bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 text-sm">
+                <span id="error-text"></span>
+            </div>
+
+            <div class="card p-8">
+                <form id="register-form" class="flex flex-col gap-5">
+                    <input type="hidden" name="role" value="parent">
+                    
+                    <div>
+                        <label class="form-label">ФИО родителя</label>
+                        <input id="name" type="text" class="form-input" placeholder="Алиев Бахыт Ерланович" required>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Специальность вашего ребенка</label>
+                        <select id="profession" class="form-input form-select">
+                            <option value="IT">💻 IT (Информационные технологии)</option>
+                            <option value="Economics">📈 Экономика</option>
+                            <option value="Medicine">🏥 Медицина</option>
+                            <option value="Law">⚖️ Юриспруденция</option>
+                            <option value="Design">🎨 Дизайн</option>
+                        </select>
+                    </div>
+
+                    <div id="child-container">
+                        <label class="form-label">Выберите вашего ребенка из базы</label>
+                        <select id="child_id" class="form-input form-select" required>
+                            <option value="">-- Сначала выберите специальность --</option>
+                        </select>
+                        <p class="text-[10px] text-gray-400 mt-2 font-medium">Мы подгружаем только студентов выбранной специальности</p>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-100">
+                        <label class="form-label">Ваш Email</label>
+                        <input id="email" type="email" class="form-input" placeholder="parent@mail.com" required>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Пароль</label>
+                        <input id="password" type="password" class="form-input" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full py-3 mt-2 font-bold uppercase tracking-wide">Зарегистрироваться</button>
+                    <p class="text-[10px] text-slate-400 text-center mt-3 uppercase tracking-tighter">Вы получите доступ к успехам своего ребенка</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+<script>
+    // Specific search logic for parent page
+    document.addEventListener('DOMContentLoaded', () => {
+        const profSelect = document.getElementById('profession');
+        const childSelect = document.getElementById('child_id');
+
+        async function updateChildren(profession) {
+            childSelect.innerHTML = '<option value="">-- Загрузка студентов... --</option>';
+            try {
+                const res = await fetch('/api/get_students_by_profession', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ profession })
+                });
+                const data = await res.json();
+                childSelect.innerHTML = data.students?.length > 0 
+                    ? '<option value="">-- Пожалуйста, выберите ребенка --</option>' 
+                    : '<option value="">-- В этой группе пока нет студентов --</option>';
+                data.students?.forEach(s => {
+                    const opt = document.createElement('option');
+                    opt.value = s.id;
+                    opt.innerText = s.name;
+                    childSelect.appendChild(opt);
+                });
+            } catch (e) {
+                console.error(e);
+                childSelect.innerHTML = '<option value="">-- Ошибка загрузки --</option>';
+            }
+        }
+
+        profSelect.addEventListener('change', (e) => updateChildren(e.target.value));
+        updateChildren(profSelect.value); // Initial load
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Профиль студента: {{ sdata.name }}{% endblock %}
+
+{% block content %}
+<div class="app-layout">
+    <!-- Sidebar (Same as Curator) -->
+    <aside class="sidebar hidden lg:flex flex-col">
+        <div class="flex items-center gap-3 mb-8 px-2">
+            <div class="avatar avatar-md avatar-success">{{ user.name[0] }}</div>
+            <div>
+                <p class="font-bold text-sm text-gray-900">{{ user.name }}</p>
+                <span class="badge badge-success">Куратор</span>
+            </div>
+        </div>
+        <a href="/curator" class="sidebar-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            <span>Назад в кабинет</span>
+        </a>
+    </aside>
+
+    <main class="app-content">
+        <div class="flex flex-col md:flex-row justify-between gap-6 mb-8">
+            <div class="flex items-center gap-6">
+                <div class="avatar avatar-xl avatar-primary text-2xl">{{ sdata.name[0] }}</div>
+                <div>
+                    <h1 class="text-3xl font-extrabold text-gray-900">{{ sdata.name }}</h1>
+                    <p class="text-gray-400 mt-1">Специальность: <strong class="text-indigo-600">{{ sdata.profession }}</strong></p>
+                    <p class="text-xs text-gray-400 mt-1">Email: {{ sdata.email }}</p>
+                </div>
+            </div>
+            
+            <div class="flex gap-4">
+                <div class="card p-4 flex items-center gap-3">
+                    <span class="text-xs font-bold text-gray-400 uppercase">Оценка</span>
+                    <span class="badge badge-lg {% if sdata.grade.letter <= 'B' %}badge-success{% else %}badge-warning{% endif %}">{{ sdata.grade.letter }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+             <div class="card p-6 lg:col-span-3">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-gray-900">Учебный план (Расписание)</h2>
+                    <span class="badge badge-primary">{{ sdata.profession }}</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <div class="schedule-grid min-w-[700px]">
+                        <div class="sched-header">Время</div>
+                        <div class="sched-header">Пн</div>
+                        <div class="sched-header">Вт</div>
+                        <div class="sched-header">Ср</div>
+                        <div class="sched-header">Чт</div>
+                        <div class="sched-header">Пт</div>
+                        <div class="sched-header">Сб</div>
+                        
+                        {% for t_key, t_display in [('09-00','09:00'), ('10-30','10:30'), ('12-00','12:00'), ('13-30','13:30')] %}
+                        <div class="sched-cell text-center font-bold text-gray-400">{{ t_display }}</div>
+                        {% for d in ['mon','tue','wed','thu','fri','sat'] %}
+                        <div class="sched-cell p-2 min-h-[60px] border-r border-b">
+                            {% if schedule[d] and schedule[d][t_key] %}
+                            <div class="lesson-card">
+                                <div class="truncate">{{ schedule[d][t_key].subject }}</div>
+                                <div class="text-[8px] opacity-50">{{ schedule[d][t_key].room }}</div>
+                                <div class="lesson-time">🕒 {{ schedule[d][t_key].time }}</div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+             </div>
+             
+             <div class="space-y-6">
+                <div class="card p-6 border-t-4 border-emerald-500">
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Посещаемость</h3>
+                    <div class="flex flex-col items-center">
+                        <p class="text-4xl font-black text-emerald-600">{{ sdata.grade.pct }}%</p>
+                        <p class="text-[10px] text-gray-400 mt-1 uppercase font-bold">Общий показатель</p>
+                    </div>
+                </div>
+                
+                <button onclick="window.history.back()" class="btn btn-outline w-full py-4 text-xs font-bold rounded-2xl">Вернуться к списку</button>
+             </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

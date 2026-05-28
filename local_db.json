@@ -1,0 +1,2100 @@
+{
+  "specialty_schedules": {
+    "IT": {
+      "mon": {
+        "09-00": {
+          "subject": "Психология",
+          "room": "A-353",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Психология",
+          "room": "A-310",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Английский язык",
+          "room": "A-397",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Психология",
+          "room": "A-234",
+          "time": "13:30"
+        }
+      },
+      "tue": {
+        "09-00": {
+          "subject": "Физкультура",
+          "room": "A-212",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Высшая математика",
+          "room": "A-193",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Психология",
+          "room": "A-412",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Физкультура",
+          "room": "A-194",
+          "time": "13:30"
+        }
+      },
+      "wed": {
+        "09-00": {
+          "subject": "Физкультура",
+          "room": "A-227",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Физкультура",
+          "room": "A-352",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Психология",
+          "room": "A-155",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Психология",
+          "room": "A-480",
+          "time": "13:30"
+        }
+      },
+      "thu": {
+        "09-00": {
+          "subject": "Профильный предмет",
+          "room": "A-158",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Профильный предмет",
+          "room": "A-121",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Высшая математика",
+          "room": "A-281",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Физкультура",
+          "room": "A-170",
+          "time": "13:30"
+        }
+      },
+      "fri": {
+        "09-00": {
+          "subject": "Профильный предмет",
+          "room": "A-463",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Физкультура",
+          "room": "A-184",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Физкультура",
+          "room": "A-262",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "История Казахстана",
+          "room": "A-454",
+          "time": "13:30"
+        }
+      },
+      "sat": {
+        "09-00": {
+          "subject": "История Казахстана",
+          "room": "A-349",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Английский язык",
+          "room": "A-403",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Высшая математика",
+          "room": "A-269",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Английский язык",
+          "room": "A-206",
+          "time": "13:30"
+        }
+      }
+    },
+    "Economics": {
+      "mon": {
+        "09-00": {
+          "subject": "Физкультура",
+          "room": "A-144",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "История Казахстана",
+          "room": "A-457",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Профильный предмет",
+          "room": "A-245",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Высшая математика",
+          "room": "A-455",
+          "time": "13:30"
+        }
+      },
+      "tue": {
+        "09-00": {
+          "subject": "История Казахстана",
+          "room": "A-123",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Профильный предмет",
+          "room": "A-356",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Физкультура",
+          "room": "A-459",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Профильный предмет",
+          "room": "A-192",
+          "time": "13:30"
+        }
+      },
+      "wed": {
+        "09-00": {
+          "subject": "Профильный предмет",
+          "room": "A-297",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Английский язык",
+          "room": "A-465",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Физкультура",
+          "room": "A-227",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Психология",
+          "room": "A-472",
+          "time": "13:30"
+        }
+      },
+      "thu": {
+        "09-00": {
+          "subject": "История Казахстана",
+          "room": "A-337",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Высшая математика",
+          "room": "A-489",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Английский язык",
+          "room": "A-117",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Физкультура",
+          "room": "A-235",
+          "time": "13:30"
+        }
+      },
+      "fri": {
+        "09-00": {
+          "subject": "Физкультура",
+          "room": "A-430",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Профильный предмет",
+          "room": "A-393",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Психология",
+          "room": "A-335",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Физкультура",
+          "room": "A-373",
+          "time": "13:30"
+        }
+      },
+      "sat": {
+        "09-00": {
+          "subject": "Физкультура",
+          "room": "A-332",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Физкультура",
+          "room": "A-279",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Физкультура",
+          "room": "A-300",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Психология",
+          "room": "A-387",
+          "time": "13:30"
+        }
+      }
+    },
+    "Medicine": {
+      "mon": {
+        "09-00": {
+          "subject": "Английский язык",
+          "room": "A-149",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Высшая математика",
+          "room": "A-472",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Физкультура",
+          "room": "A-360",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Психология",
+          "room": "A-423",
+          "time": "13:30"
+        }
+      },
+      "tue": {
+        "09-00": {
+          "subject": "Профильный предмет",
+          "room": "A-163",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Профильный предмет",
+          "room": "A-251",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "История Казахстана",
+          "room": "A-104",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Английский язык",
+          "room": "A-197",
+          "time": "13:30"
+        }
+      },
+      "wed": {
+        "09-00": {
+          "subject": "Профильный предмет",
+          "room": "A-376",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "История Казахстана",
+          "room": "A-494",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "История Казахстана",
+          "room": "A-159",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Английский язык",
+          "room": "A-310",
+          "time": "13:30"
+        }
+      },
+      "thu": {
+        "09-00": {
+          "subject": "Физкультура",
+          "room": "A-209",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Английский язык",
+          "room": "A-453",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Психология",
+          "room": "A-412",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Высшая математика",
+          "room": "A-459",
+          "time": "13:30"
+        }
+      },
+      "fri": {
+        "09-00": {
+          "subject": "Профильный предмет",
+          "room": "A-445",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Психология",
+          "room": "A-435",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Профильный предмет",
+          "room": "A-277",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Психология",
+          "room": "A-191",
+          "time": "13:30"
+        }
+      },
+      "sat": {
+        "09-00": {
+          "subject": "Английский язык",
+          "room": "A-198",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Английский язык",
+          "room": "A-246",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Физкультура",
+          "room": "A-415",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "История Казахстана",
+          "room": "A-349",
+          "time": "13:30"
+        }
+      }
+    },
+    "Law": {
+      "mon": {
+        "09-00": {
+          "subject": "Физкультура",
+          "room": "A-401",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Психология",
+          "room": "A-431",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Высшая математика",
+          "room": "A-319",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "История Казахстана",
+          "room": "A-124",
+          "time": "13:30"
+        }
+      },
+      "tue": {
+        "09-00": {
+          "subject": "Английский язык",
+          "room": "A-180",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Психология",
+          "room": "A-371",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Профильный предмет",
+          "room": "A-410",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Высшая математика",
+          "room": "A-100",
+          "time": "13:30"
+        }
+      },
+      "wed": {
+        "09-00": {
+          "subject": "Высшая математика",
+          "room": "A-411",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Профильный предмет",
+          "room": "A-410",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Физкультура",
+          "room": "A-500",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Высшая математика",
+          "room": "A-138",
+          "time": "13:30"
+        }
+      },
+      "thu": {
+        "09-00": {
+          "subject": "Английский язык",
+          "room": "A-277",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Психология",
+          "room": "A-385",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Профильный предмет",
+          "room": "A-213",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Физкультура",
+          "room": "A-254",
+          "time": "13:30"
+        }
+      },
+      "fri": {
+        "09-00": {
+          "subject": "Профильный предмет",
+          "room": "A-445",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Физкультура",
+          "room": "A-416",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "История Казахстана",
+          "room": "A-438",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Физкультура",
+          "room": "A-351",
+          "time": "13:30"
+        }
+      },
+      "sat": {
+        "09-00": {
+          "subject": "Высшая математика",
+          "room": "A-124",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Английский язык",
+          "room": "A-437",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Высшая математика",
+          "room": "A-269",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Высшая математика",
+          "room": "A-229",
+          "time": "13:30"
+        }
+      }
+    },
+    "Design": {
+      "mon": {
+        "09-00": {
+          "subject": "Физкультура",
+          "room": "A-227",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Психология",
+          "room": "A-194",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "История Казахстана",
+          "room": "A-384",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Английский язык",
+          "room": "A-492",
+          "time": "13:30"
+        }
+      },
+      "tue": {
+        "09-00": {
+          "subject": "Психология",
+          "room": "A-343",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "История Казахстана",
+          "room": "A-171",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Английский язык",
+          "room": "A-304",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Английский язык",
+          "room": "A-232",
+          "time": "13:30"
+        }
+      },
+      "wed": {
+        "09-00": {
+          "subject": "Психология",
+          "room": "A-246",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Профильный предмет",
+          "room": "A-383",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Психология",
+          "room": "A-463",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Психология",
+          "room": "A-408",
+          "time": "13:30"
+        }
+      },
+      "thu": {
+        "09-00": {
+          "subject": "Высшая математика",
+          "room": "A-176",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Английский язык",
+          "room": "A-448",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Физкультура",
+          "room": "A-400",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Физкультура",
+          "room": "A-108",
+          "time": "13:30"
+        }
+      },
+      "fri": {
+        "09-00": {
+          "subject": "История Казахстана",
+          "room": "A-369",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Высшая математика",
+          "room": "A-334",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "История Казахстана",
+          "room": "A-374",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Профильный предмет",
+          "room": "A-108",
+          "time": "13:30"
+        }
+      },
+      "sat": {
+        "09-00": {
+          "subject": "Профильный предмет",
+          "room": "A-107",
+          "time": "09:00"
+        },
+        "10-30": {
+          "subject": "Высшая математика",
+          "room": "A-357",
+          "time": "10:30"
+        },
+        "12-00": {
+          "subject": "Высшая математика",
+          "room": "A-474",
+          "time": "12:00"
+        },
+        "13-30": {
+          "subject": "Профильный предмет",
+          "room": "A-245",
+          "time": "13:30"
+        }
+      }
+    }
+  },
+  "users": {
+    "mock_uid_curator_it_kuraton_kz": {
+      "name": "Дана Касымов",
+      "email": "curator.it@kuraton.kz",
+      "role": "curator",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_0_kuraton_kz": {
+      "name": "Гаухар Аманжолов",
+      "email": "student.it.0@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_1_kuraton_kz": {
+      "name": "Нурлан Аманжолов",
+      "email": "student.it.1@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_2_kuraton_kz": {
+      "name": "Дана Исаева",
+      "email": "student.it.2@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_3_kuraton_kz": {
+      "name": "Алибек Султанова",
+      "email": "student.it.3@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_4_kuraton_kz": {
+      "name": "Нурлан Сапаров",
+      "email": "student.it.4@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_5_kuraton_kz": {
+      "name": "Санжар Султанова",
+      "email": "student.it.5@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_6_kuraton_kz": {
+      "name": "Дамир Оспанов",
+      "email": "student.it.6@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_7_kuraton_kz": {
+      "name": "Санжар Исаева",
+      "email": "student.it.7@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_8_kuraton_kz": {
+      "name": "Айгерим Ибрагимов",
+      "email": "student.it.8@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_9_kuraton_kz": {
+      "name": "Алия Сапаров",
+      "email": "student.it.9@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_10_kuraton_kz": {
+      "name": "Алия Сапаров",
+      "email": "student.it.10@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_11_kuraton_kz": {
+      "name": "Мадина Оспанов",
+      "email": "student.it.11@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_12_kuraton_kz": {
+      "name": "Алан Оспанов",
+      "email": "student.it.12@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_13_kuraton_kz": {
+      "name": "Айгерим Ибрагимов",
+      "email": "student.it.13@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_student_it_14_kuraton_kz": {
+      "name": "Мадина Аманжолов",
+      "email": "student.it.14@kuraton.kz",
+      "role": "student",
+      "profession": "IT"
+    },
+    "mock_uid_curator_economics_kuraton_kz": {
+      "name": "Алан Аманжолов",
+      "email": "curator.economics@kuraton.kz",
+      "role": "curator",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_0_kuraton_kz": {
+      "name": "Дана Исаева",
+      "email": "student.economics.0@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_1_kuraton_kz": {
+      "name": "Алибек Исаева",
+      "email": "student.economics.1@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_2_kuraton_kz": {
+      "name": "Дамир Касымов",
+      "email": "student.economics.2@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_3_kuraton_kz": {
+      "name": "Санжар Сапаров",
+      "email": "student.economics.3@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_4_kuraton_kz": {
+      "name": "Алибек Сапаров",
+      "email": "student.economics.4@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_5_kuraton_kz": {
+      "name": "Мадина Аманжолов",
+      "email": "student.economics.5@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_6_kuraton_kz": {
+      "name": "Нурлан Аманжолов",
+      "email": "student.economics.6@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_7_kuraton_kz": {
+      "name": "Мадина Аманжолов",
+      "email": "student.economics.7@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_8_kuraton_kz": {
+      "name": "Гаухар Оспанов",
+      "email": "student.economics.8@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_9_kuraton_kz": {
+      "name": "Гаухар Ибрагимов",
+      "email": "student.economics.9@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_10_kuraton_kz": {
+      "name": "Нурлан Ибрагимов",
+      "email": "student.economics.10@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_11_kuraton_kz": {
+      "name": "Нурлан Султанова",
+      "email": "student.economics.11@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_12_kuraton_kz": {
+      "name": "Алан Ибрагимов",
+      "email": "student.economics.12@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_13_kuraton_kz": {
+      "name": "Алия Сапаров",
+      "email": "student.economics.13@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_student_economics_14_kuraton_kz": {
+      "name": "Дана Касымов",
+      "email": "student.economics.14@kuraton.kz",
+      "role": "student",
+      "profession": "Economics"
+    },
+    "mock_uid_curator_medicine_kuraton_kz": {
+      "name": "Санжар Султанова",
+      "email": "curator.medicine@kuraton.kz",
+      "role": "curator",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_0_kuraton_kz": {
+      "name": "Дана Оспанов",
+      "email": "student.medicine.0@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_1_kuraton_kz": {
+      "name": "Дамир Касымов",
+      "email": "student.medicine.1@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_2_kuraton_kz": {
+      "name": "Нурлан Аманжолов",
+      "email": "student.medicine.2@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_3_kuraton_kz": {
+      "name": "Дана Исаева",
+      "email": "student.medicine.3@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_4_kuraton_kz": {
+      "name": "Дана Ибрагимов",
+      "email": "student.medicine.4@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_5_kuraton_kz": {
+      "name": "Санжар Касымов",
+      "email": "student.medicine.5@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_6_kuraton_kz": {
+      "name": "Мадина Исаева",
+      "email": "student.medicine.6@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_7_kuraton_kz": {
+      "name": "Гаухар Оспанов",
+      "email": "student.medicine.7@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_8_kuraton_kz": {
+      "name": "Мадина Аманжолов",
+      "email": "student.medicine.8@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_9_kuraton_kz": {
+      "name": "Дамир Аманжолов",
+      "email": "student.medicine.9@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_10_kuraton_kz": {
+      "name": "Гаухар Касымов",
+      "email": "student.medicine.10@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_11_kuraton_kz": {
+      "name": "Мадина Оспанов",
+      "email": "student.medicine.11@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_12_kuraton_kz": {
+      "name": "Санжар Ахметова",
+      "email": "student.medicine.12@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_13_kuraton_kz": {
+      "name": "Нурлан Сапаров",
+      "email": "student.medicine.13@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_student_medicine_14_kuraton_kz": {
+      "name": "Мадина Оспанов",
+      "email": "student.medicine.14@kuraton.kz",
+      "role": "student",
+      "profession": "Medicine"
+    },
+    "mock_uid_curator_law_kuraton_kz": {
+      "name": "Мадина Касымов",
+      "email": "curator.law@kuraton.kz",
+      "role": "curator",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_0_kuraton_kz": {
+      "name": "Дана Исаева",
+      "email": "student.law.0@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_1_kuraton_kz": {
+      "name": "Санжар Исаева",
+      "email": "student.law.1@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_2_kuraton_kz": {
+      "name": "Дамир Султанова",
+      "email": "student.law.2@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_3_kuraton_kz": {
+      "name": "Алия Ибрагимов",
+      "email": "student.law.3@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_4_kuraton_kz": {
+      "name": "Алибек Султанова",
+      "email": "student.law.4@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_5_kuraton_kz": {
+      "name": "Нурлан Оспанов",
+      "email": "student.law.5@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_6_kuraton_kz": {
+      "name": "Алибек Оспанов",
+      "email": "student.law.6@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_7_kuraton_kz": {
+      "name": "Алан Аманжолов",
+      "email": "student.law.7@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_8_kuraton_kz": {
+      "name": "Гаухар Ибрагимов",
+      "email": "student.law.8@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_9_kuraton_kz": {
+      "name": "Алибек Ибрагимов",
+      "email": "student.law.9@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_10_kuraton_kz": {
+      "name": "Мадина Сапаров",
+      "email": "student.law.10@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_11_kuraton_kz": {
+      "name": "Дана Оспанов",
+      "email": "student.law.11@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_12_kuraton_kz": {
+      "name": "Санжар Исаева",
+      "email": "student.law.12@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_13_kuraton_kz": {
+      "name": "Гаухар Султанова",
+      "email": "student.law.13@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_student_law_14_kuraton_kz": {
+      "name": "Дана Ибрагимов",
+      "email": "student.law.14@kuraton.kz",
+      "role": "student",
+      "profession": "Law"
+    },
+    "mock_uid_curator_design_kuraton_kz": {
+      "name": "Алибек Султанова",
+      "email": "curator.design@kuraton.kz",
+      "role": "curator",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_0_kuraton_kz": {
+      "name": "Санжар Ибрагимов",
+      "email": "student.design.0@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_1_kuraton_kz": {
+      "name": "Санжар Ибрагимов",
+      "email": "student.design.1@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_2_kuraton_kz": {
+      "name": "Дана Ахметова",
+      "email": "student.design.2@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_3_kuraton_kz": {
+      "name": "Гаухар Ибрагимов",
+      "email": "student.design.3@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_4_kuraton_kz": {
+      "name": "Алибек Сапаров",
+      "email": "student.design.4@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_5_kuraton_kz": {
+      "name": "Гаухар Исаева",
+      "email": "student.design.5@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_6_kuraton_kz": {
+      "name": "Санжар Ибрагимов",
+      "email": "student.design.6@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_7_kuraton_kz": {
+      "name": "Алан Ибрагимов",
+      "email": "student.design.7@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_8_kuraton_kz": {
+      "name": "Дана Султанова",
+      "email": "student.design.8@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_9_kuraton_kz": {
+      "name": "Нурлан Ибрагимов",
+      "email": "student.design.9@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_10_kuraton_kz": {
+      "name": "Айгерим Оспанов",
+      "email": "student.design.10@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_11_kuraton_kz": {
+      "name": "Алибек Аманжолов",
+      "email": "student.design.11@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_12_kuraton_kz": {
+      "name": "Алан Оспанов",
+      "email": "student.design.12@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_13_kuraton_kz": {
+      "name": "Санжар Исаева",
+      "email": "student.design.13@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    },
+    "mock_uid_student_design_14_kuraton_kz": {
+      "name": "Айгерим Сапаров",
+      "email": "student.design.14@kuraton.kz",
+      "role": "student",
+      "profession": "Design"
+    }
+  },
+  "curators": {
+    "mock_uid_curator_it_kuraton_kz": {
+      "name": "Дана Касымов",
+      "email": "curator.it@kuraton.kz",
+      "profession": "IT",
+      "student_count": 15,
+      "students": {
+        "mock_uid_student_it_0_kuraton_kz": true,
+        "mock_uid_student_it_1_kuraton_kz": true,
+        "mock_uid_student_it_2_kuraton_kz": true,
+        "mock_uid_student_it_3_kuraton_kz": true,
+        "mock_uid_student_it_4_kuraton_kz": true,
+        "mock_uid_student_it_5_kuraton_kz": true,
+        "mock_uid_student_it_6_kuraton_kz": true,
+        "mock_uid_student_it_7_kuraton_kz": true,
+        "mock_uid_student_it_8_kuraton_kz": true,
+        "mock_uid_student_it_9_kuraton_kz": true,
+        "mock_uid_student_it_10_kuraton_kz": true,
+        "mock_uid_student_it_11_kuraton_kz": true,
+        "mock_uid_student_it_12_kuraton_kz": true,
+        "mock_uid_student_it_13_kuraton_kz": true,
+        "mock_uid_student_it_14_kuraton_kz": true
+      }
+    },
+    "mock_uid_curator_economics_kuraton_kz": {
+      "name": "Алан Аманжолов",
+      "email": "curator.economics@kuraton.kz",
+      "profession": "Economics",
+      "student_count": 15,
+      "students": {
+        "mock_uid_student_economics_0_kuraton_kz": true,
+        "mock_uid_student_economics_1_kuraton_kz": true,
+        "mock_uid_student_economics_2_kuraton_kz": true,
+        "mock_uid_student_economics_3_kuraton_kz": true,
+        "mock_uid_student_economics_4_kuraton_kz": true,
+        "mock_uid_student_economics_5_kuraton_kz": true,
+        "mock_uid_student_economics_6_kuraton_kz": true,
+        "mock_uid_student_economics_7_kuraton_kz": true,
+        "mock_uid_student_economics_8_kuraton_kz": true,
+        "mock_uid_student_economics_9_kuraton_kz": true,
+        "mock_uid_student_economics_10_kuraton_kz": true,
+        "mock_uid_student_economics_11_kuraton_kz": true,
+        "mock_uid_student_economics_12_kuraton_kz": true,
+        "mock_uid_student_economics_13_kuraton_kz": true,
+        "mock_uid_student_economics_14_kuraton_kz": true
+      }
+    },
+    "mock_uid_curator_medicine_kuraton_kz": {
+      "name": "Санжар Султанова",
+      "email": "curator.medicine@kuraton.kz",
+      "profession": "Medicine",
+      "student_count": 15,
+      "students": {
+        "mock_uid_student_medicine_0_kuraton_kz": true,
+        "mock_uid_student_medicine_1_kuraton_kz": true,
+        "mock_uid_student_medicine_2_kuraton_kz": true,
+        "mock_uid_student_medicine_3_kuraton_kz": true,
+        "mock_uid_student_medicine_4_kuraton_kz": true,
+        "mock_uid_student_medicine_5_kuraton_kz": true,
+        "mock_uid_student_medicine_6_kuraton_kz": true,
+        "mock_uid_student_medicine_7_kuraton_kz": true,
+        "mock_uid_student_medicine_8_kuraton_kz": true,
+        "mock_uid_student_medicine_9_kuraton_kz": true,
+        "mock_uid_student_medicine_10_kuraton_kz": true,
+        "mock_uid_student_medicine_11_kuraton_kz": true,
+        "mock_uid_student_medicine_12_kuraton_kz": true,
+        "mock_uid_student_medicine_13_kuraton_kz": true,
+        "mock_uid_student_medicine_14_kuraton_kz": true
+      }
+    },
+    "mock_uid_curator_law_kuraton_kz": {
+      "name": "Мадина Касымов",
+      "email": "curator.law@kuraton.kz",
+      "profession": "Law",
+      "student_count": 15,
+      "students": {
+        "mock_uid_student_law_0_kuraton_kz": true,
+        "mock_uid_student_law_1_kuraton_kz": true,
+        "mock_uid_student_law_2_kuraton_kz": true,
+        "mock_uid_student_law_3_kuraton_kz": true,
+        "mock_uid_student_law_4_kuraton_kz": true,
+        "mock_uid_student_law_5_kuraton_kz": true,
+        "mock_uid_student_law_6_kuraton_kz": true,
+        "mock_uid_student_law_7_kuraton_kz": true,
+        "mock_uid_student_law_8_kuraton_kz": true,
+        "mock_uid_student_law_9_kuraton_kz": true,
+        "mock_uid_student_law_10_kuraton_kz": true,
+        "mock_uid_student_law_11_kuraton_kz": true,
+        "mock_uid_student_law_12_kuraton_kz": true,
+        "mock_uid_student_law_13_kuraton_kz": true,
+        "mock_uid_student_law_14_kuraton_kz": true
+      }
+    },
+    "mock_uid_curator_design_kuraton_kz": {
+      "name": "Алибек Султанова",
+      "email": "curator.design@kuraton.kz",
+      "profession": "Design",
+      "student_count": 15,
+      "students": {
+        "mock_uid_student_design_0_kuraton_kz": true,
+        "mock_uid_student_design_1_kuraton_kz": true,
+        "mock_uid_student_design_2_kuraton_kz": true,
+        "mock_uid_student_design_3_kuraton_kz": true,
+        "mock_uid_student_design_4_kuraton_kz": true,
+        "mock_uid_student_design_5_kuraton_kz": true,
+        "mock_uid_student_design_6_kuraton_kz": true,
+        "mock_uid_student_design_7_kuraton_kz": true,
+        "mock_uid_student_design_8_kuraton_kz": true,
+        "mock_uid_student_design_9_kuraton_kz": true,
+        "mock_uid_student_design_10_kuraton_kz": true,
+        "mock_uid_student_design_11_kuraton_kz": true,
+        "mock_uid_student_design_12_kuraton_kz": true,
+        "mock_uid_student_design_13_kuraton_kz": true,
+        "mock_uid_student_design_14_kuraton_kz": true
+      }
+    }
+  },
+  "students": {
+    "mock_uid_student_it_0_kuraton_kz": {
+      "name": "Гаухар Аманжолов",
+      "email": "student.it.0@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 79,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_it_1_kuraton_kz": {
+      "name": "Нурлан Аманжолов",
+      "email": "student.it.1@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 88,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_it_2_kuraton_kz": {
+      "name": "Дана Исаева",
+      "email": "student.it.2@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 88,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_it_3_kuraton_kz": {
+      "name": "Алибек Султанова",
+      "email": "student.it.3@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 80,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_it_4_kuraton_kz": {
+      "name": "Нурлан Сапаров",
+      "email": "student.it.4@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 95,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_it_5_kuraton_kz": {
+      "name": "Санжар Султанова",
+      "email": "student.it.5@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 71,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_it_6_kuraton_kz": {
+      "name": "Дамир Оспанов",
+      "email": "student.it.6@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 95,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_it_7_kuraton_kz": {
+      "name": "Санжар Исаева",
+      "email": "student.it.7@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 80,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_it_8_kuraton_kz": {
+      "name": "Айгерим Ибрагимов",
+      "email": "student.it.8@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 86,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_it_9_kuraton_kz": {
+      "name": "Алия Сапаров",
+      "email": "student.it.9@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 94,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_it_10_kuraton_kz": {
+      "name": "Алия Сапаров",
+      "email": "student.it.10@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 83,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_it_11_kuraton_kz": {
+      "name": "Мадина Оспанов",
+      "email": "student.it.11@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 86,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_it_12_kuraton_kz": {
+      "name": "Алан Оспанов",
+      "email": "student.it.12@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 74,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_it_13_kuraton_kz": {
+      "name": "Айгерим Ибрагимов",
+      "email": "student.it.13@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 92,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_it_14_kuraton_kz": {
+      "name": "Мадина Аманжолов",
+      "email": "student.it.14@kuraton.kz",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 70,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_economics_0_kuraton_kz": {
+      "name": "Дана Исаева",
+      "email": "student.economics.0@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 79,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_economics_1_kuraton_kz": {
+      "name": "Алибек Исаева",
+      "email": "student.economics.1@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 92,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_economics_2_kuraton_kz": {
+      "name": "Дамир Касымов",
+      "email": "student.economics.2@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 88,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_economics_3_kuraton_kz": {
+      "name": "Санжар Сапаров",
+      "email": "student.economics.3@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 88,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_economics_4_kuraton_kz": {
+      "name": "Алибек Сапаров",
+      "email": "student.economics.4@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 72,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_economics_5_kuraton_kz": {
+      "name": "Мадина Аманжолов",
+      "email": "student.economics.5@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 78,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_economics_6_kuraton_kz": {
+      "name": "Нурлан Аманжолов",
+      "email": "student.economics.6@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 90,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_economics_7_kuraton_kz": {
+      "name": "Мадина Аманжолов",
+      "email": "student.economics.7@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 95,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_economics_8_kuraton_kz": {
+      "name": "Гаухар Оспанов",
+      "email": "student.economics.8@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 98,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_economics_9_kuraton_kz": {
+      "name": "Гаухар Ибрагимов",
+      "email": "student.economics.9@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 76,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_economics_10_kuraton_kz": {
+      "name": "Нурлан Ибрагимов",
+      "email": "student.economics.10@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 75,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_economics_11_kuraton_kz": {
+      "name": "Нурлан Султанова",
+      "email": "student.economics.11@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 90,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_economics_12_kuraton_kz": {
+      "name": "Алан Ибрагимов",
+      "email": "student.economics.12@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 88,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_economics_13_kuraton_kz": {
+      "name": "Алия Сапаров",
+      "email": "student.economics.13@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 87,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_economics_14_kuraton_kz": {
+      "name": "Дана Касымов",
+      "email": "student.economics.14@kuraton.kz",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 78,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_medicine_0_kuraton_kz": {
+      "name": "Дана Оспанов",
+      "email": "student.medicine.0@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 91,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_medicine_1_kuraton_kz": {
+      "name": "Дамир Касымов",
+      "email": "student.medicine.1@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 90,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_medicine_2_kuraton_kz": {
+      "name": "Нурлан Аманжолов",
+      "email": "student.medicine.2@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 95,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_medicine_3_kuraton_kz": {
+      "name": "Дана Исаева",
+      "email": "student.medicine.3@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 75,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_medicine_4_kuraton_kz": {
+      "name": "Дана Ибрагимов",
+      "email": "student.medicine.4@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 87,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_medicine_5_kuraton_kz": {
+      "name": "Санжар Касымов",
+      "email": "student.medicine.5@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 84,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_medicine_6_kuraton_kz": {
+      "name": "Мадина Исаева",
+      "email": "student.medicine.6@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 75,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_medicine_7_kuraton_kz": {
+      "name": "Гаухар Оспанов",
+      "email": "student.medicine.7@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 93,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_medicine_8_kuraton_kz": {
+      "name": "Мадина Аманжолов",
+      "email": "student.medicine.8@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 79,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_medicine_9_kuraton_kz": {
+      "name": "Дамир Аманжолов",
+      "email": "student.medicine.9@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 97,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_medicine_10_kuraton_kz": {
+      "name": "Гаухар Касымов",
+      "email": "student.medicine.10@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 78,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_medicine_11_kuraton_kz": {
+      "name": "Мадина Оспанов",
+      "email": "student.medicine.11@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 90,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_medicine_12_kuraton_kz": {
+      "name": "Санжар Ахметова",
+      "email": "student.medicine.12@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 70,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_medicine_13_kuraton_kz": {
+      "name": "Нурлан Сапаров",
+      "email": "student.medicine.13@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 78,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_medicine_14_kuraton_kz": {
+      "name": "Мадина Оспанов",
+      "email": "student.medicine.14@kuraton.kz",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 86,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_0_kuraton_kz": {
+      "name": "Дана Исаева",
+      "email": "student.law.0@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 81,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_1_kuraton_kz": {
+      "name": "Санжар Исаева",
+      "email": "student.law.1@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 90,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_law_2_kuraton_kz": {
+      "name": "Дамир Султанова",
+      "email": "student.law.2@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 94,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_law_3_kuraton_kz": {
+      "name": "Алия Ибрагимов",
+      "email": "student.law.3@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 82,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_4_kuraton_kz": {
+      "name": "Алибек Султанова",
+      "email": "student.law.4@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 70,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_law_5_kuraton_kz": {
+      "name": "Нурлан Оспанов",
+      "email": "student.law.5@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 89,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_6_kuraton_kz": {
+      "name": "Алибек Оспанов",
+      "email": "student.law.6@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 97,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_law_7_kuraton_kz": {
+      "name": "Алан Аманжолов",
+      "email": "student.law.7@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 98,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_law_8_kuraton_kz": {
+      "name": "Гаухар Ибрагимов",
+      "email": "student.law.8@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 84,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_9_kuraton_kz": {
+      "name": "Алибек Ибрагимов",
+      "email": "student.law.9@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 97,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_law_10_kuraton_kz": {
+      "name": "Мадина Сапаров",
+      "email": "student.law.10@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 75,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_11_kuraton_kz": {
+      "name": "Дана Оспанов",
+      "email": "student.law.11@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 79,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_12_kuraton_kz": {
+      "name": "Санжар Исаева",
+      "email": "student.law.12@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 95,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_law_13_kuraton_kz": {
+      "name": "Гаухар Султанова",
+      "email": "student.law.13@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 81,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_14_kuraton_kz": {
+      "name": "Дана Ибрагимов",
+      "email": "student.law.14@kuraton.kz",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 96,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_design_0_kuraton_kz": {
+      "name": "Санжар Ибрагимов",
+      "email": "student.design.0@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 73,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_design_1_kuraton_kz": {
+      "name": "Санжар Ибрагимов",
+      "email": "student.design.1@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 97,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_design_2_kuraton_kz": {
+      "name": "Дана Ахметова",
+      "email": "student.design.2@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 72,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_design_3_kuraton_kz": {
+      "name": "Гаухар Ибрагимов",
+      "email": "student.design.3@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 96,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_design_4_kuraton_kz": {
+      "name": "Алибек Сапаров",
+      "email": "student.design.4@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 81,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_design_5_kuraton_kz": {
+      "name": "Гаухар Исаева",
+      "email": "student.design.5@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 88,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_design_6_kuraton_kz": {
+      "name": "Санжар Ибрагимов",
+      "email": "student.design.6@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 87,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_design_7_kuraton_kz": {
+      "name": "Алан Ибрагимов",
+      "email": "student.design.7@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 83,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_design_8_kuraton_kz": {
+      "name": "Дана Султанова",
+      "email": "student.design.8@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 74,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_design_9_kuraton_kz": {
+      "name": "Нурлан Ибрагимов",
+      "email": "student.design.9@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 91,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_design_10_kuraton_kz": {
+      "name": "Айгерим Оспанов",
+      "email": "student.design.10@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 73,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_design_11_kuraton_kz": {
+      "name": "Алибек Аманжолов",
+      "email": "student.design.11@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 93,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_design_12_kuraton_kz": {
+      "name": "Алан Оспанов",
+      "email": "student.design.12@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 95,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_design_13_kuraton_kz": {
+      "name": "Санжар Исаева",
+      "email": "student.design.13@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 79,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_design_14_kuraton_kz": {
+      "name": "Айгерим Сапаров",
+      "email": "student.design.14@kuraton.kz",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_kuraton_kz",
+      "attendance": {},
+      "grade": {
+        "pct": 84,
+        "letter": "B"
+      }
+    }
+  }
+}

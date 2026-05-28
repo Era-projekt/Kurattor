@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Регистрация студента{% endblock %}
+
+{% block content %}
+<div class="min-h-[calc(100vh-64px)] flex bg-gray-50">
+    <div class="flex-1 flex items-center justify-center p-8">
+        <div class="w-full max-w-md">
+            <div class="mb-8">
+                <h1 class="text-3xl font-extrabold text-gray-900 mb-1">Регистрация студента</h1>
+                <p class="text-gray-500 text-sm">Уже есть аккаунт? <a href="/auth" class="font-semibold text-primary hover:underline ml-1">Войти</a></p>
+            </div>
+
+            <div id="error-box" class="hidden mb-5 flex items-start gap-3 bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 text-sm">
+                <span id="error-text"></span>
+            </div>
+
+            <div class="card p-8">
+                <form id="register-form" class="flex flex-col gap-5">
+                    <input type="hidden" name="role" value="student">
+                    
+                    <div>
+                        <label class="form-label">ФИО студента</label>
+                        <input id="name" type="text" class="form-input" placeholder="Иванов Иван Иванович" required>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Специальность</label>
+                        <select id="profession" class="form-input form-select">
+                            <option value="IT">💻 IT (Информационные технологии)</option>
+                            <option value="Economics">📈 Экономика</option>
+                            <option value="Medicine">🏥 Медицина</option>
+                            <option value="Law">⚖️ Юриспруденция</option>
+                            <option value="Design">🎨 Дизайн</option>
+                        </select>
+                    </div>
+
+                    <div id="curator-container">
+                        <label class="form-label">Выберите куратора</label>
+                        <select id="curator_id" class="form-input form-select" required>
+                            <option value="">-- Сначала специальность --</option>
+                        </select>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-100">
+                        <label class="form-label">Email</label>
+                        <input id="email" type="email" class="form-input" placeholder="example@mail.com" required>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Пароль</label>
+                        <input id="password" type="password" class="form-input" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full py-3 mt-2 font-bold">Участник системы</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+<script>
+    // Specific logic for student page
+    document.addEventListener('DOMContentLoaded', () => {
+        const profSelect = document.getElementById('profession');
+        const curatorSelect = document.getElementById('curator_id');
+
+        async function updateCurators(profession) {
+            curatorSelect.innerHTML = '<option value="">-- Загрузка... --</option>';
+            const res = await fetch('/api/get_curators', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ profession })
+            });
+            const data = await res.json();
+            curatorSelect.innerHTML = data.curators?.length > 0 
+                ? '<option value="">-- Выберите куратора --</option>' 
+                : '<option value="">-- Нет свободных кураторов --</option>';
+            data.curators?.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.id;
+                opt.innerText = `${c.name} (${c.student_count}/20)`;
+                curatorSelect.appendChild(opt);
+            });
+        }
+
+        profSelect.addEventListener('change', (e) => updateCurators(e.target.value));
+        updateCurators(profSelect.value); // Initial load
+    });
+</script>
+{% endblock %}

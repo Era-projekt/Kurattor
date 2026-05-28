@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Родительский контроль: {{ sdata.name }}{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
+        <div>
+            <span class="badge badge-primary mb-2">Родительский доступ</span>
+            <h1 class="text-3xl font-black text-slate-800 tracking-tight">Успеваемость: {{ sdata.name }}</h1>
+            <p class="text-slate-500 mt-1">Курс 1 • Специальность: <span class="font-bold text-primary">{{ sdata.profession }}</span></p>
+        </div>
+        
+        <div class="flex gap-4">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center min-w-[120px]">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Итого</span>
+                <span class="text-2xl font-black text-primary">{{ sdata.grade.letter }}</span>
+            </div>
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center min-w-[120px]">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Посещаемость</span>
+                <span class="text-2xl font-black text-secondary">{{ sdata.grade.pct }}%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8">
+        <!-- Schedule Section -->
+        <div class="card p-8">
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h2 class="text-xl font-extrabold text-slate-800">Текущее расписание занятий</h2>
+                </div>
+                <span class="text-xs font-bold text-slate-400 uppercase">6-дневная учебная неделя</span>
+            </div>
+
+            <div class="overflow-x-auto rounded-2xl border border-slate-100">
+                <div class="schedule-grid min-w-[950px]">
+                    <div class="sched-header">Время</div>
+                    <div class="sched-header">Пн</div>
+                    <div class="sched-header">Вт</div>
+                    <div class="sched-header">Ср</div>
+                    <div class="sched-header">Чт</div>
+                    <div class="sched-header">Пт</div>
+                    <div class="sched-header">Сб</div>
+                    
+                    {% for t_key, t_display in [('09-00','09:00'), ('10-30','10:30'), ('12-00','12:00'), ('13-30','13:30')] %}
+                    <div class="sched-cell flex items-center justify-center font-black text-slate-300 text-sm bg-slate-50/50">{{ t_display }}</div>
+                    {% for d in ['mon','tue','wed','thu','fri','sat'] %}
+                    <div class="sched-cell p-3 min-h-[100px] border-r border-b bg-white">
+                        {% if schedule[d] and schedule[d][t_key] %}
+                        <div class="lesson-card group hover:scale-[1.02] transition-transform">
+                            <div class="font-extrabold text-slate-800 leading-tight mb-1">{{ schedule[d][t_key].subject }}</div>
+                            <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                <span>{{ schedule[d][t_key].room }}</span>
+                            </div>
+                            <div class="lesson-time mt-3">🕒 {{ schedule[d][t_key].time }}</div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Grade Legend -->
+        <div class="flex flex-wrap gap-4 justify-center py-6">
+            <div class="flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-full border border-emerald-100">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span class="text-[10px] font-bold text-emerald-700 uppercase">Высокая активность</span>
+            </div>
+            <div class="flex items-center gap-2 px-4 py-2 bg-indigo-50 rounded-full border border-indigo-100">
+                <span class="w-2 h-2 rounded-full bg-primary font-bold text-primary"></span>
+                <span class="text-[10px] font-bold text-indigo-700 uppercase tracking-tighter">Посещение лекций</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Специфичные стили для родительского кабинета */
+.app-layout { display: block !important; }
+.sidebar { display: none !important; }
+</style>
+{% endblock %}

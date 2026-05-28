@@ -1,0 +1,10 @@
+kuraton-firebase-adminsdk-fbsvc-0ce5270aaf.json
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.idea/
+.vscode/

@@ -1,0 +1,370 @@
+{% extends "base.html" %}
+{% block title %}Мой кабинет{% endblock %}
+
+{% block content %}
+<div id="student-payload" 
+     data-attendance='{{ user.get("attendance", {}) | tojson | safe }}'
+     data-grade='{{ user.get("grade", {}) | tojson | safe }}'
+     class="hidden"></div>
+
+<div class="app-layout">
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar hidden lg:flex flex-col">
+        <div class="flex items-center gap-3 mb-8 px-2">
+            <div class="avatar avatar-md avatar-primary">{{ user.name[0] if user.name else 'S' }}</div>
+            <div class="overflow-hidden">
+                <p class="font-bold text-sm text-gray-900 truncate">{{ user.name }}</p>
+                <span class="badge badge-primary">Студент</span>
+            </div>
+        </div>
+
+        <a href="/student" class="sidebar-link active">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            <span data-i18n="nav_dashboard">Кабинет</span>
+        </a>
+        <a href="/search" class="sidebar-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <span data-i18n="nav_search">Поиск</span>
+        </a>
+
+        <div class="mt-auto">
+            <a href="/logout" class="sidebar-link text-red-400 hover:text-red-600 hover:bg-red-50">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                <span data-i18n="nav_logout">Выйти</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ── Main ── -->
+    <main class="app-content">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="text-2xl font-extrabold text-gray-900">Мой профиль</h1>
+                <p class="text-gray-400 text-sm mt-1">Специальность: <strong class="text-gray-600" id="user-prof">{{ user.profession }}</strong></p>
+            </div>
+            <div class="flex gap-2" id="notif-indicator"></div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="flex gap-1 bg-white/60 backdrop-blur-md p-1 rounded-2xl border border-white/40 mb-8 w-fit overflow-hidden">
+            <button onclick="switchTab('tab-schedule')" class="tab-btn px-6 py-2 rounded-xl text-sm font-bold transition-all active bg-primary text-white" data-tab="tab-schedule" data-i18n="tab_schedule">Расписание</button>
+            <button onclick="switchTab('tab-stats')" class="tab-btn px-6 py-2 rounded-xl text-sm font-bold transition-all text-gray-500" data-tab="tab-stats" data-i18n="nav_dashboard">Дашборд</button>
+            <button onclick="switchTab('tab-library')" class="tab-btn px-6 py-2 rounded-xl text-sm font-bold transition-all text-gray-500" data-tab="tab-library" data-i18n="tab_library">Библиотека</button>
+            <button onclick="switchTab('tab-chat')" class="tab-btn px-6 py-2 rounded-xl text-sm font-bold transition-all text-gray-500" data-tab="tab-chat" data-i18n="tab_chat">Чат</button>
+        </div>
+
+        <div id="tab-schedule" class="tab-pane active">
+            <div class="card overflow-x-auto p-4">
+                <div class="schedule-grid min-w-[800px]">
+                    <div class="sched-header" data-i18n="sched_time">Время</div><div class="sched-header" data-i18n="sched_mon">Пн</div><div class="sched-header" data-i18n="sched_tue">Вт</div><div class="sched-header" data-i18n="sched_wed">Ср</div><div class="sched-header" data-i18n="sched_thu">Чт</div><div class="sched-header" data-i18n="sched_fri">Пт</div><div class="sched-header" data-i18n="sched_sat">Сб</div>
+                    {% for h in range(8, 19) %}
+                    <div class="sched-cell text-center font-bold text-gray-400">{{ h }}:00</div>
+                    {% for d in ['mon','tue','wed','thu','fri','sat'] %}
+                    <div id="cell-{{ d }}-{{ h }}" class="sched-cell p-2 min-h-[60px] border-r border-b"></div>
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-stats" class="tab-pane hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <!-- Circular Stat -->
+                <div class="card p-6 lg:col-span-2 flex flex-col md:flex-row items-center gap-8">
+                    <!-- ... stats same ... -->
+                    <div class="relative w-48 h-48">
+                        <canvas id="attChart"></canvas>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                            <p class="text-4xl font-black text-gray-900" id="att-pct">0%</p>
+                            <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Явка</p>
+                        </div>
+                    </div>
+                    <div class="flex-1 space-y-4 w-full">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-xs font-bold text-gray-400 uppercase">Посещено занятий</span>
+                                <span class="text-sm font-black text-primary" id="att-count">0 / 0</span>
+                            </div>
+                            <div class="progress"><div id="att-bar" class="progress-bar success" style="width: 0%"></div></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-indigo-50/50 p-4 rounded-2xl border border-indigo-100/50">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide" data-i18n="stat_grade">Успеваемость</p>
+                                    <p class="text-2xl font-extrabold text-gray-900" id="grade-letter">—</p>
+                                </div>
+                            </div>
+                            <div class="bg-emerald-50/50 p-4 rounded-2xl border border-emerald-100/50">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide" data-i18n="std_visits">Визиты</p>
+                                    <p class="text-2xl font-extrabold text-gray-900" id="visit-count">0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Curator Card -->
+                <div class="card p-6 bg-gradient-to-br from-indigo-600 to-indigo-800 text-white min-h-[220px] flex flex-col">
+                    <p class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-4">Ваш куратор</p>
+                    {% if curator %}
+                    <div class="flex items-center gap-4 mb-auto">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-xl font-bold">{{ curator.name[0] }}</div>
+                        <div><p class="font-bold text-lg leading-none">{{ curator.name }}</p><p class="text-xs opacity-70 mt-1">{{ curator.profession }}</p></div>
+                    </div>
+                    <button onclick="openPrivateChat()" class="btn bg-white/20 hover:bg-white/30 text-white border-0 mt-6 font-bold text-xs">Чат с куратором</button>
+                    {% else %}
+                    <div class="flex-1 flex flex-col items-center justify-center text-center opacity-70">
+                        <p class="text-xs font-bold">Куратор не назначен</p>
+                        <button onclick="window.location.href='/search'" class="btn btn-xs bg-white text-indigo-600 border-0 mt-4">Найти</button>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Parent Card -->
+                <div class="card p-6 bg-white border-slate-100 min-h-[220px] flex flex-col shadow-sm">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Родительская связь</p>
+                    {% if parent %}
+                    <div class="flex items-center gap-4 mb-auto">
+                        <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-xl font-bold">{{ parent.name[0] }}</div>
+                        <div>
+                            <p class="font-bold text-slate-800 leading-none">{{ parent.name }}</p>
+                            <p class="text-[10px] text-slate-400 mt-2 truncate max-w-[120px]">{{ parent.email }}</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex items-center gap-2 text-emerald-600">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <span class="text-[10px] font-bold uppercase">Общий доступ активен</span>
+                    </div>
+                    {% else %}
+                    <div class="flex-1 flex flex-col items-center justify-center text-center">
+                        <div class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 mb-2">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                        </div>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase leading-tight">Родитель не привязан</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Warnings / Notifications -->
+            <div id="notifications-area" class="mt-8 space-y-3"></div>
+        </div>
+
+
+        <div id="tab-library" class="tab-pane hidden">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="font-bold text-gray-900" data-i18n="lib_materials">Учебные материалы</h2>
+                </div>
+            <div id="file-list" class="file-grid"></div>
+        </div>
+
+        <div id="tab-chat" class="tab-pane hidden">
+            <div class="chat-container">
+                <div class="chat-sidebar">
+                    <div class="p-4 border-b font-bold text-xs text-gray-400 uppercase">Комнаты</div>
+                    <div onclick="switchChat('group')" id="chat-group" class="p-4 border-b cursor-pointer hover:bg-slate-50 active-room bg-indigo-50 border-l-4 border-primary">
+                        <p class="font-bold text-sm">Групповой чат</p>
+                    </div>
+                    <div onclick="switchChat('private')" id="chat-private" class="p-4 border-b cursor-pointer hover:bg-slate-50">
+                        <p class="font-bold text-sm">Чат с куратором</p>
+                    </div>
+                </div>
+                <div class="chat-main">
+                    <div class="p-4 border-b bg-white flex justify-between items-center">
+                        <h3 id="chat-title" class="font-bold text-gray-900" data-i18n="chat_title_group">Групповой чат</h3>
+                    </div>
+                    <div id="chat-box" class="chat-messages p-4"></div>
+                    <div class="p-4 bg-white border-t flex gap-2">
+                        <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="Введите сообщение..." class="flex-1 bg-slate-50 border-0 rounded-xl px-4 py-2 outline-none" onkeydown="if(event.key==='Enter') sendMessage()">
+                        <button onclick="sendMessage()" class="btn btn-primary px-4 py-2 rounded-xl" data-i18n="chat_send">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 translate-y-3">
+    <div class="bg-gray-900 text-white text-xs font-bold px-6 py-3 rounded-full flex items-center gap-2 shadow-2xl">
+        <span id="toast-text"></span>
+    </div>
+</div>
+
+<script>
+// ── Stats Logic ────────────────────────────────────────────────────────────
+function initStats() {
+    const payload = document.getElementById('student-payload');
+    const rawAtt = JSON.parse(payload.getAttribute('data-attendance') || '{}');
+    const keys = Object.keys(rawAtt);
+    const attended = keys.filter(k => rawAtt[k]).length;
+    const total = keys.length || 1;
+    const pct = Math.round((attended / total) * 100);
+    
+    document.getElementById('att-pct').innerText = pct + '%';
+    document.getElementById('att-count').innerText = `${attended} / ${total}`;
+    document.getElementById('att-bar').style.width = pct + '%';
+    
+    const grade = JSON.parse(payload.getAttribute('data-grade') || '{}');
+    if (grade.letter) {
+        document.getElementById('grade-letter').innerText = grade.letter;
+    }
+    
+    // Doughnut
+    const ctx = document.getElementById('attChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [attended, Math.max(0, total-attended)],
+                backgroundColor: ['#4f46e5', '#e2e8f0'],
+                borderWidth: 0, cutout: '85%'
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+    });
+}
+
+// ── Tab System ──────────────────────────────────────────────────────────────
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
+    document.getElementById(tabId).classList.remove('hidden');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active', 'bg-primary', 'text-white'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.add('text-gray-500'));
+    
+    const activeBtn = document.querySelector(`[data-tab="${tabId}"]`);
+    activeBtn.classList.add('active', 'bg-primary', 'text-white');
+    activeBtn.classList.remove('text-gray-500');
+    
+    if (tabId === 'tab-schedule') loadSchedule();
+    if (tabId === 'tab-library') loadLibrary();
+    if (tabId === 'tab-chat') loadChat();
+}
+
+// ── Schedule ────────────────────────────────────────────────────────────────
+async function loadSchedule() {
+    const res = await fetch('/api/get_schedule');
+    const data = await res.json();
+    document.querySelectorAll('.sched-cell').forEach(c => c.innerHTML = '');
+    Object.entries(data.schedule || {}).forEach(([day, times]) => {
+        Object.entries(times).forEach(([time, details]) => {
+            const h = parseInt(time.replace('-', ':').split(':')[0]);
+            const cell = document.getElementById(`cell-${day}-${h}`);
+            if (cell) {
+                cell.innerHTML = `
+                    <div class="lesson-card">
+                        <div class="font-bold truncate">${details.subject}</div>
+                        <div class="text-[9px] opacity-60 mt-0.5">${details.room || ''}</div>
+                        <div class="lesson-time">🕒 ${details.time || ''}</div>
+                    </div>`;
+            }
+        });
+    });
+}
+
+// ── Library ─────────────────────────────────────────────────────────────────
+async function loadLibrary() {
+    const res = await fetch('/api/get_files');
+    const files = await res.json();
+    const list = document.getElementById('file-list');
+    const lang = localStorage.getItem('kuraton_lang') || 'ru';
+    const tr = translations[lang] || translations['ru'];
+    const icons = { 'pdf': '📄', 'ppt': '📊', 'vid': '🎬', 'doc': '📝' };
+    
+    list.innerHTML = files.map(f => {
+        const typeLabel = tr[`lib_type_${f.type}`] || f.type;
+        return `
+            <div class="file-card file-${f.type} p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                <span class="file-icon">${icons[f.type] || '📄'}</span>
+                <p class="font-bold text-xs truncate mt-2">${f.name}</p>
+                <p class="text-[9px] text-gray-400 capitalize">${typeLabel} · ${f.date}</p>
+                <a href="${f.url}" target="_blank" class="text-[10px] font-bold text-indigo-600 mt-2 block uppercase tracking-wider">${tr.lib_open_btn}</a>
+            </div>
+        `;
+    }).join('');
+}
+
+// ── Chat ────────────────────────────────────────────────────────────────────
+let currentRoom = 'group';
+function openPrivateChat() { 
+    switchTab('tab-chat'); 
+    switchChat('private'); 
+}
+
+function switchChat(room) {
+    currentRoom = room;
+    const lang = localStorage.getItem('kuraton_lang') || 'ru';
+    const tr = translations[lang] || translations['ru'];
+    
+    if (room === 'group') {
+        document.getElementById('chat-title').innerText = tr.chat_title_group;
+    } else {
+        document.getElementById('chat-title').innerText = tr.std_curator || 'Curator';
+    }
+    
+    document.querySelectorAll('.chat-sidebar > div').forEach(el => el.classList.remove('bg-indigo-50', 'border-l-4', 'border-primary'));
+    document.getElementById(`chat-${room}`).classList.add('bg-indigo-50', 'border-l-4', 'border-primary');
+    loadChat();
+}
+
+async function loadChat() {
+    const res = await fetch(`/api/get_chat?room=${currentRoom}`);
+    const data = await res.json();
+    const box = document.getElementById('chat-box');
+    const myId = "{{ session['uid'] }}";
+    box.innerHTML = Object.values(data.messages || {}).map(m => `
+        <div class="msg ${m.sender_id === myId ? 'msg-out' : 'msg-in'}">
+            <div class="flex justify-between items-center gap-4 mb-1">
+                <span class="text-[9px] font-bold opacity-60">${m.sender_name}</span>
+                <span class="text-[8px] opacity-40">${new Date(m.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+            </div>
+            <p class="text-sm">${m.text}</p>
+        </div>
+    `).join('');
+    box.scrollTop = box.scrollHeight;
+}
+
+async function sendMessage() {
+    const input = document.getElementById('chat-input');
+    if (!input.value.trim()) return;
+    await fetch('/api/send_message', {
+        method: 'POST', headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ room: currentRoom, text: input.value })
+    });
+    input.value = ''; loadChat();
+}
+
+// ── Notifications ──────────────────────────────────────────────────────────
+async function loadNotifications() {
+    const res = await fetch('/api/get_notifications');
+    const notes = await res.json();
+    const area = document.getElementById('notifications-area');
+    if (notes.length > 0) {
+        area.innerHTML = '<h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Уведомления</h3>' + 
+            notes.map(n => `
+                <div class="p-4 rounded-2xl border ${n.type==='warning' ? 'bg-red-50 border-red-100 text-red-700' : 'bg-slate-50 border-slate-100 text-slate-700'}">
+                    <p class="text-sm font-bold">${n.message}</p>
+                    <p class="text-[9px] opacity-60 mt-1">${n.date}</p>
+                </div>
+            `).join('');
+    }
+}
+
+function toast(msg) {
+    const el = document.getElementById('toast');
+    document.getElementById('toast-text').innerText = msg;
+    el.classList.remove('opacity-0', 'translate-y-3');
+    setTimeout(() => el.classList.add('opacity-0', 'translate-y-3'), 2500);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    switchTab('tab-schedule');
+    initStats();
+    loadNotifications();
+});
+</script>
+{% endblock %}

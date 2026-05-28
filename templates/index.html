@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center overflow-hidden pt-16">
+    <!-- Sophisticated Mesh Gradient Background -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 -left-1/4 w-3/4 h-3/4 opacity-40 blur-[120px] rounded-full" style="background: radial-gradient(circle, hsla(243, 75%, 59%, 0.4), transparent 70%);"></div>
+        <div class="absolute bottom-0 -right-1/4 w-3/4 h-3/4 opacity-30 blur-[120px] rounded-full" style="background: radial-gradient(circle, hsla(161, 84%, 39%, 0.3), transparent 70%);"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Left: High-Impact Typography -->
+            <div class="anim-fade-up">
+                <div class="inline-flex items-center gap-3 bg-white/60 backdrop-blur-md border border-white/50 px-4 py-2 rounded-full mb-8 shadow-sm">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    <span class="text-xs font-bold tracking-wider text-gray-600 uppercase" data-i18n="hero_badge">Next-Gen Education Platform</span>
+                </div>
+
+                <h1 class="text-6xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tight">
+                    <span data-i18n="hero_title_1">Empowering</span><br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent" data-i18n="hero_title_2">Every Student</span><br>
+                    <span class="relative" data-i18n="hero_title_3">Together.
+                        <span class="absolute -bottom-2 left-0 w-1/2 h-2 bg-secondary/30 rounded-full -rotate-1"></span>
+                    </span>
+                </h1>
+
+                <p class="text-xl text-slate-500 mb-12 max-w-xl leading-relaxed font-medium" data-i18n="hero_desc">
+                    Kuraton connects students with elite mentors focused on growth. Automated attendance, real-time grading, and AI-driven insights.
+                </p>
+
+                <div class="flex flex-wrap gap-5">
+                    {% if not session.get('user_token') %}
+                    <a href="/auth" class="group relative px-10 py-4 bg-primary text-white font-bold rounded-2xl shadow-2xl transition-all hover:scale-105 active:scale-95 overflow-hidden">
+                        <span class="relative z-10" data-i18n="hero_btn_start">Get Started Free</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                    </a>
+                    <a href="/search" class="px-10 py-4 bg-white/80 backdrop-blur-md text-slate-700 font-bold rounded-2xl border border-slate-200 shadow-lg hover:bg-white transition-all" data-i18n="hero_btn_search">View Curators</a>
+                    {% else %}
+                    <a href="/{{ session.get('role') }}" class="px-10 py-4 bg-primary text-white font-bold rounded-2xl shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-1" data-i18n="hero_btn_cabinet">Go to Dashboard →</a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Right: Interactive 3D-Like Interface Preview -->
+            <div class="relative hidden lg:block h-[600px]">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-primary/20 to-accent/20 rounded-full blur-[80px]"></div>
+                
+                <!-- Floating Glass Preview Card 1 -->
+                <div class="absolute top-10 right-0 w-80 group animate-float" style="animation-delay: 0s;">
+                    <div class="card-glass p-6 border-white/60 hover:border-primary/30 transition-all cursor-default">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-primary flex items-center justify-center text-white font-bold shadow-lg shadow-primary/20">JD</div>
+                            <div>
+                                <p class="font-bold text-slate-800">John Doe</p>
+                                <p class="text-xs text-slate-500 font-medium tracking-wide uppercase">Software Engineering</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-end">
+                                <span class="text-xs font-bold text-slate-400 uppercase">Attendance</span>
+                                <span class="text-sm font-black text-primary">94%</span>
+                            </div>
+                            <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary transition-all duration-1000" style="width: 94%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Glass Preview Card 2 -->
+                <div class="absolute bottom-20 left-0 w-72 animate-float" style="animation-delay: 1.5s;">
+                    <div class="card-glass p-5 border-white/60 hover:border-secondary/30 transition-all">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <p class="font-bold text-slate-800 text-sm">Task Approved</p>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Your curator approved "Project Architecture" submission.</p>
+                    </div>
+                </div>
+
+                <!-- Feature Pill -->
+                <div class="absolute top-1/2 left-1/4 animate-float" style="animation-delay: 3s;">
+                    <div class="bg-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-slate-50">
+                        <span class="text-xl">📊</span>
+                        <span class="text-sm font-bold text-slate-700" data-i18n="hero_pill_stats">Live Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Features Section -->
+<section class="py-20 bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-3" data-i18n="features_title">Почему выбирают Kuraton?</h2>
+            <p class="text-gray-500 max-w-xl mx-auto" data-i18n="features_sub">Всё что нужно студенту и куратору — в одном продуманном интерфейсе.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {% set features = [
+                ('🎯', 'features_f1_title', 'Smart-выбор куратора', 'features_f1_desc', 'Система автоматически предложит кураторов по вашей специальности.'),
+                ('📊', 'features_f2_title', 'Аналитика в реальном времени', 'features_f2_desc', 'Диаграммы посещаемости и успеваемости обновляются сразу.'),
+                ('📁', 'features_f3_title', 'Библиотека материалов', 'features_f3_desc', 'Категоризированные учебные материалы: PDF, презентации и видео.')
+            ] %}
+            {% for icon, tk, title, dk, desc in features %}
+            <div class="card p-7 hover:-translate-y-1 transition-all duration-300 hover:shadow-lg">
+                <div class="text-4xl mb-4">{{ icon }}</div>
+                <h3 class="font-bold text-gray-900 mb-2 text-lg" data-i18n="{{ tk }}">{{ title }}</h3>
+                <p class="text-gray-500 text-sm leading-relaxed" data-i18n="{{ dk }}">{{ desc }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Curators Section -->
+<section id="curators-browse" class="py-24 bg-gray-50/50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div class="max-w-2xl">
+                <span class="text-primary font-black text-xs uppercase tracking-[0.2em] mb-3 block" data-i18n="curators_badge">Networking</span>
+                <h2 class="text-4xl font-black text-slate-900 leading-tight" data-i18n="curators_title">Наши кураторы по специальностям</h2>
+                <p class="text-slate-500 mt-4 text-lg font-medium" data-i18n="curators_sub">Найдите идеального наставника для вашего профессионального роста.</p>
+            </div>
+            {% if not session.get('user_token') %}
+            <a href="/auth" class="btn btn-primary px-8 py-4 rounded-xl flex items-center gap-2 group translate-y-[-10px]">
+                <span data-i18n="curators_register_btn">Стать студентом</span>
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            {% endif %}
+        </div>
+
+        {% if grouped_curators %}
+        <div class="space-y-20">
+            {% for profession, curators in grouped_curators.items() %}
+            <div class="anim-fade-up">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="h-px flex-1 bg-slate-200"></div>
+                    <div class="px-6 py-2 rounded-full bg-white border border-slate-100 shadow-sm">
+                        <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest">{{ profession }}</h3>
+                    </div>
+                    <div class="h-px flex-1 bg-slate-200"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {% for c in curators %}
+                    <div class="group card p-6 bg-white border-slate-100 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center font-black text-primary text-xl border border-slate-100 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                                {{ c.name[0] }}
+                            </div>
+                            {% if (c.student_count or 0) < 20 %}
+                            <span class="badge badge-success text-[9px] uppercase tracking-tighter">Есть места</span>
+                            {% else %}
+                            <span class="badge badge-danger text-[9px] uppercase tracking-tighter text-red-600 bg-red-50">Мест нет</span>
+                            {% endif %}
+                        </div>
+                        
+                        <h4 class="font-extrabold text-slate-900 mb-1 truncate">{{ c.name }}</h4>
+                        <p class="text-xs text-slate-400 font-bold mb-6 truncate uppercase tracking-widest">{{ c.email }}</p>
+                        
+                        <div class="space-y-4 pt-4 border-t border-slate-50">
+                            <div class="flex justify-between items-center text-[10px] font-black uppercase text-slate-400">
+                                <span>Наполненность</span>
+                                <span class="text-slate-800">{{ c.student_count or 0 }}/20</span>
+                            </div>
+                            <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary transition-all duration-700 progress-bar-fill" 
+                                     data-progress="{{ ( (c.student_count or 0) / 20 * 100 )|round }}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-20 bg-white rounded-3xl border border-dashed border-slate-200">
+            <p class="text-slate-400 font-medium">В базе данных пока нет зарегистрированных кураторов. Зарегистрируйтесь первым!</p>
+            <a href="/auth" class="btn btn-outline mt-4">Зарегистрировать куратора</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<style>
+@keyframes blobMove { 
+    from { transform: translate(0, 0) scale(1); } 
+    to { transform: translate(30px, -30px) scale(1.05); } 
+}
+@keyframes fadeUp { 
+    from { opacity: 0; transform: translateY(24px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+.anim-fade-up { animation: fadeUp 0.8s ease forwards; }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Применяем ширину для всех прогресс-баров
+    document.querySelectorAll(".progress-bar-fill").forEach(bar => {
+        const progress = bar.getAttribute("data-progress");
+        if (progress) {
+            // Небольшая задержка для красивой анимации при загрузке
+            setTimeout(() => {
+                bar.style.width = progress;
+            }, 100);
+        }
+    });
+});
+</script>
+{% endblock %}
