@@ -644,49 +644,37 @@ body {
 .schedule-grid {
     display: grid;
     grid-template-columns: 80px repeat(6, 1fr);
-    gap: 2px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    min-width: 950px; /* Гарантирует, что колонки не будут слишком узкими */
+    gap: 1px;
+    background: rgba(226, 232, 240, 0.6);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 20px;
+    min-width: 950px;
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
 }
 
 .sched-cell {
-    background: white;
-    padding: 12px;
-    min-height: 80px;
+    background: #ffffff;
+    padding: 10px;
+    min-height: 96px;
     font-size: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.sched-cell:hover {
+    background-color: #f8fafc;
 }
 
 .sched-header {
-    background: #f8fafc;
-    font-weight: 700;
-    text-align: center;
-    padding: 10px;
-    font-size: 11px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-}
-
-.lesson-card {
-    background: #eef2ff;
-    color: var(--primary);
-    padding: 10px;
-    border-radius: 12px;
-    border-left: 4px solid var(--primary);
-    margin-top: 4px;
-    font-size: 11px;
-    line-height: 1.3;
-    word-wrap: break-word; /* Перенос длинных слов */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-}
-.lesson-time {
-    display: block;
-    font-size: 9px;
+    background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
     font-weight: 800;
+    text-align: center;
+    padding: 14px 10px;
+    font-size: 11px;
     text-transform: uppercase;
-    opacity: 0.6;
-    margin-top: 4px;
+    color: #475569;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #e2e8f0;
 }
 
 /* ── Digital Library ─────────────────────────────────────────────────────── */

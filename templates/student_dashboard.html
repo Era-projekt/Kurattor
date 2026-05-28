@@ -246,6 +246,20 @@ function switchTab(tabId) {
 }
 
 // ── Schedule ────────────────────────────────────────────────────────────────
+const subjectThemes = {
+    "высшая математика": "bg-blue-50/90 border-blue-500 text-blue-700 shadow-blue-100/50",
+    "история казахстана": "bg-rose-50/90 border-rose-500 text-rose-700 shadow-rose-100/50",
+    "английский язык": "bg-emerald-50/90 border-emerald-500 text-emerald-700 shadow-emerald-100/50",
+    "профильный предмет": "bg-violet-50/90 border-violet-500 text-violet-700 shadow-violet-100/50",
+    "физкультура": "bg-amber-50/90 border-amber-500 text-amber-700 shadow-amber-100/50",
+    "психология": "bg-teal-50/90 border-teal-500 text-teal-700 shadow-teal-100/50",
+    "алгоритмы": "bg-indigo-50/90 border-indigo-500 text-indigo-700 shadow-indigo-100/50",
+    "python": "bg-sky-50/90 border-sky-500 text-sky-700 shadow-sky-100/50",
+    "сети": "bg-purple-50/90 border-purple-500 text-purple-700 shadow-purple-100/50",
+    "ос": "bg-fuchsia-50/90 border-fuchsia-500 text-fuchsia-700 shadow-fuchsia-100/50",
+    "базы данных": "bg-cyan-50/90 border-cyan-500 text-cyan-700 shadow-cyan-100/50"
+};
+
 async function loadSchedule() {
     const res = await fetch('/api/get_schedule');
     const data = await res.json();
@@ -255,11 +269,27 @@ async function loadSchedule() {
             const h = parseInt(time.replace('-', ':').split(':')[0]);
             const cell = document.getElementById(`cell-${day}-${h}`);
             if (cell) {
+                const subLower = (details.subject || "").toLowerCase();
+                let themeClasses = "bg-slate-50 border-slate-400 text-slate-700 shadow-slate-100/50";
+                
+                for (const [key, val] of Object.entries(subjectThemes)) {
+                    if (subLower.includes(key)) {
+                        themeClasses = val;
+                        break;
+                    }
+                }
+                
                 cell.innerHTML = `
-                    <div class="lesson-card">
-                        <div class="font-bold truncate">${details.subject}</div>
-                        <div class="text-[9px] opacity-60 mt-0.5">${details.room || ''}</div>
-                        <div class="lesson-time">🕒 ${details.time || ''}</div>
+                    <div class="p-2.5 rounded-xl border-l-4 border shadow-sm ${themeClasses} hover:scale-105 hover:shadow-md transition-all duration-300 transform cursor-pointer flex flex-col justify-between h-full min-h-[76px] anim-fade-in">
+                        <div>
+                            <div class="font-extrabold text-[11px] leading-tight tracking-tight line-clamp-2">${details.subject}</div>
+                            <div class="text-[9px] font-semibold opacity-85 mt-1 flex items-center gap-1">
+                                <span>📍</span> <span class="truncate">${details.room || '—'}</span>
+                            </div>
+                        </div>
+                        <div class="text-[8px] font-black uppercase tracking-wider opacity-85 mt-2 flex items-center gap-1">
+                            <span>🕒</span> <span>${details.time || ''}</span>
+                        </div>
                     </div>`;
             }
         });
