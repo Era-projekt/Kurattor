@@ -188,6 +188,43 @@
     </main>
 </div>
 
+<!-- Lesson Details Modal -->
+<div id="lesson-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-300">
+        <div class="flex justify-between items-start mb-6">
+            <span id="modal-lesson-type" class="badge">Лекция</span>
+            <button onclick="closeLessonModal()" class="w-8 h-8 rounded-full bg-slate-50 hover:bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-600 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <h3 id="modal-lesson-subject" class="text-lg font-black text-slate-850 leading-tight mb-4">Высшая математика</h3>
+        <div class="space-y-3 text-xs text-slate-600">
+            <div class="flex items-center gap-3 bg-slate-50/50 p-3.5 rounded-2xl border border-slate-100/50">
+                <span class="text-base">👨‍🏫</span>
+                <div>
+                    <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Преподаватель</p>
+                    <p id="modal-lesson-teacher" class="font-extrabold text-slate-700 mt-0.5">проф. Сапаров А. Б.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-50/50 p-3.5 rounded-2xl border border-slate-100/50">
+                <span class="text-base">📍</span>
+                <div>
+                    <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Кабинет (Аудитория)</p>
+                    <p id="modal-lesson-room" class="font-extrabold text-slate-700 mt-0.5">A-305</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-50/50 p-3.5 rounded-2xl border border-slate-100/50">
+                <span class="text-base">🕒</span>
+                <div>
+                    <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Время проведения</p>
+                    <p id="modal-lesson-time" class="font-extrabold text-slate-700 mt-0.5">09:00 - 10:20</p>
+                </div>
+            </div>
+        </div>
+        <button onclick="closeLessonModal()" class="w-full btn btn-primary mt-6 py-3 rounded-2xl font-black text-xs">Понятно</button>
+    </div>
+</div>
+
 <!-- Toast -->
 <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 translate-y-3">
     <div class="bg-gray-900 text-white text-xs font-bold px-6 py-3 rounded-full flex items-center gap-2 shadow-2xl">
@@ -230,6 +267,8 @@ function initStats() {
 }
 
 // ── Tab System ──────────────────────────────────────────────────────────────
+let chatInterval = null;
+
 function switchTab(tabId) {
     document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
     document.getElementById(tabId).classList.remove('hidden');
@@ -240,9 +279,17 @@ function switchTab(tabId) {
     activeBtn.classList.add('active', 'bg-primary', 'text-white');
     activeBtn.classList.remove('text-gray-500');
     
+    if (chatInterval) {
+        clearInterval(chatInterval);
+        chatInterval = null;
+    }
+    
     if (tabId === 'tab-schedule') loadSchedule();
     if (tabId === 'tab-library') loadLibrary();
-    if (tabId === 'tab-chat') loadChat();
+    if (tabId === 'tab-chat') {
+        loadChat();
+        chatInterval = setInterval(loadChat, 3000);
+    }
 }
 
 // ── Schedule ────────────────────────────────────────────────────────────────
@@ -280,7 +327,7 @@ async function loadSchedule() {
                 }
                 
                 cell.innerHTML = `
-                    <div class="p-2.5 rounded-xl border-l-4 border shadow-sm ${themeClasses} hover:scale-105 hover:shadow-md transition-all duration-300 transform cursor-pointer flex flex-col justify-between h-full min-h-[76px] anim-fade-in">
+                    <div onclick="showLessonDetails('${details.subject.replace(/'/g, "\\'")}', '${details.type || 'Практика'}', '${details.teacher.replace(/'/g, "\\'")}', '${details.room || '—'}', '${details.time || ''}')" class="p-2.5 rounded-xl border-l-4 border shadow-sm ${themeClasses} hover:scale-105 hover:shadow-md transition-all duration-300 transform cursor-pointer flex flex-col justify-between h-full min-h-[76px] anim-fade-in">
                         <div>
                             <div class="font-extrabold text-[11px] leading-tight tracking-tight line-clamp-2">${details.subject}</div>
                             <div class="text-[9px] font-semibold opacity-85 mt-1 flex items-center gap-1">
@@ -294,6 +341,40 @@ async function loadSchedule() {
             }
         });
     });
+}
+
+function showLessonDetails(subject, type, teacher, room, time) {
+    const modal = document.getElementById('lesson-modal');
+    const content = modal.querySelector('div');
+    
+    document.getElementById('modal-lesson-subject').innerText = subject;
+    document.getElementById('modal-lesson-teacher').innerText = teacher;
+    document.getElementById('modal-lesson-room').innerText = room;
+    document.getElementById('modal-lesson-time').innerText = time + ' (90 минут)';
+    
+    const typeBadge = document.getElementById('modal-lesson-type');
+    typeBadge.innerText = type;
+    if (type.toLowerCase() === 'лекция') {
+        typeBadge.className = 'badge bg-purple-50 text-purple-700 border border-purple-100 font-black';
+    } else {
+        typeBadge.className = 'badge bg-emerald-50 text-emerald-700 border border-emerald-100 font-black';
+    }
+    
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        content.classList.remove('scale-95');
+    }, 10);
+}
+
+function closeLessonModal() {
+    const modal = document.getElementById('lesson-modal');
+    const content = modal.querySelector('div');
+    modal.classList.add('opacity-0');
+    content.classList.add('scale-95');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
 }
 
 // ── Library ─────────────────────────────────────────────────────────────────

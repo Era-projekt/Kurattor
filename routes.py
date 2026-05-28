@@ -640,7 +640,9 @@ def init_routes(app):
         role = session.get('role')
         
         if role == 'student':
-            room_path = f'chats/{uid}/group' if room_id == 'group' else f'chats/private/{uid}'
+            s_data = db.reference(f'students/{uid}').get() or {}
+            cid = s_data.get('curator_id', 'no_curator')
+            room_path = f'chats/{cid}/group' if room_id == 'group' else f'chats/private/{uid}'
         else:
             # Curator viewing
             if room_id == 'group':

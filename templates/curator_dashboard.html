@@ -311,6 +311,8 @@ function toast(msg, isOk = true) {
 }
 
 // ── Tab System ──────────────────────────────────────────────────────────────
+let chatInterval = null;
+
 function switchTab(tabId) {
     document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
     document.getElementById(tabId).classList.remove('hidden');
@@ -321,9 +323,17 @@ function switchTab(tabId) {
     activeBtn.classList.add('active', 'bg-primary', 'text-white');
     activeBtn.classList.remove('text-gray-500');
     
+    if (chatInterval) {
+        clearInterval(chatInterval);
+        chatInterval = null;
+    }
+    
     if (tabId === 'tab-schedule') loadSchedule();
     if (tabId === 'tab-library') loadLibrary();
-    if (tabId === 'tab-chat') loadChat();
+    if (tabId === 'tab-chat') {
+        loadChat();
+        chatInterval = setInterval(loadChat, 3000);
+    }
 }
 
 // ── Attendance & Grades ─────────────────────────────────────────────────────

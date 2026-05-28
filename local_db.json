@@ -4,669 +4,409 @@
       "mon": {
         "09-00": {
           "subject": "Высшая математика",
-          "room": "A-437",
+          "type": "Лекция",
+          "teacher": "проф. Сапаров А. Б.",
+          "room": "A-305",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "История Казахстана",
-          "room": "A-140",
-          "time": "10:30"
-        },
-        "12-00": {
           "subject": "Высшая математика",
-          "room": "A-315",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "История Казахстана",
-          "room": "A-155",
-          "time": "13:30"
+          "type": "Практика",
+          "teacher": "доц. Султанова Д. К.",
+          "room": "A-310",
+          "time": "10:30"
         }
       },
       "tue": {
         "09-00": {
-          "subject": "Психология",
-          "room": "A-210",
+          "subject": "Алгоритмы и структуры данных",
+          "type": "Лекция",
+          "teacher": "доц. Ибрагимов М. С.",
+          "room": "A-204",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Физкультура",
-          "room": "A-489",
+          "subject": "Алгоритмы и структуры данных",
+          "type": "Практика",
+          "teacher": "ассист. Оспанов Д. А.",
+          "room": "A-208",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Английский язык",
-          "room": "A-157",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "История Казахстана",
-          "room": "A-317",
-          "time": "13:30"
         }
       },
       "wed": {
         "09-00": {
-          "subject": "Английский язык",
-          "room": "A-494",
+          "subject": "История Казахстана",
+          "type": "Лекция",
+          "teacher": "проф. Ахметова М. Б.",
+          "room": "A-105",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Профильный предмет",
-          "room": "A-487",
+          "subject": "Высшая математика",
+          "type": "Практика",
+          "teacher": "доц. Султанова Д. К.",
+          "room": "A-310",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Профильный предмет",
-          "room": "A-236",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Психология",
-          "room": "A-375",
-          "time": "13:30"
         }
       },
       "thu": {
         "09-00": {
-          "subject": "История Казахстана",
-          "room": "A-423",
+          "subject": "Алгоритмы и структуры данных",
+          "type": "Практика",
+          "teacher": "ассист. Оспанов Д. А.",
+          "room": "A-208",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Английский язык",
-          "room": "A-263",
+          "subject": "История Казахстана",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-108",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Английский язык",
-          "room": "A-370",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Английский язык",
-          "room": "A-338",
-          "time": "13:30"
         }
       },
       "fri": {
         "09-00": {
-          "subject": "Высшая математика",
-          "room": "A-110",
+          "subject": "История Казахстана",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-108",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Профильный предмет",
-          "room": "A-418",
+          "subject": "Физическая культура",
+          "type": "Практика",
+          "teacher": "тренер Касымов А. С.",
+          "room": "Спортзал",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Психология",
-          "room": "A-438",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Физкультура",
-          "room": "A-102",
-          "time": "13:30"
-        }
-      },
-      "sat": {
-        "09-00": {
-          "subject": "Высшая математика",
-          "room": "A-169",
-          "time": "09:00"
-        },
-        "10-30": {
-          "subject": "Высшая математика",
-          "room": "A-273",
-          "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Высшая математика",
-          "room": "A-493",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Высшая математика",
-          "room": "A-138",
-          "time": "13:30"
         }
       }
     },
     "Economics": {
       "mon": {
         "09-00": {
-          "subject": "Английский язык",
-          "room": "A-466",
+          "subject": "Микроэкономика",
+          "type": "Лекция",
+          "teacher": "проф. Касымов А. С.",
+          "room": "A-401",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Физкультура",
-          "room": "A-444",
+          "subject": "Микроэкономика",
+          "type": "Практика",
+          "teacher": "доц. Султанова М. Б.",
+          "room": "A-405",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Физкультура",
-          "room": "A-156",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Высшая математика",
-          "room": "A-433",
-          "time": "13:30"
         }
       },
       "tue": {
         "09-00": {
-          "subject": "Профильный предмет",
-          "room": "A-102",
+          "subject": "Эконометрика",
+          "type": "Лекция",
+          "teacher": "проф. Аманжолов Н. А.",
+          "room": "A-210",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "История Казахстана",
-          "room": "A-124",
+          "subject": "Эконометрика",
+          "type": "Практика",
+          "teacher": "ассист. Сапаров А. Б.",
+          "room": "A-212",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Психология",
-          "room": "A-431",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Физкультура",
-          "room": "A-408",
-          "time": "13:30"
         }
       },
       "wed": {
         "09-00": {
-          "subject": "Профильный предмет",
-          "room": "A-223",
+          "subject": "История Казахстана",
+          "type": "Лекция",
+          "teacher": "проф. Ахметова М. Б.",
+          "room": "A-105",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Физкультура",
-          "room": "A-233",
+          "subject": "Микроэкономика",
+          "type": "Практика",
+          "teacher": "доц. Султанова М. Б.",
+          "room": "A-405",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Английский язык",
-          "room": "A-118",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "История Казахстана",
-          "room": "A-122",
-          "time": "13:30"
         }
       },
       "thu": {
         "09-00": {
-          "subject": "Психология",
-          "room": "A-404",
+          "subject": "Эконометрика",
+          "type": "Практика",
+          "teacher": "ассист. Сапаров А. Б.",
+          "room": "A-212",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Физкультура",
-          "room": "A-128",
+          "subject": "История Казахстана",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-108",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Высшая математика",
-          "room": "A-177",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Английский язык",
-          "room": "A-247",
-          "time": "13:30"
         }
       },
       "fri": {
         "09-00": {
-          "subject": "Профильный предмет",
-          "room": "A-161",
+          "subject": "История Казахстана",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-108",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Профильный предмет",
-          "room": "A-416",
+          "subject": "Физическая культура",
+          "type": "Практика",
+          "teacher": "тренер Касымов А. С.",
+          "room": "Спортзал",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Профильный предмет",
-          "room": "A-398",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Психология",
-          "room": "A-295",
-          "time": "13:30"
-        }
-      },
-      "sat": {
-        "09-00": {
-          "subject": "Психология",
-          "room": "A-410",
-          "time": "09:00"
-        },
-        "10-30": {
-          "subject": "Высшая математика",
-          "room": "A-125",
-          "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Психология",
-          "room": "A-225",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Психология",
-          "room": "A-178",
-          "time": "13:30"
         }
       }
     },
     "Medicine": {
       "mon": {
         "09-00": {
-          "subject": "Английский язык",
-          "room": "A-182",
+          "subject": "Анатомия человека",
+          "type": "Лекция",
+          "teacher": "проф. Ибрагимов М. С.",
+          "room": "A-101",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Психология",
-          "room": "A-488",
+          "subject": "Анатомия человека",
+          "type": "Практика",
+          "teacher": "доц. Оспанов Д. А.",
+          "room": "A-103",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Профильный предмет",
-          "room": "A-227",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "История Казахстана",
-          "room": "A-164",
-          "time": "13:30"
         }
       },
       "tue": {
         "09-00": {
-          "subject": "История Казахстана",
-          "room": "A-228",
+          "subject": "Общая биология",
+          "type": "Лекция",
+          "teacher": "проф. Ахметова М. Б.",
+          "room": "A-201",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "История Казахстана",
-          "room": "A-168",
+          "subject": "Общая биология",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-204",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Физкультура",
-          "room": "A-147",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Английский язык",
-          "room": "A-487",
-          "time": "13:30"
         }
       },
       "wed": {
         "09-00": {
-          "subject": "Психология",
-          "room": "A-293",
+          "subject": "История Казахстана",
+          "type": "Лекция",
+          "teacher": "проф. Ахметова М. Б.",
+          "room": "A-105",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Физкультура",
-          "room": "A-230",
+          "subject": "Анатомия человека",
+          "type": "Практика",
+          "teacher": "доц. Оспанов Д. А.",
+          "room": "A-103",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Психология",
-          "room": "A-233",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Высшая математика",
-          "room": "A-133",
-          "time": "13:30"
         }
       },
       "thu": {
         "09-00": {
-          "subject": "Физкультура",
-          "room": "A-462",
-          "time": "09:00"
-        },
-        "10-30": {
-          "subject": "Физкультура",
-          "room": "A-265",
-          "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Английский язык",
-          "room": "A-358",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Высшая математика",
-          "room": "A-329",
-          "time": "13:30"
-        }
-      },
-      "fri": {
-        "09-00": {
-          "subject": "Профильный предмет",
-          "room": "A-373",
+          "subject": "Общая биология",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-204",
           "time": "09:00"
         },
         "10-30": {
           "subject": "История Казахстана",
-          "room": "A-160",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-108",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Профильный предмет",
-          "room": "A-216",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Английский язык",
-          "room": "A-104",
-          "time": "13:30"
         }
       },
-      "sat": {
+      "fri": {
         "09-00": {
-          "subject": "Английский язык",
-          "room": "A-313",
+          "subject": "История Казахстана",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-108",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Профильный предмет",
-          "room": "A-166",
+          "subject": "Физическая культура",
+          "type": "Практика",
+          "teacher": "тренер Касымов А. С.",
+          "room": "Спортзал",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Английский язык",
-          "room": "A-119",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Физкультура",
-          "room": "A-114",
-          "time": "13:30"
         }
       }
     },
     "Law": {
       "mon": {
         "09-00": {
-          "subject": "Физкультура",
-          "room": "A-100",
+          "subject": "Конституционное право",
+          "type": "Лекция",
+          "teacher": "проф. Аманжолов Н. А.",
+          "room": "A-301",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Психология",
-          "room": "A-220",
+          "subject": "Конституционное право",
+          "type": "Практика",
+          "teacher": "доц. Сапаров А. Б.",
+          "room": "A-304",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Английский язык",
-          "room": "A-476",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Профильный предмет",
-          "room": "A-476",
-          "time": "13:30"
         }
       },
       "tue": {
         "09-00": {
-          "subject": "Физкультура",
-          "room": "A-394",
+          "subject": "Теория государства и права",
+          "type": "Лекция",
+          "teacher": "проф. Ибрагимов М. С.",
+          "room": "A-110",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Профильный предмет",
-          "room": "A-137",
+          "subject": "Теория государства и права",
+          "type": "Практика",
+          "teacher": "доц. Оспанов Д. А.",
+          "room": "A-114",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Физкультура",
-          "room": "A-385",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Психология",
-          "room": "A-447",
-          "time": "13:30"
         }
       },
       "wed": {
         "09-00": {
           "subject": "История Казахстана",
-          "room": "A-440",
+          "type": "Лекция",
+          "teacher": "проф. Ахметова М. Б.",
+          "room": "A-105",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Высшая математика",
-          "room": "A-105",
+          "subject": "Конституционное право",
+          "type": "Практика",
+          "teacher": "доц. Сапаров А. Б.",
+          "room": "A-304",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "История Казахстана",
-          "room": "A-435",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Психология",
-          "room": "A-154",
-          "time": "13:30"
         }
       },
       "thu": {
         "09-00": {
-          "subject": "Английский язык",
-          "room": "A-471",
-          "time": "09:00"
-        },
-        "10-30": {
-          "subject": "Высшая математика",
-          "room": "A-183",
-          "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Психология",
-          "room": "A-457",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Высшая математика",
-          "room": "A-491",
-          "time": "13:30"
-        }
-      },
-      "fri": {
-        "09-00": {
-          "subject": "Психология",
-          "room": "A-123",
-          "time": "09:00"
-        },
-        "10-30": {
-          "subject": "Высшая математика",
-          "room": "A-496",
-          "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Профильный предмет",
-          "room": "A-369",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Физкультура",
-          "room": "A-183",
-          "time": "13:30"
-        }
-      },
-      "sat": {
-        "09-00": {
-          "subject": "Английский язык",
-          "room": "A-433",
+          "subject": "Теория государства и права",
+          "type": "Практика",
+          "teacher": "доц. Оспанов Д. А.",
+          "room": "A-114",
           "time": "09:00"
         },
         "10-30": {
           "subject": "История Казахстана",
-          "room": "A-480",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-108",
           "time": "10:30"
+        }
+      },
+      "fri": {
+        "09-00": {
+          "subject": "История Казахстана",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-108",
+          "time": "09:00"
         },
-        "12-00": {
-          "subject": "Физкультура",
-          "room": "A-306",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Английский язык",
-          "room": "A-147",
-          "time": "13:30"
+        "10-30": {
+          "subject": "Физическая культура",
+          "type": "Практика",
+          "teacher": "тренер Касымов А. С.",
+          "room": "Спортзал",
+          "time": "10:30"
         }
       }
     },
     "Design": {
       "mon": {
         "09-00": {
-          "subject": "Профильный предмет",
-          "room": "A-309",
+          "subject": "История искусств",
+          "type": "Лекция",
+          "teacher": "проф. Султанова Д. К.",
+          "room": "A-501",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Высшая математика",
-          "room": "A-371",
+          "subject": "История искусств",
+          "type": "Практика",
+          "teacher": "доц. Ахметова М. Б.",
+          "room": "A-503",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Высшая математика",
-          "room": "A-311",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Профильный предмет",
-          "room": "A-243",
-          "time": "13:30"
         }
       },
       "tue": {
         "09-00": {
-          "subject": "Высшая математика",
-          "room": "A-205",
+          "subject": "Рисунок и живопись",
+          "type": "Лекция",
+          "teacher": "проф. Касымов А. С.",
+          "room": "Мастерская-1",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Английский язык",
-          "room": "A-217",
+          "subject": "Рисунок и живопись",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "Мастерская-2",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Профильный предмет",
-          "room": "A-313",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "История Казахстана",
-          "room": "A-460",
-          "time": "13:30"
         }
       },
       "wed": {
         "09-00": {
           "subject": "История Казахстана",
-          "room": "A-212",
+          "type": "Лекция",
+          "teacher": "проф. Ахметова М. Б.",
+          "room": "A-105",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Английский язык",
-          "room": "A-117",
+          "subject": "История искусств",
+          "type": "Практика",
+          "teacher": "доц. Ахметова М. Б.",
+          "room": "A-503",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Физкультура",
-          "room": "A-349",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Психология",
-          "room": "A-418",
-          "time": "13:30"
         }
       },
       "thu": {
         "09-00": {
-          "subject": "Английский язык",
-          "room": "A-478",
+          "subject": "Рисунок и живопись",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "Мастерская-2",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Профильный предмет",
-          "room": "A-122",
-          "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Физкультура",
-          "room": "A-263",
-          "time": "12:00"
-        },
-        "13-30": {
           "subject": "История Казахстана",
-          "room": "A-462",
-          "time": "13:30"
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-108",
+          "time": "10:30"
         }
       },
       "fri": {
         "09-00": {
-          "subject": "Физкультура",
-          "room": "A-463",
+          "subject": "История Казахстана",
+          "type": "Практика",
+          "teacher": "доц. Исаева С. Н.",
+          "room": "A-108",
           "time": "09:00"
         },
         "10-30": {
-          "subject": "Психология",
-          "room": "A-384",
+          "subject": "Физическая культура",
+          "type": "Практика",
+          "teacher": "тренер Касымов А. С.",
+          "room": "Спортзал",
           "time": "10:30"
-        },
-        "12-00": {
-          "subject": "История Казахстана",
-          "room": "A-183",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "Английский язык",
-          "room": "A-191",
-          "time": "13:30"
-        }
-      },
-      "sat": {
-        "09-00": {
-          "subject": "Психология",
-          "room": "A-301",
-          "time": "09:00"
-        },
-        "10-30": {
-          "subject": "Психология",
-          "room": "A-306",
-          "time": "10:30"
-        },
-        "12-00": {
-          "subject": "Профильный предмет",
-          "room": "A-377",
-          "time": "12:00"
-        },
-        "13-30": {
-          "subject": "История Казахстана",
-          "room": "A-362",
-          "time": "13:30"
         }
       }
     }
@@ -1153,203 +893,203 @@
       "profession": "Design"
     },
     "mock_uid_curator_it_gmail_com": {
-      "name": "Айгерим Оспанов",
+      "name": "Санжар Ахметова",
       "email": "curator.it@gmail.com",
       "role": "curator",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_0_gmail_com": {
-      "name": "Дана Султанова",
+      "name": "Алия Сапаров",
       "email": "student.it.0@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_1_gmail_com": {
-      "name": "Нурлан Оспанов",
+      "name": "Алан Исаева",
       "email": "student.it.1@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_2_gmail_com": {
-      "name": "Санжар Касымов",
+      "name": "Гаухар Аманжолов",
       "email": "student.it.2@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_3_gmail_com": {
-      "name": "Гаухар Аманжолов",
+      "name": "Алибек Аманжолов",
       "email": "student.it.3@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_4_gmail_com": {
-      "name": "Мадина Ахметова",
+      "name": "Дана Султанова",
       "email": "student.it.4@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_5_gmail_com": {
-      "name": "Мадина Ахметова",
+      "name": "Алибек Касымов",
       "email": "student.it.5@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_6_gmail_com": {
-      "name": "Дамир Ахметова",
+      "name": "Нурлан Султанова",
       "email": "student.it.6@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_7_gmail_com": {
-      "name": "Дана Касымов",
+      "name": "Нурлан Исаева",
       "email": "student.it.7@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_8_gmail_com": {
-      "name": "Айгерим Оспанов",
+      "name": "Гаухар Султанова",
       "email": "student.it.8@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_9_gmail_com": {
-      "name": "Алия Аманжолов",
+      "name": "Алибек Султанова",
       "email": "student.it.9@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_10_gmail_com": {
-      "name": "Нурлан Ибрагимов",
+      "name": "Дана Оспанов",
       "email": "student.it.10@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_11_gmail_com": {
-      "name": "Мадина Ахметова",
+      "name": "Дана Аманжолов",
       "email": "student.it.11@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_12_gmail_com": {
-      "name": "Гаухар Ахметова",
+      "name": "Алия Оспанов",
       "email": "student.it.12@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_13_gmail_com": {
-      "name": "Алан Оспанов",
+      "name": "Дамир Оспанов",
       "email": "student.it.13@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_it_14_gmail_com": {
-      "name": "Алия Касымов",
+      "name": "Мадина Сапаров",
       "email": "student.it.14@gmail.com",
       "role": "student",
       "profession": "IT",
       "password": "Kuraton2026!"
     },
     "mock_uid_curator_economics_gmail_com": {
-      "name": "Гаухар Оспанов",
+      "name": "Нурлан Ибрагимов",
       "email": "curator.economics@gmail.com",
       "role": "curator",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_0_gmail_com": {
-      "name": "Алия Ахметова",
+      "name": "Санжар Сапаров",
       "email": "student.economics.0@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_1_gmail_com": {
-      "name": "Алия Исаева",
+      "name": "Нурлан Султанова",
       "email": "student.economics.1@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_2_gmail_com": {
-      "name": "Нурлан Сапаров",
+      "name": "Мадина Султанова",
       "email": "student.economics.2@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_3_gmail_com": {
-      "name": "Дана Оспанов",
+      "name": "Алия Касымов",
       "email": "student.economics.3@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_4_gmail_com": {
-      "name": "Айгерим Сапаров",
+      "name": "Дамир Исаева",
       "email": "student.economics.4@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_5_gmail_com": {
-      "name": "Дамир Ибрагимов",
+      "name": "Нурлан Сапаров",
       "email": "student.economics.5@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_6_gmail_com": {
-      "name": "Алан Оспанов",
+      "name": "Алибек Сапаров",
       "email": "student.economics.6@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_7_gmail_com": {
-      "name": "Мадина Ахметова",
+      "name": "Нурлан Аманжолов",
       "email": "student.economics.7@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_8_gmail_com": {
-      "name": "Дана Оспанов",
+      "name": "Нурлан Оспанов",
       "email": "student.economics.8@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_9_gmail_com": {
-      "name": "Алибек Султанова",
+      "name": "Алан Сапаров",
       "email": "student.economics.9@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_10_gmail_com": {
-      "name": "Алия Аманжолов",
+      "name": "Дамир Исаева",
       "email": "student.economics.10@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_11_gmail_com": {
-      "name": "Алия Ибрагимов",
+      "name": "Алибек Оспанов",
       "email": "student.economics.11@gmail.com",
       "role": "student",
       "profession": "Economics",
@@ -1363,147 +1103,147 @@
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_13_gmail_com": {
-      "name": "Гаухар Исаева",
+      "name": "Дамир Исаева",
       "email": "student.economics.13@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_economics_14_gmail_com": {
-      "name": "Гаухар Аманжолов",
+      "name": "Дамир Оспанов",
       "email": "student.economics.14@gmail.com",
       "role": "student",
       "profession": "Economics",
       "password": "Kuraton2026!"
     },
     "mock_uid_curator_medicine_gmail_com": {
-      "name": "Дамир Ибрагимов",
+      "name": "Алибек Ахметова",
       "email": "curator.medicine@gmail.com",
       "role": "curator",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_0_gmail_com": {
-      "name": "Мадина Оспанов",
+      "name": "Айгерим Касымов",
       "email": "student.medicine.0@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_1_gmail_com": {
-      "name": "Гаухар Султанова",
+      "name": "Айгерим Исаева",
       "email": "student.medicine.1@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_2_gmail_com": {
-      "name": "Дамир Касымов",
+      "name": "Санжар Аманжолов",
       "email": "student.medicine.2@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_3_gmail_com": {
-      "name": "Нурлан Касымов",
+      "name": "Алибек Оспанов",
       "email": "student.medicine.3@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_4_gmail_com": {
-      "name": "Нурлан Ибрагимов",
+      "name": "Гаухар Ахметова",
       "email": "student.medicine.4@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_5_gmail_com": {
-      "name": "Айгерим Касымов",
+      "name": "Дамир Ахметова",
       "email": "student.medicine.5@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_6_gmail_com": {
-      "name": "Дамир Оспанов",
+      "name": "Гаухар Ибрагимов",
       "email": "student.medicine.6@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_7_gmail_com": {
-      "name": "Гаухар Аманжолов",
+      "name": "Нурлан Ибрагимов",
       "email": "student.medicine.7@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_8_gmail_com": {
-      "name": "Алибек Аманжолов",
+      "name": "Дамир Султанова",
       "email": "student.medicine.8@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_9_gmail_com": {
-      "name": "Дана Касымов",
+      "name": "Дана Аманжолов",
       "email": "student.medicine.9@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_10_gmail_com": {
-      "name": "Гаухар Оспанов",
+      "name": "Алибек Аманжолов",
       "email": "student.medicine.10@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_11_gmail_com": {
-      "name": "Дана Исаева",
+      "name": "Гаухар Ибрагимов",
       "email": "student.medicine.11@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_12_gmail_com": {
-      "name": "Гаухар Оспанов",
+      "name": "Нурлан Ахметова",
       "email": "student.medicine.12@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_13_gmail_com": {
-      "name": "Санжар Аманжолов",
+      "name": "Алия Сапаров",
       "email": "student.medicine.13@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_medicine_14_gmail_com": {
-      "name": "Айгерим Ахметова",
+      "name": "Алибек Исаева",
       "email": "student.medicine.14@gmail.com",
       "role": "student",
       "profession": "Medicine",
       "password": "Kuraton2026!"
     },
     "mock_uid_curator_law_gmail_com": {
-      "name": "Гаухар Сапаров",
+      "name": "Мадина Султанова",
       "email": "curator.law@gmail.com",
       "role": "curator",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_0_gmail_com": {
-      "name": "Алибек Султанова",
+      "name": "Гаухар Аманжолов",
       "email": "student.law.0@gmail.com",
       "role": "student",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_1_gmail_com": {
-      "name": "Дамир Оспанов",
+      "name": "Нурлан Исаева",
       "email": "student.law.1@gmail.com",
       "role": "student",
       "profession": "Law",
@@ -1517,77 +1257,77 @@
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_3_gmail_com": {
-      "name": "Санжар Сапаров",
+      "name": "Дамир Сапаров",
       "email": "student.law.3@gmail.com",
       "role": "student",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_4_gmail_com": {
-      "name": "Дана Исаева",
+      "name": "Дана Аманжолов",
       "email": "student.law.4@gmail.com",
       "role": "student",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_5_gmail_com": {
-      "name": "Алан Сапаров",
+      "name": "Алия Аманжолов",
       "email": "student.law.5@gmail.com",
       "role": "student",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_6_gmail_com": {
-      "name": "Алия Аманжолов",
+      "name": "Алибек Исаева",
       "email": "student.law.6@gmail.com",
       "role": "student",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_7_gmail_com": {
-      "name": "Нурлан Сапаров",
+      "name": "Айгерим Сапаров",
       "email": "student.law.7@gmail.com",
       "role": "student",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_8_gmail_com": {
-      "name": "Дамир Ибрагимов",
+      "name": "Мадина Ибрагимов",
       "email": "student.law.8@gmail.com",
       "role": "student",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_9_gmail_com": {
-      "name": "Санжар Оспанов",
+      "name": "Гаухар Сапаров",
       "email": "student.law.9@gmail.com",
       "role": "student",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_10_gmail_com": {
-      "name": "Алибек Ахметова",
+      "name": "Дана Оспанов",
       "email": "student.law.10@gmail.com",
       "role": "student",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_11_gmail_com": {
-      "name": "Алан Ибрагимов",
+      "name": "Алия Исаева",
       "email": "student.law.11@gmail.com",
       "role": "student",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_12_gmail_com": {
-      "name": "Мадина Султанова",
+      "name": "Нурлан Ибрагимов",
       "email": "student.law.12@gmail.com",
       "role": "student",
       "profession": "Law",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_law_13_gmail_com": {
-      "name": "Нурлан Ибрагимов",
+      "name": "Дана Ибрагимов",
       "email": "student.law.13@gmail.com",
       "role": "student",
       "profession": "Law",
@@ -1601,7 +1341,7 @@
       "password": "Kuraton2026!"
     },
     "mock_uid_curator_design_gmail_com": {
-      "name": "Алия Ахметова",
+      "name": "Нурлан Ибрагимов",
       "email": "curator.design@gmail.com",
       "role": "curator",
       "profession": "Design",
@@ -1615,98 +1355,98 @@
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_1_gmail_com": {
-      "name": "Санжар Сапаров",
+      "name": "Айгерим Ахметова",
       "email": "student.design.1@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_2_gmail_com": {
-      "name": "Санжар Оспанов",
+      "name": "Дана Ахметова",
       "email": "student.design.2@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_3_gmail_com": {
-      "name": "Алибек Касымов",
+      "name": "Санжар Султанова",
       "email": "student.design.3@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_4_gmail_com": {
-      "name": "Мадина Ахметова",
+      "name": "Дамир Аманжолов",
       "email": "student.design.4@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_5_gmail_com": {
-      "name": "Алан Султанова",
+      "name": "Алан Ибрагимов",
       "email": "student.design.5@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_6_gmail_com": {
-      "name": "Дамир Касымов",
+      "name": "Дамир Сапаров",
       "email": "student.design.6@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_7_gmail_com": {
-      "name": "Алия Ахметова",
+      "name": "Мадина Ахметова",
       "email": "student.design.7@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_8_gmail_com": {
-      "name": "Алан Сапаров",
+      "name": "Гаухар Аманжолов",
       "email": "student.design.8@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_9_gmail_com": {
-      "name": "Гаухар Исаева",
+      "name": "Дамир Султанова",
       "email": "student.design.9@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_10_gmail_com": {
-      "name": "Алан Ибрагимов",
+      "name": "Санжар Ибрагимов",
       "email": "student.design.10@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_11_gmail_com": {
-      "name": "Дана Ибрагимов",
+      "name": "Гаухар Аманжолов",
       "email": "student.design.11@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_12_gmail_com": {
-      "name": "Айгерим Ибрагимов",
+      "name": "Алибек Исаева",
       "email": "student.design.12@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_13_gmail_com": {
-      "name": "Алибек Исаева",
+      "name": "Алан Аманжолов",
       "email": "student.design.13@gmail.com",
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
     },
     "mock_uid_student_design_14_gmail_com": {
-      "name": "Дамир Сапаров",
+      "name": "Дана Оспанов",
       "email": "student.design.14@gmail.com",
       "role": "student",
       "profession": "Design",
@@ -1830,7 +1570,7 @@
       }
     },
     "mock_uid_curator_it_gmail_com": {
-      "name": "Айгерим Оспанов",
+      "name": "Санжар Ахметова",
       "email": "curator.it@gmail.com",
       "profession": "IT",
       "student_count": 15,
@@ -1853,7 +1593,7 @@
       }
     },
     "mock_uid_curator_economics_gmail_com": {
-      "name": "Гаухар Оспанов",
+      "name": "Нурлан Ибрагимов",
       "email": "curator.economics@gmail.com",
       "profession": "Economics",
       "student_count": 15,
@@ -1876,7 +1616,7 @@
       }
     },
     "mock_uid_curator_medicine_gmail_com": {
-      "name": "Дамир Ибрагимов",
+      "name": "Алибек Ахметова",
       "email": "curator.medicine@gmail.com",
       "profession": "Medicine",
       "student_count": 15,
@@ -1899,7 +1639,7 @@
       }
     },
     "mock_uid_curator_law_gmail_com": {
-      "name": "Гаухар Сапаров",
+      "name": "Мадина Султанова",
       "email": "curator.law@gmail.com",
       "profession": "Law",
       "student_count": 15,
@@ -1922,7 +1662,7 @@
       }
     },
     "mock_uid_curator_design_gmail_com": {
-      "name": "Алия Ахметова",
+      "name": "Нурлан Ибрагимов",
       "email": "curator.design@gmail.com",
       "profession": "Design",
       "student_count": 15,
@@ -2772,8 +2512,41 @@
       }
     },
     "mock_uid_student_it_0_gmail_com": {
-      "name": "Дана Султанова",
+      "name": "Алия Сапаров",
       "email": "student.it.0@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 87,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_it_1_gmail_com": {
+      "name": "Алан Исаева",
+      "email": "student.it.1@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 87,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_it_2_gmail_com": {
+      "name": "Гаухар Аманжолов",
+      "email": "student.it.2@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_curator_it_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 77,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_it_3_gmail_com": {
+      "name": "Алибек Аманжолов",
+      "email": "student.it.3@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
       "attendance": {},
@@ -2782,107 +2555,74 @@
         "letter": "A"
       }
     },
-    "mock_uid_student_it_1_gmail_com": {
-      "name": "Нурлан Оспанов",
-      "email": "student.it.1@gmail.com",
-      "profession": "IT",
-      "curator_id": "mock_uid_curator_it_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 72,
-        "letter": "C"
-      }
-    },
-    "mock_uid_student_it_2_gmail_com": {
-      "name": "Санжар Касымов",
-      "email": "student.it.2@gmail.com",
-      "profession": "IT",
-      "curator_id": "mock_uid_curator_it_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 98,
-        "letter": "A"
-      }
-    },
-    "mock_uid_student_it_3_gmail_com": {
-      "name": "Гаухар Аманжолов",
-      "email": "student.it.3@gmail.com",
-      "profession": "IT",
-      "curator_id": "mock_uid_curator_it_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 91,
-        "letter": "A"
-      }
-    },
     "mock_uid_student_it_4_gmail_com": {
-      "name": "Мадина Ахметова",
+      "name": "Дана Султанова",
       "email": "student.it.4@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 97,
-        "letter": "A"
+        "pct": 86,
+        "letter": "B"
       }
     },
     "mock_uid_student_it_5_gmail_com": {
-      "name": "Мадина Ахметова",
+      "name": "Алибек Касымов",
       "email": "student.it.5@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 72,
+        "pct": 71,
         "letter": "C"
       }
     },
     "mock_uid_student_it_6_gmail_com": {
-      "name": "Дамир Ахметова",
+      "name": "Нурлан Султанова",
       "email": "student.it.6@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 73,
-        "letter": "C"
+        "pct": 75,
+        "letter": "B"
       }
     },
     "mock_uid_student_it_7_gmail_com": {
-      "name": "Дана Касымов",
+      "name": "Нурлан Исаева",
       "email": "student.it.7@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 85,
+        "pct": 75,
         "letter": "B"
       }
     },
     "mock_uid_student_it_8_gmail_com": {
-      "name": "Айгерим Оспанов",
+      "name": "Гаухар Султанова",
       "email": "student.it.8@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 93,
-        "letter": "A"
+        "pct": 89,
+        "letter": "B"
       }
     },
     "mock_uid_student_it_9_gmail_com": {
-      "name": "Алия Аманжолов",
+      "name": "Алибек Султанова",
       "email": "student.it.9@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 70,
+        "pct": 74,
         "letter": "C"
       }
     },
     "mock_uid_student_it_10_gmail_com": {
-      "name": "Нурлан Ибрагимов",
+      "name": "Дана Оспанов",
       "email": "student.it.10@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
@@ -2893,84 +2633,84 @@
       }
     },
     "mock_uid_student_it_11_gmail_com": {
-      "name": "Мадина Ахметова",
+      "name": "Дана Аманжолов",
       "email": "student.it.11@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 98,
-        "letter": "A"
+        "pct": 72,
+        "letter": "C"
       }
     },
     "mock_uid_student_it_12_gmail_com": {
-      "name": "Гаухар Ахметова",
+      "name": "Алия Оспанов",
       "email": "student.it.12@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 72,
-        "letter": "C"
+        "pct": 82,
+        "letter": "B"
       }
     },
     "mock_uid_student_it_13_gmail_com": {
-      "name": "Алан Оспанов",
+      "name": "Дамир Оспанов",
       "email": "student.it.13@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 93,
+        "pct": 94,
         "letter": "A"
       }
     },
     "mock_uid_student_it_14_gmail_com": {
-      "name": "Алия Касымов",
+      "name": "Мадина Сапаров",
       "email": "student.it.14@gmail.com",
       "profession": "IT",
       "curator_id": "mock_uid_curator_it_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 72,
-        "letter": "C"
+        "pct": 85,
+        "letter": "B"
       }
     },
     "mock_uid_student_economics_0_gmail_com": {
-      "name": "Алия Ахметова",
+      "name": "Санжар Сапаров",
       "email": "student.economics.0@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 92,
-        "letter": "A"
+        "pct": 79,
+        "letter": "B"
       }
     },
     "mock_uid_student_economics_1_gmail_com": {
-      "name": "Алия Исаева",
+      "name": "Нурлан Султанова",
       "email": "student.economics.1@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 96,
-        "letter": "A"
+        "pct": 82,
+        "letter": "B"
       }
     },
     "mock_uid_student_economics_2_gmail_com": {
-      "name": "Нурлан Сапаров",
+      "name": "Мадина Султанова",
       "email": "student.economics.2@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 71,
-        "letter": "C"
+        "pct": 82,
+        "letter": "B"
       }
     },
     "mock_uid_student_economics_3_gmail_com": {
-      "name": "Дана Оспанов",
+      "name": "Алия Касымов",
       "email": "student.economics.3@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
@@ -2981,19 +2721,30 @@
       }
     },
     "mock_uid_student_economics_4_gmail_com": {
-      "name": "Айгерим Сапаров",
+      "name": "Дамир Исаева",
       "email": "student.economics.4@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 84,
-        "letter": "B"
+        "pct": 97,
+        "letter": "A"
       }
     },
     "mock_uid_student_economics_5_gmail_com": {
-      "name": "Дамир Ибрагимов",
+      "name": "Нурлан Сапаров",
       "email": "student.economics.5@gmail.com",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 94,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_economics_6_gmail_com": {
+      "name": "Алибек Сапаров",
+      "email": "student.economics.6@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
@@ -3002,9 +2753,20 @@
         "letter": "C"
       }
     },
-    "mock_uid_student_economics_6_gmail_com": {
-      "name": "Алан Оспанов",
-      "email": "student.economics.6@gmail.com",
+    "mock_uid_student_economics_7_gmail_com": {
+      "name": "Нурлан Аманжолов",
+      "email": "student.economics.7@gmail.com",
+      "profession": "Economics",
+      "curator_id": "mock_uid_curator_economics_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 77,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_economics_8_gmail_com": {
+      "name": "Нурлан Оспанов",
+      "email": "student.economics.8@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
@@ -3013,58 +2775,36 @@
         "letter": "B"
       }
     },
-    "mock_uid_student_economics_7_gmail_com": {
-      "name": "Мадина Ахметова",
-      "email": "student.economics.7@gmail.com",
-      "profession": "Economics",
-      "curator_id": "mock_uid_curator_economics_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 87,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_economics_8_gmail_com": {
-      "name": "Дана Оспанов",
-      "email": "student.economics.8@gmail.com",
-      "profession": "Economics",
-      "curator_id": "mock_uid_curator_economics_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 74,
-        "letter": "C"
-      }
-    },
     "mock_uid_student_economics_9_gmail_com": {
-      "name": "Алибек Султанова",
+      "name": "Алан Сапаров",
       "email": "student.economics.9@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 73,
-        "letter": "C"
+        "pct": 80,
+        "letter": "B"
       }
     },
     "mock_uid_student_economics_10_gmail_com": {
-      "name": "Алия Аманжолов",
+      "name": "Дамир Исаева",
       "email": "student.economics.10@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 85,
-        "letter": "B"
+        "pct": 92,
+        "letter": "A"
       }
     },
     "mock_uid_student_economics_11_gmail_com": {
-      "name": "Алия Ибрагимов",
+      "name": "Алибек Оспанов",
       "email": "student.economics.11@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 83,
+        "pct": 87,
         "letter": "B"
       }
     },
@@ -3075,34 +2815,34 @@
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 82,
-        "letter": "B"
+        "pct": 98,
+        "letter": "A"
       }
     },
     "mock_uid_student_economics_13_gmail_com": {
-      "name": "Гаухар Исаева",
+      "name": "Дамир Исаева",
       "email": "student.economics.13@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 89,
-        "letter": "B"
+        "pct": 92,
+        "letter": "A"
       }
     },
     "mock_uid_student_economics_14_gmail_com": {
-      "name": "Гаухар Аманжолов",
+      "name": "Дамир Оспанов",
       "email": "student.economics.14@gmail.com",
       "profession": "Economics",
       "curator_id": "mock_uid_curator_economics_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 94,
+        "pct": 91,
         "letter": "A"
       }
     },
     "mock_uid_student_medicine_0_gmail_com": {
-      "name": "Мадина Оспанов",
+      "name": "Айгерим Касымов",
       "email": "student.medicine.0@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
@@ -3113,19 +2853,8 @@
       }
     },
     "mock_uid_student_medicine_1_gmail_com": {
-      "name": "Гаухар Султанова",
+      "name": "Айгерим Исаева",
       "email": "student.medicine.1@gmail.com",
-      "profession": "Medicine",
-      "curator_id": "mock_uid_curator_medicine_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 85,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_medicine_2_gmail_com": {
-      "name": "Дамир Касымов",
-      "email": "student.medicine.2@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
       "attendance": {},
@@ -3134,8 +2863,19 @@
         "letter": "B"
       }
     },
+    "mock_uid_student_medicine_2_gmail_com": {
+      "name": "Санжар Аманжолов",
+      "email": "student.medicine.2@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 84,
+        "letter": "B"
+      }
+    },
     "mock_uid_student_medicine_3_gmail_com": {
-      "name": "Нурлан Касымов",
+      "name": "Алибек Оспанов",
       "email": "student.medicine.3@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
@@ -3146,30 +2886,52 @@
       }
     },
     "mock_uid_student_medicine_4_gmail_com": {
-      "name": "Нурлан Ибрагимов",
+      "name": "Гаухар Ахметова",
       "email": "student.medicine.4@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 73,
-        "letter": "C"
+        "pct": 79,
+        "letter": "B"
       }
     },
     "mock_uid_student_medicine_5_gmail_com": {
-      "name": "Айгерим Касымов",
+      "name": "Дамир Ахметова",
       "email": "student.medicine.5@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 87,
-        "letter": "B"
+        "pct": 72,
+        "letter": "C"
       }
     },
     "mock_uid_student_medicine_6_gmail_com": {
-      "name": "Дамир Оспанов",
+      "name": "Гаухар Ибрагимов",
       "email": "student.medicine.6@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 90,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_medicine_7_gmail_com": {
+      "name": "Нурлан Ибрагимов",
+      "email": "student.medicine.7@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_curator_medicine_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 77,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_medicine_8_gmail_com": {
+      "name": "Дамир Султанова",
+      "email": "student.medicine.8@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
       "attendance": {},
@@ -3178,114 +2940,92 @@
         "letter": "B"
       }
     },
-    "mock_uid_student_medicine_7_gmail_com": {
-      "name": "Гаухар Аманжолов",
-      "email": "student.medicine.7@gmail.com",
-      "profession": "Medicine",
-      "curator_id": "mock_uid_curator_medicine_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 74,
-        "letter": "C"
-      }
-    },
-    "mock_uid_student_medicine_8_gmail_com": {
-      "name": "Алибек Аманжолов",
-      "email": "student.medicine.8@gmail.com",
-      "profession": "Medicine",
-      "curator_id": "mock_uid_curator_medicine_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 73,
-        "letter": "C"
-      }
-    },
     "mock_uid_student_medicine_9_gmail_com": {
-      "name": "Дана Касымов",
+      "name": "Дана Аманжолов",
       "email": "student.medicine.9@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 89,
-        "letter": "B"
+        "pct": 90,
+        "letter": "A"
       }
     },
     "mock_uid_student_medicine_10_gmail_com": {
-      "name": "Гаухар Оспанов",
+      "name": "Алибек Аманжолов",
       "email": "student.medicine.10@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 94,
-        "letter": "A"
+        "pct": 82,
+        "letter": "B"
       }
     },
     "mock_uid_student_medicine_11_gmail_com": {
-      "name": "Дана Исаева",
+      "name": "Гаухар Ибрагимов",
       "email": "student.medicine.11@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 78,
+        "pct": 88,
         "letter": "B"
       }
     },
     "mock_uid_student_medicine_12_gmail_com": {
-      "name": "Гаухар Оспанов",
+      "name": "Нурлан Ахметова",
       "email": "student.medicine.12@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 97,
-        "letter": "A"
+        "pct": 79,
+        "letter": "B"
       }
     },
     "mock_uid_student_medicine_13_gmail_com": {
-      "name": "Санжар Аманжолов",
+      "name": "Алия Сапаров",
       "email": "student.medicine.13@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 75,
+        "pct": 83,
         "letter": "B"
       }
     },
     "mock_uid_student_medicine_14_gmail_com": {
-      "name": "Айгерим Ахметова",
+      "name": "Алибек Исаева",
       "email": "student.medicine.14@gmail.com",
       "profession": "Medicine",
       "curator_id": "mock_uid_curator_medicine_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 76,
+        "pct": 81,
         "letter": "B"
       }
     },
     "mock_uid_student_law_0_gmail_com": {
-      "name": "Алибек Султанова",
+      "name": "Гаухар Аманжолов",
       "email": "student.law.0@gmail.com",
       "profession": "Law",
       "curator_id": "mock_uid_curator_law_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 71,
-        "letter": "C"
+        "pct": 85,
+        "letter": "B"
       }
     },
     "mock_uid_student_law_1_gmail_com": {
-      "name": "Дамир Оспанов",
+      "name": "Нурлан Исаева",
       "email": "student.law.1@gmail.com",
       "profession": "Law",
       "curator_id": "mock_uid_curator_law_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 98,
-        "letter": "A"
+        "pct": 75,
+        "letter": "B"
       }
     },
     "mock_uid_student_law_2_gmail_com": {
@@ -3295,68 +3035,13 @@
       "curator_id": "mock_uid_curator_law_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 71,
+        "pct": 73,
         "letter": "C"
       }
     },
     "mock_uid_student_law_3_gmail_com": {
-      "name": "Санжар Сапаров",
+      "name": "Дамир Сапаров",
       "email": "student.law.3@gmail.com",
-      "profession": "Law",
-      "curator_id": "mock_uid_curator_law_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 84,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_law_4_gmail_com": {
-      "name": "Дана Исаева",
-      "email": "student.law.4@gmail.com",
-      "profession": "Law",
-      "curator_id": "mock_uid_curator_law_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 98,
-        "letter": "A"
-      }
-    },
-    "mock_uid_student_law_5_gmail_com": {
-      "name": "Алан Сапаров",
-      "email": "student.law.5@gmail.com",
-      "profession": "Law",
-      "curator_id": "mock_uid_curator_law_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 98,
-        "letter": "A"
-      }
-    },
-    "mock_uid_student_law_6_gmail_com": {
-      "name": "Алия Аманжолов",
-      "email": "student.law.6@gmail.com",
-      "profession": "Law",
-      "curator_id": "mock_uid_curator_law_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 90,
-        "letter": "A"
-      }
-    },
-    "mock_uid_student_law_7_gmail_com": {
-      "name": "Нурлан Сапаров",
-      "email": "student.law.7@gmail.com",
-      "profession": "Law",
-      "curator_id": "mock_uid_curator_law_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 74,
-        "letter": "C"
-      }
-    },
-    "mock_uid_student_law_8_gmail_com": {
-      "name": "Дамир Ибрагимов",
-      "email": "student.law.8@gmail.com",
       "profession": "Law",
       "curator_id": "mock_uid_curator_law_gmail_com",
       "attendance": {},
@@ -3365,42 +3050,9 @@
         "letter": "B"
       }
     },
-    "mock_uid_student_law_9_gmail_com": {
-      "name": "Санжар Оспанов",
-      "email": "student.law.9@gmail.com",
-      "profession": "Law",
-      "curator_id": "mock_uid_curator_law_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 84,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_law_10_gmail_com": {
-      "name": "Алибек Ахметова",
-      "email": "student.law.10@gmail.com",
-      "profession": "Law",
-      "curator_id": "mock_uid_curator_law_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 75,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_law_11_gmail_com": {
-      "name": "Алан Ибрагимов",
-      "email": "student.law.11@gmail.com",
-      "profession": "Law",
-      "curator_id": "mock_uid_curator_law_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 88,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_law_12_gmail_com": {
-      "name": "Мадина Султанова",
-      "email": "student.law.12@gmail.com",
+    "mock_uid_student_law_4_gmail_com": {
+      "name": "Дана Аманжолов",
+      "email": "student.law.4@gmail.com",
       "profession": "Law",
       "curator_id": "mock_uid_curator_law_gmail_com",
       "attendance": {},
@@ -3409,14 +3061,102 @@
         "letter": "C"
       }
     },
-    "mock_uid_student_law_13_gmail_com": {
+    "mock_uid_student_law_5_gmail_com": {
+      "name": "Алия Аманжолов",
+      "email": "student.law.5@gmail.com",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 94,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_law_6_gmail_com": {
+      "name": "Алибек Исаева",
+      "email": "student.law.6@gmail.com",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 86,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_7_gmail_com": {
+      "name": "Айгерим Сапаров",
+      "email": "student.law.7@gmail.com",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 72,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_law_8_gmail_com": {
+      "name": "Мадина Ибрагимов",
+      "email": "student.law.8@gmail.com",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 87,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_9_gmail_com": {
+      "name": "Гаухар Сапаров",
+      "email": "student.law.9@gmail.com",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 81,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_10_gmail_com": {
+      "name": "Дана Оспанов",
+      "email": "student.law.10@gmail.com",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 88,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_11_gmail_com": {
+      "name": "Алия Исаева",
+      "email": "student.law.11@gmail.com",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 77,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_law_12_gmail_com": {
       "name": "Нурлан Ибрагимов",
+      "email": "student.law.12@gmail.com",
+      "profession": "Law",
+      "curator_id": "mock_uid_curator_law_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 91,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_law_13_gmail_com": {
+      "name": "Дана Ибрагимов",
       "email": "student.law.13@gmail.com",
       "profession": "Law",
       "curator_id": "mock_uid_curator_law_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 85,
+        "pct": 86,
         "letter": "B"
       }
     },
@@ -3427,7 +3167,7 @@
       "curator_id": "mock_uid_curator_law_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 90,
+        "pct": 94,
         "letter": "A"
       }
     },
@@ -3438,134 +3178,35 @@
       "curator_id": "mock_uid_curator_design_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 91,
-        "letter": "A"
+        "pct": 71,
+        "letter": "C"
       }
     },
     "mock_uid_student_design_1_gmail_com": {
-      "name": "Санжар Сапаров",
+      "name": "Айгерим Ахметова",
       "email": "student.design.1@gmail.com",
       "profession": "Design",
       "curator_id": "mock_uid_curator_design_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 86,
+        "pct": 88,
         "letter": "B"
       }
     },
     "mock_uid_student_design_2_gmail_com": {
-      "name": "Санжар Оспанов",
+      "name": "Дана Ахметова",
       "email": "student.design.2@gmail.com",
       "profession": "Design",
       "curator_id": "mock_uid_curator_design_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 75,
+        "pct": 84,
         "letter": "B"
       }
     },
     "mock_uid_student_design_3_gmail_com": {
-      "name": "Алибек Касымов",
+      "name": "Санжар Султанова",
       "email": "student.design.3@gmail.com",
-      "profession": "Design",
-      "curator_id": "mock_uid_curator_design_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 88,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_design_4_gmail_com": {
-      "name": "Мадина Ахметова",
-      "email": "student.design.4@gmail.com",
-      "profession": "Design",
-      "curator_id": "mock_uid_curator_design_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 89,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_design_5_gmail_com": {
-      "name": "Алан Султанова",
-      "email": "student.design.5@gmail.com",
-      "profession": "Design",
-      "curator_id": "mock_uid_curator_design_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 88,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_design_6_gmail_com": {
-      "name": "Дамир Касымов",
-      "email": "student.design.6@gmail.com",
-      "profession": "Design",
-      "curator_id": "mock_uid_curator_design_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 87,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_design_7_gmail_com": {
-      "name": "Алия Ахметова",
-      "email": "student.design.7@gmail.com",
-      "profession": "Design",
-      "curator_id": "mock_uid_curator_design_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 80,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_design_8_gmail_com": {
-      "name": "Алан Сапаров",
-      "email": "student.design.8@gmail.com",
-      "profession": "Design",
-      "curator_id": "mock_uid_curator_design_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 82,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_design_9_gmail_com": {
-      "name": "Гаухар Исаева",
-      "email": "student.design.9@gmail.com",
-      "profession": "Design",
-      "curator_id": "mock_uid_curator_design_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 89,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_design_10_gmail_com": {
-      "name": "Алан Ибрагимов",
-      "email": "student.design.10@gmail.com",
-      "profession": "Design",
-      "curator_id": "mock_uid_curator_design_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 91,
-        "letter": "A"
-      }
-    },
-    "mock_uid_student_design_11_gmail_com": {
-      "name": "Дана Ибрагимов",
-      "email": "student.design.11@gmail.com",
-      "profession": "Design",
-      "curator_id": "mock_uid_curator_design_gmail_com",
-      "attendance": {},
-      "grade": {
-        "pct": 82,
-        "letter": "B"
-      }
-    },
-    "mock_uid_student_design_12_gmail_com": {
-      "name": "Айгерим Ибрагимов",
-      "email": "student.design.12@gmail.com",
       "profession": "Design",
       "curator_id": "mock_uid_curator_design_gmail_com",
       "attendance": {},
@@ -3574,26 +3215,145 @@
         "letter": "C"
       }
     },
-    "mock_uid_student_design_13_gmail_com": {
-      "name": "Алибек Исаева",
-      "email": "student.design.13@gmail.com",
+    "mock_uid_student_design_4_gmail_com": {
+      "name": "Дамир Аманжолов",
+      "email": "student.design.4@gmail.com",
       "profession": "Design",
       "curator_id": "mock_uid_curator_design_gmail_com",
       "attendance": {},
       "grade": {
-        "pct": 79,
+        "pct": 80,
         "letter": "B"
       }
     },
-    "mock_uid_student_design_14_gmail_com": {
+    "mock_uid_student_design_5_gmail_com": {
+      "name": "Алан Ибрагимов",
+      "email": "student.design.5@gmail.com",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 97,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_design_6_gmail_com": {
       "name": "Дамир Сапаров",
-      "email": "student.design.14@gmail.com",
+      "email": "student.design.6@gmail.com",
       "profession": "Design",
       "curator_id": "mock_uid_curator_design_gmail_com",
       "attendance": {},
       "grade": {
         "pct": 78,
         "letter": "B"
+      }
+    },
+    "mock_uid_student_design_7_gmail_com": {
+      "name": "Мадина Ахметова",
+      "email": "student.design.7@gmail.com",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 82,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_design_8_gmail_com": {
+      "name": "Гаухар Аманжолов",
+      "email": "student.design.8@gmail.com",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 84,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_design_9_gmail_com": {
+      "name": "Дамир Султанова",
+      "email": "student.design.9@gmail.com",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 75,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_design_10_gmail_com": {
+      "name": "Санжар Ибрагимов",
+      "email": "student.design.10@gmail.com",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 98,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_design_11_gmail_com": {
+      "name": "Гаухар Аманжолов",
+      "email": "student.design.11@gmail.com",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 70,
+        "letter": "C"
+      }
+    },
+    "mock_uid_student_design_12_gmail_com": {
+      "name": "Алибек Исаева",
+      "email": "student.design.12@gmail.com",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 95,
+        "letter": "A"
+      }
+    },
+    "mock_uid_student_design_13_gmail_com": {
+      "name": "Алан Аманжолов",
+      "email": "student.design.13@gmail.com",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 77,
+        "letter": "B"
+      }
+    },
+    "mock_uid_student_design_14_gmail_com": {
+      "name": "Дана Оспанов",
+      "email": "student.design.14@gmail.com",
+      "profession": "Design",
+      "curator_id": "mock_uid_curator_design_gmail_com",
+      "attendance": {},
+      "grade": {
+        "pct": 87,
+        "letter": "B"
+      }
+    }
+  },
+  "chats": {
+    "mock_uid_curator_it_gmail_com": {
+      "group": {
+        "push_3c95b60fc025": {
+          "sender_id": "mock_uid_student_it_1_gmail_com",
+          "sender_name": "Нурлан Оспанов",
+          "role": "student",
+          "text": "бүгін сабаққа кім келеді",
+          "timestamp": "2026-05-28T14:55:10.574401"
+        },
+        "push_a1d7f9c017e4": {
+          "sender_id": "mock_uid_student_it_1_gmail_com",
+          "sender_name": "Нурлан Оспанов",
+          "role": "student",
+          "text": "бүгін сабаққа кім келмейді",
+          "timestamp": "2026-05-28T14:55:22.036364"
+        }
       }
     }
   }
