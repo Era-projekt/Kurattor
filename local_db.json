@@ -1428,6 +1428,50 @@
       "role": "student",
       "profession": "Design",
       "password": "Kuraton2026!"
+    },
+    "mock_uid_nurlan_ospanov_gmail_com": {
+      "name": "Нурлан Оспанов",
+      "email": "nurlan.ospanov@gmail.com",
+      "role": "curator",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_madina_ibrahimova_gmail_com": {
+      "name": "Мадина Ибрагимова",
+      "email": "madina.ibrahimova@gmail.com",
+      "role": "curator",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_alibek_kasymov_gmail_com": {
+      "name": "Алибек Касымов",
+      "email": "alibek.kasymov@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "IT"
+    },
+    "mock_uid_aliya_saparova_gmail_com": {
+      "name": "Алия Сапарова",
+      "email": "aliya.saparova@gmail.com",
+      "role": "student",
+      "password": "Kuraton2026!",
+      "profession": "Medicine"
+    },
+    "mock_uid_ospan_kasymov_gmail_com": {
+      "name": "Оспан Касымов",
+      "email": "ospan.kasymov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "IT",
+      "child_id": "mock_uid_alibek_kasymov_gmail_com"
+    },
+    "mock_uid_damir_saparov_gmail_com": {
+      "name": "Дамир Сапаров",
+      "email": "damir.saparov@gmail.com",
+      "role": "parent",
+      "password": "Kuraton2026!",
+      "profession": "Medicine",
+      "child_id": "mock_uid_aliya_saparova_gmail_com"
     }
   },
   "curators": {
@@ -1660,6 +1704,24 @@
         "mock_uid_student_design_13_gmail_com": true,
         "mock_uid_student_design_14_gmail_com": true
       }
+    },
+    "mock_uid_nurlan_ospanov_gmail_com": {
+      "name": "Нурлан Оспанов",
+      "email": "nurlan.ospanov@gmail.com",
+      "profession": "IT",
+      "students": {
+        "mock_uid_alibek_kasymov_gmail_com": true
+      },
+      "student_count": 1
+    },
+    "mock_uid_madina_ibrahimova_gmail_com": {
+      "name": "Мадина Ибрагимова",
+      "email": "madina.ibrahimova@gmail.com",
+      "profession": "Medicine",
+      "students": {
+        "mock_uid_aliya_saparova_gmail_com": true
+      },
+      "student_count": 1
     }
   },
   "students": {
@@ -3312,6 +3374,38 @@
         "pct": 84,
         "letter": "B"
       }
+    },
+    "mock_uid_alibek_kasymov_gmail_com": {
+      "name": "Алибек Касымов",
+      "email": "alibek.kasymov@gmail.com",
+      "profession": "IT",
+      "curator_id": "mock_uid_nurlan_ospanov_gmail_com",
+      "parent_id": "mock_uid_ospan_kasymov_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": false,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 94,
+        "letter": "A"
+      }
+    },
+    "mock_uid_aliya_saparova_gmail_com": {
+      "name": "Алия Сапарова",
+      "email": "aliya.saparova@gmail.com",
+      "profession": "Medicine",
+      "curator_id": "mock_uid_madina_ibrahimova_gmail_com",
+      "parent_id": "mock_uid_damir_saparov_gmail_com",
+      "attendance": {
+        "2026-05-26": true,
+        "2026-05-27": true,
+        "2026-05-28": true
+      },
+      "grade": {
+        "pct": 98,
+        "letter": "A"
+      }
     }
   },
   "chats": {
@@ -3343,6 +3437,37 @@
           "timestamp": "2026-05-28T15:00:48.954897"
         }
       }
+    },
+    "direct": {
+      "mock_uid_student_design_10_kuraton_kz_mock_uid_student_medicine_0_gmail_com": {
+        "push_2171b7bc6669": {
+          "sender_id": "mock_uid_student_medicine_0_gmail_com",
+          "sender_name": "Айгерим Касымов",
+          "role": "student",
+          "text": "фывф",
+          "timestamp": "2026-05-28T15:11:11.721993"
+        }
+      }
+    }
+  },
+  "friends": {
+    "mock_uid_student_medicine_0_gmail_com": {
+      "mock_uid_student_design_10_kuraton_kz": true
+    },
+    "mock_uid_student_design_10_kuraton_kz": {
+      "mock_uid_student_medicine_0_gmail_com": true
+    }
+  },
+  "parents": {
+    "mock_uid_ospan_kasymov_gmail_com": {
+      "name": "Оспан Касымов",
+      "email": "ospan.kasymov@gmail.com",
+      "child_id": "mock_uid_alibek_kasymov_gmail_com"
+    },
+    "mock_uid_damir_saparov_gmail_com": {
+      "name": "Дамир Сапаров",
+      "email": "damir.saparov@gmail.com",
+      "child_id": "mock_uid_aliya_saparova_gmail_com"
     }
   }
 }
