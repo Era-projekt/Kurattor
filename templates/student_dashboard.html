@@ -59,11 +59,25 @@
         <div id="tab-schedule" class="tab-pane active">
             <div class="card overflow-x-auto p-4">
                 <div class="schedule-grid min-w-[800px]">
-                    <div class="sched-header" data-i18n="sched_time">Время</div><div class="sched-header" data-i18n="sched_mon">Пн</div><div class="sched-header" data-i18n="sched_tue">Вт</div><div class="sched-header" data-i18n="sched_wed">Ср</div><div class="sched-header" data-i18n="sched_thu">Чт</div><div class="sched-header" data-i18n="sched_fri">Пт</div><div class="sched-header" data-i18n="sched_sat">Сб</div>
-                    {% for h in range(8, 19) %}
-                    <div class="sched-cell text-center font-bold text-gray-400">{{ h }}:00</div>
+                    <div class="sched-header bg-slate-100 font-extrabold text-slate-700" data-i18n="sched_time">Время</div>
+                    <div class="sched-header" data-i18n="sched_mon">Пн</div>
+                    <div class="sched-header" data-i18n="sched_tue">Вт</div>
+                    <div class="sched-header" data-i18n="sched_wed">Ср</div>
+                    <div class="sched-header" data-i18n="sched_thu">Чт</div>
+                    <div class="sched-header" data-i18n="sched_fri">Пт</div>
+                    <div class="sched-header" data-i18n="sched_sat">Сб</div>
+                    
+                    {% for slot_time, slot_label in [
+                        ('09-00', '09:00 - 10:20'),
+                        ('10-30', '10:30 - 11:50'),
+                        ('12-00', '12:00 - 13:20'),
+                        ('13-30', '13:30 - 14:50')
+                    ] %}
+                    <div class="sched-cell flex items-center justify-center text-center font-extrabold text-slate-500 text-[10px] bg-slate-50/50 leading-tight border-r border-b border-slate-100">
+                        {{ slot_label }}
+                    </div>
                     {% for d in ['mon','tue','wed','thu','fri','sat'] %}
-                    <div id="cell-{{ d }}-{{ h }}" class="sched-cell p-2 min-h-[60px] border-r border-b"></div>
+                    <div id="cell-{{ d }}-{{ slot_time }}" class="sched-cell p-2 min-h-[96px] border-r border-b border-slate-100"></div>
                     {% endfor %}
                     {% endfor %}
                 </div>
@@ -310,11 +324,10 @@ const subjectThemes = {
 async function loadSchedule() {
     const res = await fetch('/api/get_schedule');
     const data = await res.json();
-    document.querySelectorAll('.sched-cell').forEach(c => c.innerHTML = '');
+    document.querySelectorAll('.sched-cell[id]').forEach(c => c.innerHTML = '');
     Object.entries(data.schedule || {}).forEach(([day, times]) => {
         Object.entries(times).forEach(([time, details]) => {
-            const h = parseInt(time.replace('-', ':').split(':')[0]);
-            const cell = document.getElementById(`cell-${day}-${h}`);
+            const cell = document.getElementById(`cell-${day}-${time}`);
             if (cell) {
                 const subLower = (details.subject || "").toLowerCase();
                 let themeClasses = "bg-slate-50 border-slate-400 text-slate-700 shadow-slate-100/50";
