@@ -89,22 +89,34 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             try {
-                // 1. Firebase Register
-                const cred = await firebase.auth().createUserWithEmailAndPassword(email, password);
-                const uid = cred.user.uid;
+                let uid = "local_uid_" + Math.random().toString(36).substr(2, 9);
+                try {
+                    // 1. Попытка регистрации в Firebase (для онлайн режима)
+                    const cred = await firebase.auth().createUserWithEmailAndPassword(email, password);
+                    uid = cred.user.uid;
+                } catch (fbErr) {
+                    console.log("Firebase registration skipped/failed, proceeding locally:", fbErr);
+                }
 
                 // 2. Flask DB Save
                 const res = await fetch("/api/register", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ 
-                        uid, role, name, profession, email, 
+                        uid, role, name, profession, email, password,
                         curator_id, child_id 
                     })
                 });
                 const data = await res.json();
                 
                 if (data.success) {
+                    // Симулируем локальный вход сразу после регистрации
+                    await fetch("/api/login", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ email, password })
+                    });
+
                     // Redirect based on role
                     if (role === 'student') location.href = '/student';
                     else if (role === 'curator') location.href = '/curator';
@@ -113,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     showError(data.error);
                 }
             } catch (err) {
-                showError(err.message);
+                showError(err.message || "Ошибка при регистрации");
             }
         });
     }

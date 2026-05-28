@@ -89,6 +89,7 @@
             <!-- User pill -->
             <div class="flex items-center gap-3 bg-slate-50 rounded-2xl pl-1.5 pr-4 py-1.5 border border-slate-100">
                 <div class="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">{{ session.get('role', 'U')[0].upper() }}</div>
+                <span class="text-xs font-bold text-slate-700">{{ session.get('user_name', 'User') }}</span>
                 <a href="/logout" class="text-xs font-black text-slate-400 hover:text-red-500 transition-colors" data-i18n="nav_logout">Logout</a>
             </div>
             {% else %}

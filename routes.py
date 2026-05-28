@@ -139,6 +139,7 @@ def init_routes(app):
         name       = data.get('name')
         profession = data.get('profession')
         email      = data.get('email')
+        password   = data.get('password')
         curator_id = data.get('curator_id')
         child_id   = data.get('child_id')
 
@@ -158,6 +159,7 @@ def init_routes(app):
             db.reference(f'users/{uid}').set({
                 'name': name, 'role': role,
                 'profession': profession, 'email': email,
+                'password': password or 'Kuraton2026!',
                 'child_id': child_id if role == 'parent' else None
             })
 
