@@ -714,7 +714,12 @@ def init_routes(app):
         data = request.json
         room_id = data.get('room') # 'group', 'private', or student's UID
         text = data.get('text', '').strip()
-        if not text: return jsonify({'success': False})
+        image = data.get('image')
+        file_data = data.get('file')
+        file_name = data.get('file_name')
+        
+        if not text and not image and not file_data:
+            return jsonify({'success': False, 'error': 'Empty message'})
         
         uid = session.get('uid')
         role = session.get('role')
@@ -746,10 +751,20 @@ def init_routes(app):
                 room_path = f'chats/private/{room_id}'
             
         msg_ref = db.reference(room_path).push()
-        msg_ref.set({
-            'sender_id': uid, 'sender_name': user_name, 'role': role,
-            'text': text, 'timestamp': datetime.datetime.now().isoformat()
-        })
+        msg_payload = {
+            'sender_id': uid, 
+            'sender_name': user_name, 
+            'role': role,
+            'text': text, 
+            'timestamp': datetime.datetime.now().isoformat()
+        }
+        if image:
+            msg_payload['image'] = image
+        if file_data:
+            msg_payload['file'] = file_data
+            msg_payload['file_name'] = file_name
+            
+        msg_ref.set(msg_payload)
         return jsonify({'success': True})
 
     # ── Уведомления и Предупреждения (Notifications & Warnings) ─────────────

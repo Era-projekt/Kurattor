@@ -293,6 +293,85 @@ async function submitPasswordChange() {
         errorEl.classList.remove('hidden');
     }
 }
+
+// ---------- Notification System ----------
+const notificationBtn = document.getElementById('notification-btn');
+const notificationDropdown = document.getElementById('notification-dropdown');
+const notificationCount = document.getElementById('notification-count');
+const notificationList = document.getElementById('notification-list');
+
+if (notificationBtn) {
+    notificationBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        notificationDropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('#notification-wrapper')) {
+            notificationDropdown.classList.add('hidden');
+        }
+    });
+
+    async function loadNotifications() {
+        try {
+            const res = await fetch('/api/get_notifications');
+            const data = await res.json();
+            if (data.success) {
+                // Update count
+                if (data.unread_count > 0) {
+                    notificationCount.innerText = data.unread_count;
+                    notificationCount.classList.remove('hidden');
+                } else {
+                    notificationCount.classList.add('hidden');
+                }
+
+                // Render list
+                if (!data.notifications || data.notifications.length === 0) {
+                    notificationList.innerHTML = `<div class="px-4 py-3 text-xs text-slate-400 text-center">Нет новых уведомлений</div>`;
+                } else {
+                    notificationList.innerHTML = data.notifications.map(n => {
+                        const icon = n.type === 'warning' ? '⚠️' : '🔔';
+                        const notifClass = n.read ? 'opacity-65 bg-white' : 'bg-indigo-50/30 font-bold';
+                        return `
+                            <div class="px-4 py-3 border-b border-slate-50 hover:bg-slate-50 cursor-pointer transition-colors ${notifClass}" onclick="handleNotificationClick('${n.id}', '${n.link || ''}')">
+                                <div class="flex gap-2">
+                                    <span class="text-sm">${icon}</span>
+                                    <div class="flex-1">
+                                        <p class="text-xs text-slate-800">${n.title || 'Уведомление'}</p>
+                                        <p class="text-[10px] text-slate-500 font-normal mt-0.5">${n.message || ''}</p>
+                                        <p class="text-[8px] text-slate-400 font-normal mt-1">${new Date(n.timestamp || Date.now()).toLocaleTimeString()}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+            }
+        } catch (err) {
+            console.error("Error loading notifications:", err);
+        }
+    }
+
+    async function handleNotificationClick(id, link) {
+        try {
+            await fetch('/api/mark_notification_read', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ notification_id: id })
+            });
+            loadNotifications();
+            if (link) {
+                window.location.href = link;
+            }
+        } catch (err) {
+            console.error("Error marking notification read:", err);
+        }
+    }
+
+    // Load initially and set interval
+    loadNotifications();
+    setInterval(loadNotifications, 5000);
+}
 </script>
 
 <!-- ══════════ SCRIPTS ══════════ -->

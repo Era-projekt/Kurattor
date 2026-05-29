@@ -187,14 +187,40 @@
                         <!-- Dynamic friends will be loaded here -->
                     </div>
                 </div>
-                <div class="chat-main">
+                <div class="chat-main relative">
                     <div class="p-4 border-b bg-white flex justify-between items-center">
                         <h3 id="chat-title" class="font-bold text-gray-900" data-i18n="chat_title_group">Групповой чат</h3>
                     </div>
                     <div id="chat-box" class="chat-messages p-4"></div>
-                    <div class="p-4 bg-white border-t flex gap-2">
-                        <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="Введите сообщение..." class="flex-1 bg-slate-50 border-0 rounded-xl px-4 py-2 outline-none" onkeydown="if(event.key==='Enter') sendMessage()">
-                        <button onclick="sendMessage()" class="btn btn-primary px-4 py-2 rounded-xl" data-i18n="chat_send">Отправить</button>
+                    
+                    <!-- Preview for selected attachment -->
+                    <div id="chat-attachment-preview" class="px-4 py-2 bg-slate-50 border-t flex items-center justify-between hidden">
+                        <div class="flex items-center gap-2">
+                            <span id="preview-file-icon">📎</span>
+                            <span id="preview-file-name" class="text-xs font-bold text-slate-700 truncate max-w-[200px]">file.pdf</span>
+                        </div>
+                        <button onclick="clearAttachment()" class="text-red-500 hover:text-red-700 text-xs font-bold">Удалить</button>
+                    </div>
+
+                    <div class="p-4 bg-white border-t flex gap-2 items-center relative">
+                        <!-- Attachment button -->
+                        <button onclick="triggerChatAttachment()" class="p-2.5 bg-slate-50 hover:bg-slate-100 rounded-xl text-slate-500 transition-all outline-none" title="Прикрепить файл">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+                        </button>
+                        <input type="file" id="chat-file-input" class="hidden" onchange="handleChatFileSelect(event)">
+
+                        <!-- Emoji picker button -->
+                        <button onclick="toggleEmojiPicker(event)" id="emoji-btn" class="p-2.5 bg-slate-50 hover:bg-slate-100 rounded-xl text-slate-500 transition-all outline-none" title="Смайлики">
+                            😀
+                        </button>
+
+                        <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="Введите сообщение..." class="flex-1 bg-slate-50 border-0 rounded-xl px-4 py-2.5 outline-none text-sm" onkeydown="if(event.key==='Enter') sendMessage()">
+                        <button onclick="sendMessage()" class="btn btn-primary px-5 py-2.5 rounded-xl font-bold text-xs" data-i18n="chat_send">Отправить</button>
+                        
+                        <!-- Floating Emoji Picker -->
+                        <div id="emoji-picker" class="absolute bottom-20 left-16 bg-white border border-slate-100 rounded-3xl p-3 shadow-2xl hidden grid grid-cols-6 gap-1.5 z-50 w-52 max-h-48 overflow-y-auto">
+                            <!-- Emojis populated by JS -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -422,26 +448,171 @@ async function loadChat() {
     const data = await res.json();
     const box = document.getElementById('chat-box');
     const myId = "{{ session['uid'] }}";
-    box.innerHTML = Object.values(data.messages || {}).map(m => `
-        <div class="msg ${m.sender_id === myId ? 'msg-out' : 'msg-in'}">
-            <div class="flex justify-between items-center gap-4 mb-1">
-                <span class="text-[9px] font-bold opacity-60">${m.sender_name}</span>
-                <span class="text-[8px] opacity-40">${new Date(m.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+    box.innerHTML = Object.values(data.messages || {}).map(m => {
+        let contentHtml = '';
+        if (m.text) {
+            contentHtml += `<p class="text-sm">${m.text}</p>`;
+        }
+        if (m.image) {
+            contentHtml += `<img src="${m.image}" class="max-w-[200px] rounded-xl mt-2 border border-slate-100 shadow-sm cursor-pointer" onclick="window.open('${m.image}', '_blank')">`;
+        }
+        if (m.file) {
+            contentHtml += `
+                <div class="flex items-center gap-2 mt-2 p-2 bg-black/5 rounded-xl max-w-xs border border-black/5">
+                    <span class="text-base">📄</span>
+                    <div class="min-w-0 flex-1">
+                        <p class="text-xs font-bold truncate text-slate-800">${m.file_name || 'файл'}</p>
+                    </div>
+                    <a href="${m.file}" download="${m.file_name || 'file'}" class="p-1 bg-white hover:bg-slate-100 rounded-lg text-[10px] font-bold shadow-sm no-underline text-slate-700">💾</a>
+                </div>
+            `;
+        }
+        
+        return `
+            <div class="msg ${m.sender_id === myId ? 'msg-out' : 'msg-in'}">
+                <div class="flex justify-between items-center gap-4 mb-1">
+                    <span class="text-[9px] font-bold opacity-60">${m.sender_name}</span>
+                    <span class="text-[8px] opacity-40">${new Date(m.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                </div>
+                ${contentHtml}
             </div>
-            <p class="text-sm">${m.text}</p>
-        </div>
-    `).join('');
+        `;
+    }).join('');
     box.scrollTop = box.scrollHeight;
 }
 
+let selectedAttachment = null;
+
+function triggerChatAttachment() {
+    document.getElementById('chat-file-input').click();
+}
+
+function handleChatFileSelect(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    if (file.size > 5 * 1024 * 1024) {
+        return alert("Файл слишком большой. Максимальный размер - 5MB.");
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const base64 = e.target.result;
+        
+        if (file.type.startsWith('image/')) {
+            const img = new Image();
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                const maxW = 500;
+                let w = img.width;
+                let h = img.height;
+                if (w > maxW) {
+                    h = Math.round((h * maxW) / w);
+                    w = maxW;
+                }
+                
+                canvas.width = w;
+                canvas.height = h;
+                ctx.drawImage(img, 0, 0, w, h);
+                
+                selectedAttachment = {
+                    type: 'image',
+                    data: canvas.toDataURL('image/jpeg', 0.7),
+                    name: file.name
+                };
+                
+                showAttachmentPreview();
+            };
+            img.src = base64;
+        } else {
+            selectedAttachment = {
+                type: 'file',
+                data: base64,
+                name: file.name
+            };
+            showAttachmentPreview();
+        }
+    };
+    reader.readAsDataURL(file);
+}
+
+function showAttachmentPreview() {
+    const preview = document.getElementById('chat-attachment-preview');
+    const nameEl = document.getElementById('preview-file-name');
+    const iconEl = document.getElementById('preview-file-icon');
+    
+    if (preview && nameEl && iconEl) {
+        nameEl.innerText = selectedAttachment.name;
+        iconEl.innerText = selectedAttachment.type === 'image' ? '📷' : '📄';
+        preview.classList.remove('hidden');
+    }
+}
+
+function clearAttachment() {
+    selectedAttachment = null;
+    document.getElementById('chat-file-input').value = '';
+    const preview = document.getElementById('chat-attachment-preview');
+    if (preview) preview.classList.add('hidden');
+}
+
+function toggleEmojiPicker(e) {
+    e.stopPropagation();
+    const picker = document.getElementById('emoji-picker');
+    if (picker) {
+        picker.classList.toggle('hidden');
+        if (!picker.classList.contains('hidden')) {
+            const emojis = ["😀", "😂", "😍", "👍", "🔥", "🎉", "🚀", "❤️", "👏", "🎓", "🤔", "😎", "👀", "🙌", "🌟", "💡", "💻", "📚", "✍️", "✅", "❌", "😱", "😢", "😡"];
+            picker.innerHTML = emojis.map(emoji => `
+                <button onclick="insertEmoji('${emoji}')" class="text-lg hover:scale-125 transition-transform p-1 outline-none">${emoji}</button>
+            `).join('');
+        }
+    }
+}
+
+function insertEmoji(emoji) {
+    const input = document.getElementById('chat-input');
+    if (input) {
+        input.value += emoji;
+        input.focus();
+    }
+    const picker = document.getElementById('emoji-picker');
+    if (picker) picker.classList.add('hidden');
+}
+
+document.addEventListener('click', (e) => {
+    const picker = document.getElementById('emoji-picker');
+    if (picker && !e.target.closest('#emoji-picker') && !e.target.closest('#emoji-btn')) {
+        picker.classList.add('hidden');
+    }
+});
+
 async function sendMessage() {
     const input = document.getElementById('chat-input');
-    if (!input.value.trim()) return;
+    const textVal = input.value.trim();
+    
+    if (!textVal && !selectedAttachment) return;
+    
+    const payload = { room: currentRoom, text: textVal };
+    if (selectedAttachment) {
+        if (selectedAttachment.type === 'image') {
+            payload.image = selectedAttachment.data;
+        } else {
+            payload.file = selectedAttachment.data;
+            payload.file_name = selectedAttachment.name;
+        }
+    }
+    
     await fetch('/api/send_message', {
-        method: 'POST', headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({ room: currentRoom, text: input.value })
+        method: 'POST', 
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(payload)
     });
-    input.value = ''; loadChat();
+    
+    input.value = ''; 
+    clearAttachment();
+    loadChat();
 }
 
 async function loadFriendsList() {
