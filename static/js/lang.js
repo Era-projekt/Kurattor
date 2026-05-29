@@ -287,6 +287,12 @@ const translations = {
         att_present:       "✓ Қатысты",
         att_absent:        "✗ Қатыспады",
         
+        // Tabs
+        tab_students:      "Студенттер",
+        tab_schedule:      "Сабақ кестесі",
+        tab_library:       "Кітапхана",
+        tab_chat:          "Чат және хабарламалар",
+        
         // Library
         lib_materials: "Оқу материалдары",
         lib_upload_btn: "Файлды жүктеу",
@@ -370,6 +376,9 @@ document.addEventListener("DOMContentLoaded", () => {
             lang = e.target.value;
             localStorage.setItem("kuraton_lang", lang);
             window.applyTranslations();
+            if (typeof loadLibrary === "function") {
+                loadLibrary();
+            }
         });
     }
 

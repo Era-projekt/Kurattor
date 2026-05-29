@@ -4,9 +4,16 @@ from firebase_admin import credentials, db
 def init_firebase():
     """Инициализация Firebase Admin SDK: Финальная попытка исправления с локальным фоллбэком"""
     import json
+    import os
     try:
-        with open("kuraton-firebase-adminsdk-fbsvc-0ce5270aaf.json", "r") as f:
-            si = json.load(f)
+        # Проверяем переменную окружения FIREBASE_CREDENTIALS (удобно для Render)
+        env_credentials = os.environ.get("FIREBASE_CREDENTIALS")
+        if env_credentials:
+            si = json.loads(env_credentials)
+            print("Обнаружены Firebase учетные данные в переменной окружения!")
+        else:
+            with open("kuraton-firebase-adminsdk-fbsvc-0ce5270aaf.json", "r") as f:
+                si = json.load(f)
         
         # Силовое форматирование ключа
         pk = si.get("private_key", "")
@@ -18,7 +25,7 @@ def init_firebase():
         
         # Инициализация с явным указанием проекта из JSON
         firebase_admin.initialize_app(cred, {
-            'databaseURL': 'https://kuraton-default-rtdb.firebaseio.com',
+            'databaseURL': os.environ.get('FIREBASE_DATABASE_URL', 'https://kuraton-default-rtdb.firebaseio.com'),
             'projectId': si.get('project_id')
         })
         print(f"Firebase Admin SDK успешно инициализирован для проекта: {si.get('project_id')}")

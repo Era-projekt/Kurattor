@@ -679,13 +679,27 @@ def init_routes(app):
             return "File not found", 404
         
         base64_data = info.get('url')
-        if not base64_data:
+        raw_base64 = info.get('data')
+        
+        if not base64_data and not raw_base64:
             return "File data not found", 404
             
         try:
-            header, encoded = base64_data.split(",", 1)
-            mime = header.split(";")[0].split(":")[1]
-            content = base64.b64decode(encoded)
+            if base64_data:
+                if base64_data.startswith('data:'):
+                    header, encoded = base64_data.split(",", 1)
+                    mime = header.split(";")[0].split(":")[1]
+                    content = base64.b64decode(encoded)
+                else:
+                    return redirect(base64_data)
+            else:
+                ext = info.get('type', 'pdf').lower()
+                mime = 'application/pdf' if ext == 'pdf' else \
+                       'application/vnd.ms-powerpoint' if ext == 'ppt' else \
+                       'video/mp4' if ext == 'mp4' or ext == 'vid' else \
+                       'application/msword' if ext == 'doc' or ext == 'docx' else \
+                       'application/octet-stream'
+                content = base64.b64decode(raw_base64)
             
             from flask import Response
             resp = Response(content, mimetype=mime)
@@ -702,13 +716,27 @@ def init_routes(app):
             return "File not found", 404
         
         base64_data = info.get('url')
-        if not base64_data:
+        raw_base64 = info.get('data')
+        
+        if not base64_data and not raw_base64:
             return "File data not found", 404
             
         try:
-            header, encoded = base64_data.split(",", 1)
-            mime = header.split(";")[0].split(":")[1]
-            content = base64.b64decode(encoded)
+            if base64_data:
+                if base64_data.startswith('data:'):
+                    header, encoded = base64_data.split(",", 1)
+                    mime = header.split(";")[0].split(":")[1]
+                    content = base64.b64decode(encoded)
+                else:
+                    return redirect(base64_data)
+            else:
+                ext = info.get('type', 'pdf').lower()
+                mime = 'application/pdf' if ext == 'pdf' else \
+                       'application/vnd.ms-powerpoint' if ext == 'ppt' else \
+                       'video/mp4' if ext == 'mp4' or ext == 'vid' else \
+                       'application/msword' if ext == 'doc' or ext == 'docx' else \
+                       'application/octet-stream'
+                content = base64.b64decode(raw_base64)
             
             from flask import Response
             resp = Response(content, mimetype=mime)
