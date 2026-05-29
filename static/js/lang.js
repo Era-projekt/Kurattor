@@ -167,6 +167,22 @@ const translations = {
         chatbot_greeting: "Сәлем! Мен Kuraton AI-помощникімін. Чем могу помочь?",
         chatbot_placeholder: "Введите сообщение...",
         footer_text:      "© 2026 Kuraton. Все права защищены.",
+
+        // Extra Dashboard Translations
+        std_misses_count: "Пропусков",
+        std_visited_lessons: "Посещено занятий",
+        std_total_lessons: "Всего занятий",
+        std_your_curator: "Ваш куратор",
+        std_curator_chat: "Чат с куратором",
+        std_parent_connection: "Родительская связь",
+        std_parent_active: "Общий доступ активен",
+        std_parent_not_linked: "Родитель не привязан",
+        nav_dashboard_title: "Мой профиль",
+        chat_rooms: "Комнаты",
+        chat_personal: "Личные чаты",
+        th_parent: "Родитель",
+        chat_contacts: "Контакты",
+        chat_all_flow: "Весь поток",
     },
 
     kk: {
@@ -309,6 +325,22 @@ const translations = {
         chatbot_greeting:    "Сəлем! Мен Kuraton AI-көмекшісімін. Қандай сұрақ бар?",
         chatbot_placeholder: "Хабарлама жазыңыз...",
         footer_text:         "© 2026 Kuraton. Барлық құқықтар қорғалған.",
+
+        // Extra Dashboard Translations
+        std_misses_count: "Қатыспағандар саны",
+        std_visited_lessons: "Қатысқан сабақтар",
+        std_total_lessons: "Барлық сабақтар",
+        std_your_curator: "Сіздің кураторыңыз",
+        std_curator_chat: "Куратормен чат",
+        std_parent_connection: "Ата-анамен байланыс",
+        std_parent_active: "Ортақ рұқсат белсенді",
+        std_parent_not_linked: "Ата-ана байланыспаған",
+        nav_dashboard_title: "Менің профилім",
+        chat_rooms: "Бөлмелер",
+        chat_personal: "Жеке чаттар",
+        th_parent: "Ата-ана",
+        chat_contacts: "Байланыстар",
+        chat_all_flow: "Барлық ағын",
     }
 };
 

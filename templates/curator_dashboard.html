@@ -260,11 +260,11 @@
         <div id="tab-chat" class="tab-pane hidden">
             <div class="chat-container">
                 <div class="chat-sidebar">
-                    <div class="p-4 border-b font-bold text-xs uppercase tracking-widest text-gray-400">Контакты</div>
+                    <div class="p-4 border-b font-bold text-xs uppercase tracking-widest text-gray-400" data-i18n="chat_contacts">Контакты</div>
                     <div class="flex-1 overflow-y-auto">
                         <div onclick="switchChat('group')" id="chat-group" class="p-4 border-b cursor-pointer hover:bg-slate-100 active-room bg-slate-50 border-l-4 border-primary">
-                            <p class="font-bold text-sm">Групповой чат</p>
-                            <p class="text-[10px] text-primary font-bold">Весь поток</p>
+                            <p class="font-bold text-sm" data-i18n="chat_title_group">Групповой чат</p>
+                            <p class="text-[10px] text-primary font-bold" data-i18n="chat_all_flow">Весь поток</p>
                         </div>
                         {% for s in students_list %}
                         <div onclick="switchChat('{{ s.uid }}', '{{ s.name }}')" id="chat-{{ s.uid }}" class="p-4 border-b cursor-pointer hover:bg-slate-100">

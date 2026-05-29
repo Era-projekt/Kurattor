@@ -42,8 +42,8 @@
         <!-- Header -->
         <div class="flex items-center justify-between mb-8">
             <div>
-                <h1 class="text-2xl font-extrabold text-gray-900">Мой профиль</h1>
-                <p class="text-gray-400 text-sm mt-1">Специальность: <strong class="text-gray-600" id="user-prof">{{ user.profession }}</strong></p>
+                <h1 class="text-2xl font-extrabold text-gray-900" data-i18n="nav_dashboard_title">Мой профиль</h1>
+                <p class="text-gray-400 text-sm mt-1"><span data-i18n="label_profession">Специальность:</span> <strong class="text-gray-600" id="user-prof">{{ user.profession }}</strong></p>
             </div>
             <div class="flex gap-2" id="notif-indicator"></div>
         </div>
@@ -90,25 +90,25 @@
                 <div class="card p-6 lg:col-span-2 flex flex-col md:flex-row items-center gap-8">
                     <div class="w-40 h-40 rounded-full border-[10px] border-red-100 flex flex-col items-center justify-center shadow-lg shadow-red-100/30">
                         <p class="text-5xl font-black text-red-500 leading-none">{{ absences_count }}</p>
-                        <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold mt-1">Пропусков</p>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold mt-1" data-i18n="std_misses_count">Пропусков</p>
                     </div>
                     <div class="flex-1 space-y-4 w-full">
                         <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
                             <div class="flex justify-between items-center mb-1">
-                                <span class="text-xs font-bold text-gray-400 uppercase">Посещено занятий</span>
+                                <span class="text-xs font-bold text-gray-400 uppercase" data-i18n="std_visited_lessons">Посещено занятий</span>
                                 <span class="text-sm font-black text-primary">{{ attended_count }}</span>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
                             <div class="bg-red-50/50 p-4 rounded-2xl border border-red-100/50">
                                 <div>
-                                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide">Пропущено</p>
+                                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide" data-i18n="std_missed_label">Пропущено</p>
                                     <p class="text-2xl font-extrabold text-red-500">{{ absences_count }}</p>
                                 </div>
                             </div>
                             <div class="bg-indigo-50/50 p-4 rounded-2xl border border-indigo-100/50">
                                 <div>
-                                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide">Всего занятий</p>
+                                    <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide" data-i18n="std_total_lessons">Всего занятий</p>
                                     <p class="text-2xl font-extrabold text-indigo-600">{{ attended_count + absences_count }}</p>
                                 </div>
                             </div>
@@ -118,24 +118,24 @@
 
                 <!-- Curator Card -->
                 <div class="card p-6 bg-gradient-to-br from-indigo-600 to-indigo-800 text-white min-h-[220px] flex flex-col">
-                    <p class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-4">Ваш куратор</p>
+                    <p class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-4" data-i18n="std_your_curator">Ваш куратор</p>
                     {% if curator %}
                     <div class="flex items-center gap-4 mb-auto">
                         <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-xl font-bold">{{ curator.name[0] }}</div>
                         <div><p class="font-bold text-lg leading-none">{{ curator.name }}</p><p class="text-xs opacity-70 mt-1">{{ curator.profession }}</p></div>
                     </div>
-                    <button onclick="openPrivateChat()" class="btn bg-white/20 hover:bg-white/30 text-white border-0 mt-6 font-bold text-xs">Чат с куратором</button>
+                    <button onclick="openPrivateChat()" class="btn bg-white/20 hover:bg-white/30 text-white border-0 mt-6 font-bold text-xs" data-i18n="std_curator_chat">Чат с куратором</button>
                     {% else %}
                     <div class="flex-1 flex flex-col items-center justify-center text-center opacity-70">
-                        <p class="text-xs font-bold">Куратор не назначен</p>
-                        <button onclick="window.location.href='/search'" class="btn btn-xs bg-white text-indigo-600 border-0 mt-4">Найти</button>
+                        <p class="text-xs font-bold" data-i18n="std_no_curator_msg">Куратор не назначен</p>
+                        <button onclick="window.location.href='/search'" class="btn btn-xs bg-white text-indigo-600 border-0 mt-4" data-i18n="nav_search">Найти</button>
                     </div>
                     {% endif %}
                 </div>
 
                 <!-- Parent Card -->
                 <div class="card p-6 bg-white border-slate-100 min-h-[220px] flex flex-col shadow-sm">
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Родительская связь</p>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4" data-i18n="std_parent_connection">Родительская связь</p>
                     {% if parent %}
                     <div class="flex items-center gap-4 mb-auto">
                         <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-xl font-bold">{{ parent.name[0] }}</div>
@@ -146,14 +146,14 @@
                     </div>
                     <div class="mt-6 flex items-center gap-2 text-emerald-600">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-[10px] font-bold uppercase">Общий доступ активен</span>
+                        <span class="text-[10px] font-bold uppercase" data-i18n="std_parent_active">Общий доступ активен</span>
                     </div>
                     {% else %}
                     <div class="flex-1 flex flex-col items-center justify-center text-center">
                         <div class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 mb-2">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                         </div>
-                        <p class="text-[10px] text-slate-400 font-bold uppercase leading-tight">Родитель не привязан</p>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase leading-tight" data-i18n="std_parent_not_linked">Родитель не привязан</p>
                     </div>
                     {% endif %}
                 </div>
@@ -174,15 +174,15 @@
         <div id="tab-chat" class="tab-pane hidden">
             <div class="chat-container">
                 <div class="chat-sidebar">
-                    <div class="p-4 border-b font-bold text-xs text-gray-400 uppercase">Комнаты</div>
+                    <div class="p-4 border-b font-bold text-xs text-gray-400 uppercase" data-i18n="chat_rooms">Комнаты</div>
                     <div onclick="switchChat('group')" id="chat-group" class="p-4 border-b cursor-pointer hover:bg-slate-50 active-room bg-indigo-50 border-l-4 border-primary">
-                        <p class="font-bold text-sm">Групповой чат</p>
+                        <p class="font-bold text-sm" data-i18n="chat_title_group">Групповой чат</p>
                     </div>
                     <div onclick="switchChat('private')" id="chat-private" class="p-4 border-b cursor-pointer hover:bg-slate-50">
-                        <p class="font-bold text-sm">Чат с куратором</p>
+                        <p class="font-bold text-sm" data-i18n="std_curator_chat">Чат с куратором</p>
                     </div>
                     
-                    <div class="p-4 border-b font-bold text-xs text-gray-400 uppercase">Личные чаты</div>
+                    <div class="p-4 border-b font-bold text-xs text-gray-400 uppercase" data-i18n="chat_personal">Личные чаты</div>
                     <div id="friends-chat-list" class="flex flex-col">
                         <!-- Dynamic friends will be loaded here -->
                     </div>
