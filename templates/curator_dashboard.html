@@ -219,7 +219,7 @@
                 </button>
             </div>
             
-            <input type="file" id="real-file-input" class="hidden" onchange="handleFileSelect(event)">
+            <input type="file" id="real-file-input" class="hidden" accept=".pdf" onchange="handleFileSelect(event)">
             
             <div id="file-list" class="file-grid"></div>
         </div>
@@ -455,20 +455,19 @@ async function loadLibrary() {
     const res = await fetch('/api/get_files');
     const files = await res.json();
     const list = document.getElementById('file-list');
-    const lang = localStorage.getItem('kuraton_lang') || 'ru';
-    const tr = translations[lang] || translations['ru'];
-    const icons = { 'pdf': '📄', 'ppt': '📊', 'vid': '🎬', 'doc': '📝' };
     
     list.innerHTML = files.map(f => {
-        const typeLabel = tr[`lib_type_${f.type}`] || f.type;
         return `
-            <div class="file-card file-${f.type} p-4 bg-white border border-gray-100 rounded-2xl shadow-sm">
-                <span class="file-icon">${icons[f.type] || '📄'}</span>
-                <p class="font-bold text-xs truncate mt-2">${f.name}</p>
-                <p class="text-[9px] text-gray-400 capitalize">${typeLabel} · ${f.date}</p>
-                <div class="flex justify-between items-center mt-3">
-                    <a href="${f.url}" target="_blank" class="text-[10px] font-bold text-primary uppercase tracking-wider">${tr.lib_open_btn}</a>
-                    <button onclick="deleteFile('${f.id}')" class="text-[9px] font-bold text-red-500 hover:text-red-700 transition-colors uppercase tracking-wider">×</button>
+            <div class="file-card file-pdf p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col h-full justify-between">
+                <div class="relative">
+                    <button onclick="deleteFile('${f.id}')" class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-red-50 hover:bg-red-100 text-red-500 hover:text-red-700 flex items-center justify-center font-bold text-sm transition-all" title="Удалить файл">×</button>
+                    <span class="file-icon">📄</span>
+                    <p class="font-bold text-xs truncate mt-2 text-slate-800 pr-6" title="${f.name}">${f.name}</p>
+                    <p class="text-[9px] text-gray-400 mt-1">PDF · ${f.date}</p>
+                </div>
+                <div class="flex gap-2 mt-4 pt-2 border-t border-slate-50">
+                    <a href="${f.view_url}" target="_blank" class="flex-1 py-1.5 bg-indigo-50 hover:bg-indigo-100 rounded-lg text-[9px] font-black text-center text-indigo-600 no-underline transition-colors uppercase tracking-wider">Открыть</a>
+                    <a href="${f.download_url}" class="flex-1 py-1.5 bg-slate-50 hover:bg-slate-100 rounded-lg text-[9px] font-black text-center text-slate-600 no-underline transition-colors uppercase tracking-wider">Скачать</a>
                 </div>
             </div>
         `;
@@ -503,6 +502,10 @@ function handleFileSelect(event) {
     const file = event.target.files[0];
     if (!file) return;
     
+    if (!file.name.toLowerCase().endsWith('.pdf')) {
+        return alert("Қате! Тек PDF форматтағы файлдарды жүктеуге рұқсат етілген!");
+    }
+    
     if (file.size > 10 * 1024 * 1024) {
         return alert("Файл слишком большой. Максимальный размер - 10MB.");
     }
@@ -514,13 +517,8 @@ function handleFileSelect(event) {
         // Show the upload modal and populate the name input
         document.getElementById('upload-name').value = file.name.split('.').slice(0, -1).join('.');
         
-        // Match file extension to dropdown option
-        const ext = file.name.split('.').pop().toLowerCase();
         const typeSelect = document.getElementById('upload-type');
-        if (ext === 'pdf') typeSelect.value = 'pdf';
-        else if (['ppt', 'pptx'].includes(ext)) typeSelect.value = 'ppt';
-        else if (['mp4', 'mov', 'avi'].includes(ext)) typeSelect.value = 'vid';
-        else typeSelect.value = 'doc';
+        if (typeSelect) typeSelect.value = 'pdf';
         
         document.getElementById('selected-file-name').innerText = file.name;
         

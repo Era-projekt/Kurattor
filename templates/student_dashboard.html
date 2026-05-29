@@ -394,18 +394,19 @@ async function loadLibrary() {
     const res = await fetch('/api/get_files');
     const files = await res.json();
     const list = document.getElementById('file-list');
-    const lang = localStorage.getItem('kuraton_lang') || 'ru';
-    const tr = translations[lang] || translations['ru'];
-    const icons = { 'pdf': '📄', 'ppt': '📊', 'vid': '🎬', 'doc': '📝' };
     
     list.innerHTML = files.map(f => {
-        const typeLabel = tr[`lib_type_${f.type}`] || f.type;
         return `
-            <div class="file-card file-${f.type} p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all">
-                <span class="file-icon">${icons[f.type] || '📄'}</span>
-                <p class="font-bold text-xs truncate mt-2">${f.name}</p>
-                <p class="text-[9px] text-gray-400 capitalize">${typeLabel} · ${f.date}</p>
-                <a href="${f.url}" target="_blank" class="text-[10px] font-bold text-indigo-600 mt-2 block uppercase tracking-wider">${tr.lib_open_btn}</a>
+            <div class="file-card file-pdf p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col h-full justify-between">
+                <div>
+                    <span class="file-icon">📄</span>
+                    <p class="font-bold text-xs truncate mt-2 text-slate-800" title="${f.name}">${f.name}</p>
+                    <p class="text-[9px] text-gray-400 mt-1">PDF · ${f.date}</p>
+                </div>
+                <div class="flex gap-2 mt-4 pt-2 border-t border-slate-50">
+                    <a href="${f.view_url}" target="_blank" class="flex-1 py-1.5 bg-indigo-50 hover:bg-indigo-100 rounded-lg text-[9px] font-black text-center text-indigo-600 no-underline transition-colors uppercase tracking-wider">Открыть</a>
+                    <a href="${f.download_url}" class="flex-1 py-1.5 bg-slate-50 hover:bg-slate-100 rounded-lg text-[9px] font-black text-center text-slate-600 no-underline transition-colors uppercase tracking-wider">Скачать</a>
+                </div>
             </div>
         `;
     }).join('');

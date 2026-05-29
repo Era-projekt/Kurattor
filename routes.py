@@ -648,14 +648,74 @@ def init_routes(app):
         
         # Handle both dict and list from Firebase RTDB
         result = []
+        
+        def process_file(fid, fdict):
+            if not isinstance(fdict, dict):
+                return
+            result.append({
+                'id': fid,
+                'name': fdict.get('name'),
+                'type': fdict.get('type', 'pdf'),
+                'date': fdict.get('date'),
+                'view_url': f'/api/view_file/{fid}',
+                'download_url': f'/api/download_file/{fid}'
+            })
+            
         if isinstance(files, dict):
             for k, v in files.items():
-                if isinstance(v, dict): result.append({'id': k, **v})
+                process_file(k, v)
         elif isinstance(files, list):
             for i, v in enumerate(files):
-                if v and isinstance(v, dict): result.append({'id': i, **v})
+                if v:
+                    process_file(i, v)
                 
         return jsonify(result)
+
+    @app.route('/api/view_file/<fid>')
+    @login_required
+    def view_file(fid):
+        info = db.reference(f'files/{fid}').get()
+        if not info:
+            return "File not found", 404
+        
+        base64_data = info.get('url')
+        if not base64_data:
+            return "File data not found", 404
+            
+        try:
+            header, encoded = base64_data.split(",", 1)
+            mime = header.split(";")[0].split(":")[1]
+            content = base64.b64decode(encoded)
+            
+            from flask import Response
+            resp = Response(content, mimetype=mime)
+            resp.headers.set('Content-Disposition', 'inline', filename=info.get('name', 'file.pdf'))
+            return resp
+        except Exception as e:
+            return str(e), 500
+
+    @app.route('/api/download_file/<fid>')
+    @login_required
+    def download_file(fid):
+        info = db.reference(f'files/{fid}').get()
+        if not info:
+            return "File not found", 404
+        
+        base64_data = info.get('url')
+        if not base64_data:
+            return "File data not found", 404
+            
+        try:
+            header, encoded = base64_data.split(",", 1)
+            mime = header.split(";")[0].split(":")[1]
+            content = base64.b64decode(encoded)
+            
+            from flask import Response
+            resp = Response(content, mimetype=mime)
+            resp.headers.set('Content-Disposition', 'attachment', filename=info.get('name', 'file.pdf'))
+            return resp
+        except Exception as e:
+            return str(e), 500
 
     @app.route('/api/upload_file', methods=['POST'])
     @login_required
@@ -664,8 +724,10 @@ def init_routes(app):
         data = request.json
         file_id = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
         db.reference(f'files/{file_id}').set({
-            'name': data.get('name'), 'url': data.get('url'),
-            'type': data.get('type'), 'date': datetime.date.today().isoformat()
+            'name': data.get('name'), 
+            'url': data.get('url'),
+            'type': 'pdf',  # Strictly PDF
+            'date': datetime.date.today().isoformat()
         })
         return jsonify({'success': True})
 
