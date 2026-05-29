@@ -376,26 +376,26 @@ loadAttendanceToday();
 
 async function submitUpload() {
     const nameInput = document.getElementById('upload-name');
-    const typeSelect = document.getElementById('upload-type');
     const btn = document.getElementById('upload-submit-btn');
     
-    if (!nameInput.value || !selectedFileBase64) {
+    if (!nameInput.value || !selectedFile) {
         return alert('Пожалуйста, выберите файл и введите название');
     }
     
     btn.disabled = true;
     const oldText = btn.innerText;
-    btn.innerText = 'Загрузка...';
+    btn.innerText = 'Жүктелуде...';
     
     try {
+        // Use FormData (multipart) — file saved to disk, no base64 bloat
+        const formData = new FormData();
+        formData.append('file', selectedFile, selectedFile.name);
+        formData.append('name', nameInput.value);
+        
         const res = await fetch('/api/upload_file', {
-            method: 'POST', 
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({ 
-                name: nameInput.value, 
-                url: selectedFileBase64, 
-                type: typeSelect.value 
-            })
+            method: 'POST',
+            body: formData
+            // Do NOT set Content-Type; browser sets it with boundary
         });
         
         if (res.status === 413) {
@@ -406,7 +406,7 @@ async function submitUpload() {
         if (data.success) {
             closeUploadModal();
             loadLibrary();
-            toast('Файл успешно загружен!');
+            toast('Файл сәтті жүктелді! ✓');
         } else {
             throw new Error(data.error || 'Ошибка сервера');
         }
@@ -500,7 +500,7 @@ function uploadFileMock() {
     }).then(() => loadLibrary());
 }
 
-let selectedFileBase64 = null;
+let selectedFile = null;  // store raw File object
 
 function handleFileSelect(event) {
     const file = event.target.files[0];
@@ -510,32 +510,26 @@ function handleFileSelect(event) {
         return alert("Қате! Тек PDF форматтағы файлдарды жүктеуге рұқсат етілген!");
     }
     
-    if (file.size > 10 * 1024 * 1024) {
-        return alert("Файл слишком большой. Максимальный размер - 10MB.");
+    if (file.size > 32 * 1024 * 1024) {
+        return alert("Файл тым үлкен. Максималды өлшем — 32MB.");
     }
     
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        selectedFileBase64 = e.target.result;
-        
-        // Show the upload modal and populate the name input
-        document.getElementById('upload-name').value = file.name.split('.').slice(0, -1).join('.');
-        
-        const typeSelect = document.getElementById('upload-type');
-        if (typeSelect) typeSelect.value = 'pdf';
-        
-        document.getElementById('selected-file-name').innerText = file.name;
-        
-        // Open the modal
-        const modal = document.getElementById('upload-modal');
-        modal.classList.remove('hidden');
-    };
-    reader.readAsDataURL(file);
+    selectedFile = file;
+    
+    // Populate modal fields
+    document.getElementById('upload-name').value = file.name.replace(/\.pdf$/i, '');
+    document.getElementById('selected-file-name').innerText = file.name;
+    
+    const typeSelect = document.getElementById('upload-type');
+    if (typeSelect) typeSelect.value = 'pdf';
+    
+    // Open the modal
+    document.getElementById('upload-modal').classList.remove('hidden');
 }
 
 function closeUploadModal() {
     document.getElementById('upload-modal').classList.add('hidden');
-    selectedFileBase64 = null;
+    selectedFile = null;
     document.getElementById('real-file-input').value = '';
 }
 

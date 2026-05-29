@@ -1,4 +1,4 @@
-from flask import render_template, request, jsonify, session, redirect, url_for
+from flask import render_template, request, jsonify, session, redirect, url_for, send_from_directory
 from firebase_admin import auth, db
 import functools
 import datetime
@@ -6,6 +6,7 @@ import uuid
 import openai
 import random
 import base64
+import os
 def login_required(f):
     @functools.wraps(f)
     def decorated_function(*args, **kwargs):
@@ -678,33 +679,43 @@ def init_routes(app):
         if not info:
             return "File not found", 404
         
-        base64_data = info.get('url')
+        url = info.get('url')
         raw_base64 = info.get('data')
+        filename = info.get('name', 'file.pdf')
         
-        if not base64_data and not raw_base64:
+        if not url and not raw_base64:
             return "File data not found", 404
             
         try:
-            if base64_data:
-                if base64_data.startswith('data:'):
-                    header, encoded = base64_data.split(",", 1)
+            if url:
+                if url.startswith('data:'):
+                    # Legacy base64 data URL stored in DB
+                    header, encoded = url.split(",", 1)
                     mime = header.split(";")[0].split(":")[1]
                     content = base64.b64decode(encoded)
+                    from flask import Response
+                    resp = Response(content, mimetype=mime)
+                    resp.headers.set('Content-Disposition', 'inline', filename=filename)
+                    return resp
+                elif url.startswith('/static/uploads/'):
+                    # Physically saved file on disk — redirect to static URL
+                    return redirect(url)
                 else:
-                    return redirect(base64_data)
+                    # External URL (dummy/seeded)
+                    return redirect(url)
             else:
+                # Raw base64 field
                 ext = info.get('type', 'pdf').lower()
                 mime = 'application/pdf' if ext == 'pdf' else \
                        'application/vnd.ms-powerpoint' if ext == 'ppt' else \
-                       'video/mp4' if ext == 'mp4' or ext == 'vid' else \
-                       'application/msword' if ext == 'doc' or ext == 'docx' else \
+                       'video/mp4' if ext in ('mp4', 'vid') else \
+                       'application/msword' if ext in ('doc', 'docx') else \
                        'application/octet-stream'
                 content = base64.b64decode(raw_base64)
-            
-            from flask import Response
-            resp = Response(content, mimetype=mime)
-            resp.headers.set('Content-Disposition', 'inline', filename=info.get('name', 'file.pdf'))
-            return resp
+                from flask import Response
+                resp = Response(content, mimetype=mime)
+                resp.headers.set('Content-Disposition', 'inline', filename=filename)
+                return resp
         except Exception as e:
             return str(e), 500
 
@@ -715,49 +726,158 @@ def init_routes(app):
         if not info:
             return "File not found", 404
         
-        base64_data = info.get('url')
+        url = info.get('url')
         raw_base64 = info.get('data')
+        filename = info.get('name', 'file.pdf')
         
-        if not base64_data and not raw_base64:
+        if not url and not raw_base64:
             return "File data not found", 404
             
         try:
-            if base64_data:
-                if base64_data.startswith('data:'):
-                    header, encoded = base64_data.split(",", 1)
-                    mime = header.split(";")[0].split(":")[1]
+            if url:
+                if url.startswith('data:'):
+                    # Legacy base64 data URL stored in DB
+                    header, encoded = url.split(',', 1)
+                    mime = header.split(';')[0].split(':')[1]
                     content = base64.b64decode(encoded)
+                    from flask import Response
+                    resp = Response(content, mimetype=mime)
+                    resp.headers.set('Content-Disposition', 'attachment', filename=filename)
+                    return resp
+                elif url.startswith('/static/uploads/'):
+                    # Physically saved file — serve with download disposition
+                    disk_path = os.path.join(app.static_folder, 'uploads', os.path.basename(url))
+                    if os.path.exists(disk_path):
+                        return send_from_directory(
+                            os.path.join(app.static_folder, 'uploads'),
+                            os.path.basename(url),
+                            as_attachment=True,
+                            download_name=filename
+                        )
+                    else:
+                        return "File not found on disk", 404
                 else:
-                    return redirect(base64_data)
+                    return redirect(url)
             else:
                 ext = info.get('type', 'pdf').lower()
                 mime = 'application/pdf' if ext == 'pdf' else \
                        'application/vnd.ms-powerpoint' if ext == 'ppt' else \
-                       'video/mp4' if ext == 'mp4' or ext == 'vid' else \
-                       'application/msword' if ext == 'doc' or ext == 'docx' else \
+                       'video/mp4' if ext in ('mp4', 'vid') else \
+                       'application/msword' if ext in ('doc', 'docx') else \
                        'application/octet-stream'
                 content = base64.b64decode(raw_base64)
-            
-            from flask import Response
-            resp = Response(content, mimetype=mime)
-            resp.headers.set('Content-Disposition', 'attachment', filename=info.get('name', 'file.pdf'))
-            return resp
+                from flask import Response
+                resp = Response(content, mimetype=mime)
+                resp.headers.set('Content-Disposition', 'attachment', filename=filename)
+                return resp
         except Exception as e:
             return str(e), 500
 
     @app.route('/api/upload_file', methods=['POST'])
     @login_required
     def upload_file():
-        if session.get('role') != 'curator': return jsonify({'success': False})
-        data = request.json
-        file_id = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-        db.reference(f'files/{file_id}').set({
-            'name': data.get('name'), 
-            'url': data.get('url'),
-            'type': 'pdf',  # Strictly PDF
-            'date': datetime.date.today().isoformat()
-        })
-        return jsonify({'success': True})
+        if session.get('role') != 'curator':
+            return jsonify({'success': False, 'error': 'Permission denied'})
+        
+        # ── MODE 1: multipart/form-data (new, preferred) ──────────────────
+        if request.files.get('file'):
+            file_obj = request.files['file']
+            display_name = request.form.get('name', file_obj.filename)
+            
+            if not file_obj.filename.lower().endswith('.pdf'):
+                return jsonify({'success': False, 'error': 'Only PDF files allowed'})
+            
+            # Ensure uploads directory exists
+            upload_dir = os.path.join(app.static_folder, 'uploads')
+            os.makedirs(upload_dir, exist_ok=True)
+            
+            # Unique filename to avoid collisions
+            file_id = datetime.datetime.now().strftime('%Y%m%d%H%M%S') + '_' + str(random.randint(1000, 9999))
+            filename = file_id + '.pdf'
+            filepath = os.path.join(upload_dir, filename)
+            file_obj.save(filepath)
+            
+            # Save metadata to DB — static URL path so it works after restarts
+            static_url = f'/static/uploads/{filename}'
+            db.reference(f'files/{file_id}').set({
+                'name': display_name,
+                'url': static_url,
+                'type': 'pdf',
+                'date': datetime.date.today().isoformat(),
+                'uploaded_by': session.get('uid'),
+                'storage': 'disk'
+            })
+            
+            # Notify all students of this curator
+            try:
+                uid = session.get('uid')
+                cur_data = db.reference(f'users/{uid}').get() or {}
+                for sid in (cur_data.get('students') or []):
+                    if sid:
+                        create_notification(sid, 'Жаңа материал жүктелді',
+                                            f'Куратор жаңа материал жүктеді: "{display_name}"')
+            except Exception:
+                pass
+            
+            return jsonify({'success': True, 'file_id': file_id})
+        
+        # ── MODE 2: JSON with base64 data URL (legacy / fallback) ────────
+        data = request.json or {}
+        base64_url = data.get('url', '')
+        display_name = data.get('name', 'Файл')
+        
+        if not base64_url:
+            return jsonify({'success': False, 'error': 'No file data provided'})
+        
+        if base64_url.startswith('data:'):
+            # Extract base64 payload and save to disk instead of storing in DB
+            try:
+                header, encoded = base64_url.split(',', 1)
+                file_bytes = base64.b64decode(encoded)
+                
+                upload_dir = os.path.join(app.static_folder, 'uploads')
+                os.makedirs(upload_dir, exist_ok=True)
+                
+                file_id = datetime.datetime.now().strftime('%Y%m%d%H%M%S') + '_' + str(random.randint(1000, 9999))
+                filename = file_id + '.pdf'
+                filepath = os.path.join(upload_dir, filename)
+                with open(filepath, 'wb') as fh:
+                    fh.write(file_bytes)
+                
+                static_url = f'/static/uploads/{filename}'
+                db.reference(f'files/{file_id}').set({
+                    'name': display_name,
+                    'url': static_url,
+                    'type': 'pdf',
+                    'date': datetime.date.today().isoformat(),
+                    'uploaded_by': session.get('uid'),
+                    'storage': 'disk'
+                })
+                
+                # Notify all students of this curator
+                try:
+                    uid = session.get('uid')
+                    cur_data = db.reference(f'users/{uid}').get() or {}
+                    for sid in (cur_data.get('students') or []):
+                        if sid:
+                            create_notification(sid, 'Жаңа материал жүктелді',
+                                                f'Куратор жаңа материал жүктеді: "{display_name}"')
+                except Exception:
+                    pass
+                
+                return jsonify({'success': True, 'file_id': file_id})
+            except Exception as e:
+                return jsonify({'success': False, 'error': str(e)})
+        else:
+            # Plain URL (external link) — store as-is
+            file_id = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+            db.reference(f'files/{file_id}').set({
+                'name': display_name,
+                'url': base64_url,
+                'type': 'pdf',
+                'date': datetime.date.today().isoformat()
+            })
+            return jsonify({'success': True})
 
     @app.route('/api/delete_file', methods=['POST'])
     @login_required

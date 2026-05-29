@@ -8,3 +8,7 @@ venv/
 .env
 .idea/
 .vscode/
+# Uploaded files are stored on disk but not tracked in git
+# (on Render, use Firebase for permanent storage)
+static/uploads/*.pdf
+static/uploads/*.PDF
