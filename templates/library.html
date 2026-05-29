@@ -1,0 +1,108 @@
+# templates/library.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library – Educational Materials</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #f0f4f8;
+            --card-bg: rgba(255,255,255,0.85);
+            --primary: hsl(210, 70%, 55%);
+            --accent: hsl(340, 70%, 55%);
+            --radius: 12px;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        body {
+            margin:0; font-family:'Inter',sans-serif; background: var(--bg); color:#333;
+        }
+        .container {max-width:1200px; margin:auto; padding:2rem;}
+        h1{font-weight:600; color:var(--primary); margin-bottom:1rem;}
+        .grid {display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem;}
+        .card {
+            background:var(--card-bg); border-radius:var(--radius); box-shadow:var(--shadow);
+            padding:1rem; transition:transform .2s, box-shadow .2s;
+        }
+        .card:hover{transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.12);}
+        .card h3{margin:0 0 .5rem; font-size:1.1rem; color:var(--primary);}
+        .card p{margin:0; font-size:.9rem; color:#555;}
+        .download-btn {
+            display:inline-block; margin-top:.8rem; padding:.4rem .8rem; background:var(--primary);
+            color:#fff; border-radius:4px; text-decoration:none; font-size:.85rem;
+            transition:background .2s;
+        }
+        .download-btn:hover{background:var(--accent);}
+        .upload-section {margin-top:2rem; padding:1rem; background:var(--card-bg); border-radius:var(--radius); box-shadow:var(--shadow);}
+        input[type=file]{margin-top:.5rem;}
+        button{margin-top:.8rem; padding:.5rem 1rem; background:var(--primary); color:#fff; border:none; border-radius:4px; cursor:pointer;}
+        button:hover{background:var(--accent);}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Library – Educational Materials</h1>
+        <div class="grid" id="materials-grid">
+            <!-- Material cards will be injected by JS -->
+        </div>
+
+        <!-- Curator upload block – shown only for curators -->
+        <div class="upload-section" id="upload-section" style="display:none;">
+            <h2>Upload New Material</h2>
+            <form id="upload-form" enctype="multipart/form-data">
+                <label>Specialty:
+                    <select name="specialty" required>
+                        <option value="IT">IT</option>
+                        <option value="Law">Law</option>
+                        <option value="Medicine">Medicine</option>
+                        <option value="Design">Design</option>
+                        <option value="Economics">Economics</option>
+                        <option value="Psychology">Psychology</option>
+                    </select>
+                </label><br/>
+                <input type="file" name="file" accept=".pdf,.ppt,.doc,.docx,.mp4,.jpg,.png" required />
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Load materials from backend
+        async function loadMaterials(){
+            const res = await fetch('/api/get_materials');
+            const data = await res.json();
+            const grid = document.getElementById('materials-grid');
+            grid.innerHTML='';
+            data.materials.forEach(m=>{
+                const card=document.createElement('div');
+                card.className='card';
+                card.innerHTML=`<h3>${m.name}</h3>
+                               <p>Specialty: ${m.specialty}</p>
+                               <p>Type: ${m.type.toUpperCase()}</p>
+                               <a class="download-btn" href="${m.url}" target="_blank" download>Download</a>`;
+                grid.appendChild(card);
+            });
+        }
+        // Show upload form for curators
+        async function checkCurator(){
+            const res = await fetch('/api/is_curator');
+            const data = await res.json();
+            if(data.is_curator){
+                document.getElementById('upload-section').style.display='block';
+            }
+        }
+        document.getElementById('upload-form')?.addEventListener('submit', async e=>{
+            e.preventDefault();
+            const form = e.target;
+            const fd = new FormData(form);
+            const res = await fetch('/api/upload_material', {method:'POST', body:fd});
+            const out = await res.json();
+            alert(out.message||'Uploaded');
+            loadMaterials();
+            form.reset();
+        });
+        loadMaterials();
+        checkCurator();
+    </script>
+</body>
+</html>

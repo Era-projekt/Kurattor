@@ -2,7 +2,10 @@ from flask import render_template, request, jsonify, session, redirect, url_for
 from firebase_admin import auth, db
 import functools
 import datetime
-
+import uuid
+import openai
+import random
+import base64
 def login_required(f):
     @functools.wraps(f)
     def decorated_function(*args, **kwargs):
@@ -21,6 +24,17 @@ def parent_required(f):
 
 def init_routes(app):
     app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024  # 32MB limit
+
+    # ---------- Notification helper ----------
+    def create_notification(uid, title, message, link=None):
+        notif_id = str(uuid.uuid4())
+        db.reference(f'notifications/{uid}/{notif_id}').set({
+            'title': title,
+            'message': message,
+            'link': link or '',
+            'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
+            'read': False
+        })
 
     @app.context_processor
     def inject_user_avatar():
@@ -54,7 +68,7 @@ def init_routes(app):
     def auth_page():
         if session.get('user_token'):
             role = session.get('role', '')
-            return redirect(url_for('student_dashboard' if role == 'student' else 'curator_dashboard' if role == 'curator' else 'parent_dashboard'))
+            return redirect(url_for('student_dashboard_view' if role == 'student' else 'curator_dashboard_view' if role == 'curator' else 'parent_dashboard_view'))
         return render_template('auth.html')
 
     @app.route('/register/student')
@@ -105,11 +119,11 @@ def init_routes(app):
                         
                         if session['role'] == 'parent':
                             session['child_id'] = found_user_data.get('child_id')
-                            return jsonify({'success': True, 'redirect': url_for('parent_dashboard')})
+                            return jsonify({'success': True, 'redirect': url_for('parent_dashboard_view')})
                         elif session['role'] == 'student':
-                            return jsonify({'success': True, 'redirect': url_for('student_dashboard')})
+                            return jsonify({'success': True, 'redirect': url_for('student_dashboard_view')})
                         elif session['role'] == 'curator':
-                            return jsonify({'success': True, 'redirect': url_for('curator_dashboard')})
+                            return jsonify({'success': True, 'redirect': url_for('curator_dashboard_view')})
                     else:
                         return jsonify({'success': False, 'error': 'Неверный пароль'})
                 
@@ -132,11 +146,11 @@ def init_routes(app):
                 session['user_name'] = user_data.get('name', 'User')
                 if session['role'] == 'parent':
                     session['child_id'] = user_data.get('child_id')
-                    return jsonify({'success': True, 'redirect': url_for('parent_dashboard')})
+                    return jsonify({'success': True, 'redirect': url_for('parent_dashboard_view')})
                 elif session['role'] == 'student':
-                    return jsonify({'success': True, 'redirect': url_for('student_dashboard')})
+                    return jsonify({'success': True, 'redirect': url_for('student_dashboard_view')})
                 elif session['role'] == 'curator':
-                    return jsonify({'success': True, 'redirect': url_for('curator_dashboard')})
+                    return jsonify({'success': True, 'redirect': url_for('curator_dashboard_view')})
 
             return jsonify({'success': False, 'error': 'Пользователь не найден в базе данных'})
         except Exception as e:
@@ -242,7 +256,7 @@ def init_routes(app):
 
     @app.route('/student')
     @login_required
-    def student_dashboard():
+    def student_page():
         if session.get('role') != 'student':
             return redirect(url_for('index'))
 
@@ -288,7 +302,7 @@ def init_routes(app):
 
     @app.route('/curator')
     @login_required
-    def curator_dashboard():
+    def curator_page():
         if session.get('role') != 'curator':
             return redirect(url_for('index'))
 
@@ -358,7 +372,7 @@ def init_routes(app):
                                low_attendance_list=low_attendance_list,
                                today_date=today,
                                incoming_requests=incoming_requests,
-                               avg_present=avg_present,
+                               avg_absences=avg_absences,
                                total_misses=total_misses)
 
     @app.route('/student/view/<sid>')
@@ -838,7 +852,7 @@ def init_routes(app):
         session['role'] = 'parent'
         session['child_id'] = sid
         session['user_name'] = "Родитель"
-        return redirect(url_for('parent_dashboard'))
+        return redirect(url_for('parent_dashboard_view'))
 
     @app.route('/parent/dashboard')
     @parent_required
@@ -938,3 +952,196 @@ def init_routes(app):
             return jsonify({'success': True, 'friends': result})
         except Exception as e:
             return jsonify({'success': False, 'error': str(e)})
+
+    # ── Library API ────────────────────────────────────────────────────────
+    import base64, random, datetime
+    from flask import Response, redirect
+
+    @app.route('/library')
+    @login_required
+    def library_page():
+        return render_template('library.html')
+
+    @app.route('/api/is_curator')
+    @login_required
+    def api_is_curator():
+        return jsonify({'is_curator': session.get('role') == 'curator'})
+
+    @app.route('/api/get_materials')
+    @login_required
+    def api_get_materials():
+        try:
+            files_ref = db.reference('files')
+            data = files_ref.get() or {}
+            materials = []
+            for fid, info in data.items():
+                materials.append({
+                    'id': fid,
+                    'name': info.get('name'),
+                    'type': info.get('type'),
+                    'specialty': info.get('specialty'),
+                    'url': info.get('url') or f"/api/download_material/{fid}"
+                })
+            return jsonify({'materials': materials})
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+
+    @app.route('/api/download_material/<fid>')
+    @login_required
+    def api_download_material(fid):
+        try:
+            info = db.reference(f'files/{fid}').get()
+            if not info:
+                return jsonify({'error': 'File not found'}), 404
+            if 'data' in info:
+                content = base64.b64decode(info['data'])
+                resp = Response(content, mimetype='application/octet-stream')
+                resp.headers.set('Content-Disposition', 'attachment', filename=info.get('name', 'material'))
+                return resp
+            if 'url' in info:
+                return redirect(info['url'])
+            return jsonify({'error': 'No downloadable content'}), 400
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+
+    @app.route('/api/upload_material', methods=['POST'])
+    @login_required
+    def api_upload_material():
+        if session.get('role') != 'curator':
+            return jsonify({'success': False, 'error': 'Permission denied'}), 403
+        if 'file' not in request.files:
+            return jsonify({'success': False, 'error': 'No file provided'}), 400
+        file_obj = request.files['file']
+        specialty = request.form.get('specialty', 'General')
+        filename = file_obj.filename
+        ext = filename.rsplit('.', 1)[-1].lower() if '.' in filename else ''
+        data_bytes = file_obj.read()
+        b64_data = base64.b64encode(data_bytes).decode('utf-8')
+        file_id = datetime.datetime.now().strftime('%Y%m%d%H%M%S') + str(random.randint(1000, 9999))
+        db.reference('files').child(file_id).set({
+            'name': filename,
+            'type': ext,
+            'specialty': specialty,
+            'uploaded_by': session.get('uid'),
+            'data': b64_data,
+            'date': datetime.date.today().isoformat()
+        })
+        return jsonify({'success': True, 'message': 'Material uploaded'}), 200
+
+    # ---------- Notification Endpoints ----------
+    @app.route('/api/get_notifications', methods=['GET'])
+    @login_required
+    def api_get_notifications():
+        uid = session.get('uid')
+        if not uid:
+            return jsonify({'success': False, 'error': 'Unauthenticated'}), 401
+        notifs_ref = db.reference(f'notifications/{uid}').get() or {}
+        notif_list = []
+        unread_count = 0
+        for nid, data in notifs_ref.items():
+            notif = {'id': nid, 'title': data.get('title'), 'message': data.get('message'), 'link': data.get('link'), 'timestamp': data.get('timestamp'), 'read': data.get('read', False)}
+            if not notif['read']:
+                unread_count += 1
+            notif_list.append(notif)
+        notif_list.sort(key=lambda x: x.get('timestamp', ''), reverse=True)
+        return jsonify({'success': True, 'notifications': notif_list, 'unread_count': unread_count})
+
+    @app.route('/api/mark_notification_read', methods=['POST'])
+    @login_required
+    def api_mark_notification_read():
+        uid = session.get('uid')
+        data = request.json
+        notif_id = data.get('notification_id')
+        if not uid or not notif_id:
+            return jsonify({'success': False, 'error': 'Invalid request'}), 400
+        try:
+            db.reference(f'notifications/{uid}/{notif_id}/read').set(True)
+            return jsonify({'success': True})
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)}), 500
+
+    @app.route('/api/mark_absent', methods=['POST'])
+    @login_required
+    def api_mark_absent():
+        if session.get('role') != 'curator':
+            return jsonify({'success': False, 'error': 'Permission denied'}), 403
+        data = request.json
+        student_uid = data.get('student_uid')
+        date_str = data.get('date') or datetime.date.today().isoformat()
+        reason = data.get('reason', '')
+        if not student_uid:
+            return jsonify({'success': False, 'error': 'student_uid required'}), 400
+        db.reference(f'absences/{student_uid}/{date_str}').set({'reason': reason, 'timestamp': datetime.datetime.utcnow().isoformat() + 'Z'})
+        student_data = db.reference(f'students/{student_uid}').get() or {}
+        parent_uid = student_data.get('parent_id')
+        if parent_uid:
+            create_notification(parent_uid, 'Балаңыз сабаққа келе алмайды', f'Балаңыз {date_str} күні сабаққа келмеді. Себебі: {reason}')
+        return jsonify({'success': True})
+
+    @app.route('/api/upload_material', methods=['POST'])
+    @login_required
+    def api_upload_material_with_notify():
+        if session.get('role') != 'curator':
+            return jsonify({'success': False, 'error': 'Permission denied'}), 403
+        if 'file' not in request.files:
+            return jsonify({'success': False, 'error': 'No file provided'}), 400
+        file_obj = request.files['file']
+        specialty = request.form.get('specialty', 'General')
+        filename = file_obj.filename
+        ext = filename.rsplit('.', 1)[-1].lower() if '.' in filename else ''
+        data_bytes = file_obj.read()
+        b64_data = base64.b64encode(data_bytes).decode('utf-8')
+        file_id = datetime.datetime.now().strftime('%Y%m%d%H%M%S') + str(random.randint(1000, 9999))
+        db.reference('files').child(file_id).set({
+            'name': filename,
+            'type': ext,
+            'specialty': specialty,
+            'uploaded_by': session.get('uid'),
+            'data': b64_data,
+            'date': datetime.date.today().isoformat()
+        })
+        users = db.reference('users').get() or {}
+        for uid, udata in users.items():
+            if udata.get('role') == 'student':
+                create_notification(uid, 'Жаңа материал қосылды', f'Жаңа материал "{filename}" қосылды')
+        return jsonify({'success': True, 'message': 'Material uploaded'}), 200
+
+    @app.route('/api/ai_query', methods=['POST'])
+    @login_required
+    def api_ai_query():
+        data = request.json
+        prompt = data.get('prompt')
+        if not prompt:
+            return jsonify({'success': False, 'error': 'Prompt required'}), 400
+        try:
+            response = openai.ChatCompletion.create(
+                model='gpt-3.5-turbo',
+                messages=[{'role': 'user', 'content': prompt}],
+                temperature=0.7
+            )
+            answer = response.choices[0].message.content.strip()
+            return jsonify({'success': True, 'answer': answer})
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)}), 500
+
+    # ---------- Dashboard Routes ----------
+    @app.route('/curator_dashboard')
+    @login_required
+    def curator_dashboard_view():
+        if session.get('role') != 'curator':
+            return redirect(url_for('auth_page'))
+        return redirect(url_for('curator_page'))
+
+    @app.route('/student_dashboard')
+    @login_required
+    def student_dashboard_view():
+        if session.get('role') != 'student':
+            return redirect(url_for('auth_page'))
+        return redirect(url_for('student_page'))
+
+    @app.route('/parent_dashboard')
+    @login_required
+    def parent_dashboard_view():
+        if session.get('role') != 'parent':
+            return redirect(url_for('auth_page'))
+        return redirect(url_for('parent_dashboard'))

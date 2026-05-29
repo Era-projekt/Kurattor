@@ -86,37 +86,44 @@
             </div>
 
             {% if session.get('user_token') %}
-            <!-- User pill with dropdown -->
-            <div class="relative">
-                <button onclick="toggleUserDropdown(event)" class="flex items-center gap-2.5 bg-slate-50 hover:bg-slate-100 rounded-2xl pl-1.5 pr-3 py-1.5 border border-slate-100 transition-all outline-none">
-                    <img id="nav-avatar" src="{{ user_avatar or '' }}" class="w-8 h-8 rounded-xl object-cover {% if not user_avatar %}hidden{% endif %}">
-                    <div id="nav-avatar-placeholder" class="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xs {% if user_avatar %}hidden{% endif %}">
-                        {{ session.get('role', 'U')[0].upper() }}
-                    </div>
-                    <span class="text-xs font-bold text-slate-700 max-w-[100px] truncate">{{ session.get('user_name', 'User') }}</span>
-                    <svg class="w-2.5 h-2.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/></svg>
-                </button>
-                
-                <!-- Dropdown menu -->
-                <div id="user-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 py-1.5 hidden z-50 animate-fade-in">
-                    <button onclick="triggerAvatarUpload()" class="w-full text-left px-4 py-2 text-[11px] font-bold text-slate-600 hover:bg-slate-50 flex items-center gap-2">
-                        <span>📷</span> Сменить аватар
-                    </button>
-                    <button onclick="openPasswordModal()" class="w-full text-left px-4 py-2 text-[11px] font-bold text-slate-600 hover:bg-slate-50 flex items-center gap-2">
-                        <span>🔑</span> Сменить пароль
-                    </button>
-                    <div class="border-t border-slate-100 my-1"></div>
-                    <a href="/logout" class="w-full text-left px-4 py-2 text-[11px] font-bold text-red-500 hover:bg-red-50 flex items-center gap-2 no-underline">
-                        <span>🚪</span> Выйти
-                    </a>
-                </div>
+    <!-- Notification bell -->
+    <div class="relative mr-4" id="notification-wrapper">
+        <button id="notification-btn" class="relative text-slate-600 hover:text-slate-800 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            <span id="notification-count" class="absolute -top-1 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center hidden">0</span>
+        </button>
+        <div id="notification-dropdown" class="absolute right-0 mt-2 w-80 bg-white rounded-2xl shadow-lg border border-slate-100 py-2 hidden z-50">
+            <div class="px-4 py-2 text-sm font-bold text-slate-700 border-b border-slate-100">Notifications</div>
+            <div id="notification-list" class="max-h-60 overflow-y-auto"></div>
+        </div>
+    </div>
+    <!-- User pill with dropdown -->
+    <div class="relative">
+        <button onclick="toggleUserDropdown(event)" class="flex items-center gap-2.5 bg-slate-50 hover:bg-slate-100 rounded-2xl pl-1.5 pr-3 py-1.5 border border-slate-100 transition-all outline-none">
+            <img id="nav-avatar" src="{{ user_avatar or '' }}" class="w-8 h-8 rounded-xl object-cover {% if not user_avatar %}hidden{% endif %}">
+            <div id="nav-avatar-placeholder" class="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xs {% if user_avatar %}hidden{% endif %}">
+                {{ session.get('role', 'U')[0].upper() }}
             </div>
-            
-            <!-- Hidden avatar file input -->
-            <input type="file" id="avatar-file-input" class="hidden" accept="image/*" onchange="handleAvatarSelect(event)">
-            {% else %}
-            <a href="/auth" class="px-6 py-2.5 bg-primary text-white text-sm font-black rounded-xl shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all" data-i18n="nav_login">Sign In</a>
-            {% endif %}
+            <span class="text-xs font-bold text-slate-700 max-w-[100px] truncate">{{ session.get('user_name', 'User') }}</span>
+            <svg class="w-2.5 h-2.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div id="user-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 py-1.5 hidden z-50 animate-fade-in">
+            <button onclick="triggerAvatarUpload()" class="w-full text-left px-4 py-2 text-[11px] font-bold text-slate-600 hover:bg-slate-50 flex items-center gap-2">
+                <span>📷</span> Сменить аватар
+            </button>
+            <button onclick="openPasswordModal()" class="w-full text-left px-4 py-2 text-[11px] font-bold text-slate-600 hover:bg-slate-50 flex items-center gap-2">
+                <span>🔑</span> Сменить пароль
+            </button>
+            <div class="border-t border-slate-100 my-1"></div>
+            <a href="/logout" class="w-full text-left px-4 py-2 text-[11px] font-bold text-red-500 hover:bg-red-50 flex items-center gap-2 no-underline">
+                <span>🚪</span> Выйти
+            </a>
+        </div>
+    </div>
+{% else %}
+    <a href="/auth" class="px-6 py-2.5 bg-primary text-white text-sm font-black rounded-xl shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all" data-i18n="nav_login">Sign In</a>
+{% endif %}
         </div>
     </div>
 </header>

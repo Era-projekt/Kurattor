@@ -4527,6 +4527,26 @@
           "text": "фывф",
           "timestamp": "2026-05-28T15:11:11.721993"
         }
+      },
+      "mock_uid_aydos_nurlanov_gmail_com_mock_uid_dias_ibragimov_gmail_com": {
+        "push_1496b834230b": {
+          "sender_id": "mock_uid_aydos_nurlanov_gmail_com",
+          "sender_name": "Айдос Нурланов",
+          "role": "student",
+          "text": "Сәлем",
+          "timestamp": "2026-05-28T19:17:42.281925"
+        }
+      }
+    },
+    "mock_uid_nurlan_ospanov_gmail_com": {
+      "group": {
+        "push_e041c44f2779": {
+          "sender_id": "mock_uid_aydos_nurlanov_gmail_com",
+          "sender_name": "Айдос Нурланов",
+          "role": "student",
+          "text": "фчфч",
+          "timestamp": "2026-05-28T19:17:21.030281"
+        }
       }
     }
   },
@@ -4536,6 +4556,12 @@
     },
     "mock_uid_student_design_10_kuraton_kz": {
       "mock_uid_student_medicine_0_gmail_com": true
+    },
+    "mock_uid_aydos_nurlanov_gmail_com": {
+      "mock_uid_dias_ibragimov_gmail_com": true
+    },
+    "mock_uid_dias_ibragimov_gmail_com": {
+      "mock_uid_aydos_nurlanov_gmail_com": true
     }
   },
   "parents": {
