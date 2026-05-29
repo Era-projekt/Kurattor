@@ -497,6 +497,46 @@ function uploadFileMock() {
     }).then(() => loadLibrary());
 }
 
+let selectedFileBase64 = null;
+
+function handleFileSelect(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    
+    if (file.size > 10 * 1024 * 1024) {
+        return alert("Файл слишком большой. Максимальный размер - 10MB.");
+    }
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        selectedFileBase64 = e.target.result;
+        
+        // Show the upload modal and populate the name input
+        document.getElementById('upload-name').value = file.name.split('.').slice(0, -1).join('.');
+        
+        // Match file extension to dropdown option
+        const ext = file.name.split('.').pop().toLowerCase();
+        const typeSelect = document.getElementById('upload-type');
+        if (ext === 'pdf') typeSelect.value = 'pdf';
+        else if (['ppt', 'pptx'].includes(ext)) typeSelect.value = 'ppt';
+        else if (['mp4', 'mov', 'avi'].includes(ext)) typeSelect.value = 'vid';
+        else typeSelect.value = 'doc';
+        
+        document.getElementById('selected-file-name').innerText = file.name;
+        
+        // Open the modal
+        const modal = document.getElementById('upload-modal');
+        modal.classList.remove('hidden');
+    };
+    reader.readAsDataURL(file);
+}
+
+function closeUploadModal() {
+    document.getElementById('upload-modal').classList.add('hidden');
+    selectedFileBase64 = null;
+    document.getElementById('real-file-input').value = '';
+}
+
 // ── Chat ────────────────────────────────────────────────────────────────────
 let currentRoom = 'group';
 function openChat(sid, name) {
