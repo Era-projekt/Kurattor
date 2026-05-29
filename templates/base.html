@@ -93,8 +93,8 @@
             <span id="notification-count" class="absolute -top-1 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center hidden">0</span>
         </button>
         <div id="notification-dropdown" class="absolute right-0 mt-2 w-80 bg-white rounded-2xl shadow-lg border border-slate-100 py-2 hidden z-50">
-            <div class="px-4 py-2 text-sm font-bold text-slate-700 border-b border-slate-100">Notifications</div>
-            <div id="notification-list" class="max-h-60 overflow-y-auto"></div>
+            <div class="px-4 py-2 text-sm font-bold text-slate-700 border-b border-slate-100" data-i18n="notif_title">Хабарламалар</div>
+            <div id="notification-list" class="max-h-72 overflow-y-auto"></div>
         </div>
     </div>
     <!-- User pill with dropdown -->
@@ -327,20 +327,26 @@ if (notificationBtn) {
 
                 // Render list
                 if (!data.notifications || data.notifications.length === 0) {
-                    notificationList.innerHTML = `<div class="px-4 py-3 text-xs text-slate-400 text-center">Нет новых уведомлений</div>`;
+                    notificationList.innerHTML = `<div class="px-4 py-6 text-xs text-slate-400 text-center flex flex-col items-center gap-2"><span class="text-2xl">🔕</span><span data-i18n="notif_empty">Жаңа хабарламалар жоқ</span></div>`;
                 } else {
                     notificationList.innerHTML = data.notifications.map(n => {
-                        const icon = n.type === 'warning' ? '⚠️' : '🔔';
-                        const notifClass = n.read ? 'opacity-65 bg-white' : 'bg-indigo-50/30 font-bold';
+                        const titleLower = (n.title || '').toLowerCase();
+                        const icon = (titleLower.includes('келмед') || titleLower.includes('absent') || titleLower.includes('⚠') || titleLower.includes('❌')) ? '⚠️' :
+                                     (titleLower.includes('материал') || titleLower.includes('файл')) ? '📄' : '🔔';
+                        const bgClass = n.read ? 'bg-white' : 'bg-amber-50/60';
+                        const fontClass = n.read ? 'opacity-70' : 'font-semibold';
+                        const ts = n.timestamp ? new Date(n.timestamp) : new Date();
+                        const dateStr = ts.toLocaleDateString('ru-RU', {day:'2-digit', month:'2-digit'}) + ' ' + ts.toLocaleTimeString('ru-RU', {hour:'2-digit', minute:'2-digit'});
                         return `
-                            <div class="px-4 py-3 border-b border-slate-50 hover:bg-slate-50 cursor-pointer transition-colors ${notifClass}" onclick="handleNotificationClick('${n.id}', '${n.link || ''}')">
-                                <div class="flex gap-2">
-                                    <span class="text-sm">${icon}</span>
-                                    <div class="flex-1">
-                                        <p class="text-xs text-slate-800">${n.title || 'Уведомление'}</p>
-                                        <p class="text-[10px] text-slate-500 font-normal mt-0.5">${n.message || ''}</p>
-                                        <p class="text-[8px] text-slate-400 font-normal mt-1">${new Date(n.timestamp || Date.now()).toLocaleTimeString()}</p>
+                            <div class="px-4 py-3 border-b border-slate-50 hover:bg-slate-50 cursor-pointer transition-colors ${bgClass} ${fontClass}" onclick="handleNotificationClick('${n.id}', '${n.link || ''}')">  
+                                <div class="flex gap-2.5 items-start">
+                                    <span class="text-base mt-0.5">${icon}</span>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-xs text-slate-800 leading-snug">${n.title || 'Хабарлама'}</p>
+                                        <p class="text-[10px] text-slate-500 font-normal mt-0.5 leading-relaxed">${n.message || ''}</p>
+                                        <p class="text-[9px] text-slate-400 font-normal mt-1">${dateStr}</p>
                                     </div>
+                                    ${!n.read ? '<span class="w-2 h-2 rounded-full bg-red-400 mt-1 flex-shrink-0"></span>' : ''}
                                 </div>
                             </div>
                         `;

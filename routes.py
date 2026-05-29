@@ -490,9 +490,46 @@ def init_routes(app):
         try:
             for sid, present in updates.items():
                 db.reference(f'students/{sid}/attendance/{date}').set(bool(present))
+                
+                # ── Notify parent and student if absent ─────────────────────
+                if not present:
+                    student_data = db.reference(f'students/{sid}').get() or {}
+                    student_name = student_data.get('name', 'Студент')
+                    
+                    # Format date nicely
+                    try:
+                        import locale
+                        dt = datetime.datetime.strptime(date, '%Y-%m-%d')
+                        date_str = dt.strftime('%d.%m.%Y')
+                    except Exception:
+                        date_str = date
+                    
+                    # Notify the parent
+                    parent_id = student_data.get('parent_id')
+                    if parent_id:
+                        create_notification(
+                            parent_id,
+                            '⚠️ Балаңыз сабаққа келмеді',
+                            f'{student_name} {date_str} күні сабаққа келмеді.',
+                        )
+                    # Also notify fallback parent_id based on child_id
+                    create_notification(
+                        f'parent_{sid}',
+                        '⚠️ Балаңыз сабаққа келмеді',
+                        f'{student_name} {date_str} күні сабаққа келмеді.',
+                    )
+                    
+                    # Notify the student themselves
+                    create_notification(
+                        sid,
+                        '❌ Сабаққа қатысу белгіленді',
+                        f'{date_str} күні сабаққа келмедіңіз деп белгіленді. Куратормен хабарласыңыз.',
+                    )
+                    
             return jsonify({'success': True, 'date': date})
         except Exception as e:
             return jsonify({'success': False, 'error': str(e)})
+
 
     @app.route('/api/get_attendance_by_date', methods=['GET'])
     @login_required
@@ -993,12 +1030,7 @@ def init_routes(app):
         })
         return jsonify({'success': True})
 
-    @app.route('/api/get_notifications', methods=['GET'])
-    @login_required
-    def get_notifications():
-        uid = session.get('uid')
-        notes = db.reference(f'notifications/{uid}').get() or {}
-        return jsonify(list(notes.values())[::-1])
+    # Removed duplicate get_notifications; api_get_notifications below handles this route
 
     @app.route('/api/search_users', methods=['GET'])
     def search_users():
@@ -1077,6 +1109,21 @@ def init_routes(app):
         session['role'] = 'parent'
         session['child_id'] = sid
         session['user_name'] = "Родитель"
+        
+        # Resolve or create parent UID so notifications work
+        student_data = db.reference(f'students/{sid}').get() or {}
+        parent_id = student_data.get('parent_id')
+        if not parent_id:
+            all_users = db.reference('users').get() or {}
+            for uid, udata in all_users.items():
+                if udata.get('role') == 'parent' and udata.get('child_id') == sid:
+                    parent_id = uid
+                    break
+        if not parent_id:
+            parent_id = 'parent_' + sid
+            
+        session['uid'] = parent_id
+        session['user_token'] = 'parent_token_' + token
         return redirect(url_for('parent_dashboard_view'))
 
     @app.route('/parent/dashboard')
@@ -1301,6 +1348,8 @@ def init_routes(app):
         parent_uid = student_data.get('parent_id')
         if parent_uid:
             create_notification(parent_uid, 'Балаңыз сабаққа келе алмайды', f'Балаңыз {date_str} күні сабаққа келмеді. Себебі: {reason}')
+        # Also notify fallback parent_id
+        create_notification(f'parent_{student_uid}', 'Балаңыз сабаққа келе алмайды', f'Балаңыз {date_str} күні сабаққа келмеді. Себебі: {reason}')
         return jsonify({'success': True})
 
     @app.route('/api/upload_material', methods=['POST'])

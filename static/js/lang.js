@@ -183,6 +183,8 @@ const translations = {
         th_parent: "Родитель",
         chat_contacts: "Контакты",
         chat_all_flow: "Весь поток",
+        notif_title: "Уведомления",
+        notif_empty: "Новых уведомлений нет",
     },
 
     kk: {
@@ -347,6 +349,8 @@ const translations = {
         th_parent: "Ата-ана",
         chat_contacts: "Байланыстар",
         chat_all_flow: "Барлық ағын",
+        notif_title: "Хабарламалар",
+        notif_empty: "Жаңа хабарламалар жоқ",
     }
 };
 
